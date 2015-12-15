@@ -4,4 +4,12 @@
  * and open the template in the editor.
  */
 
-
+module.service("loggService",function ($http,$q){
+    var deferred = $q.defer();
+    var url = "";
+    $http.get(url).success(function (data){
+        deferred.resolve(data);
+    });
+    return deferred.promise;
+    
+});

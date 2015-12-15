@@ -15,27 +15,27 @@
             <h2>Registrera användare</h2><br/>
          <div class="form-group">
              <label>Namn</label>
-             <input type="text" name="namn" class="form-control" placeholder="-namn -efternamn?">
+             <input ng-model="name" type="text" name="namn" class="form-control" placeholder="-namn -efternamn?">
              <p></p>
          </div>
          <div class="form-group">
              <label>E-mail</label>
-             <input type="email" name="email" placeholder="Fyll i din email. Gmail?" class="form-control">
+             <input ng-model="email" type="email" name="email" placeholder="Fyll i din email. Gmail?" class="form-control">
              <p></p>
          </div>
          <div class="form-group">
              <label>Telefon</label>
-             <input type="tel" name="tele" placeholder="+46735018846" class="form-control">
+             <input ng-model="telefon" type="tel" name="tele" placeholder="+46735018846" class="form-control">
              <p></p>
          </div>
          <div class="form-group">
              <label>Klass</label>
-             <input type="text" name="klass" placeholder="Dropdown?" class="form-control">
+             <input ng-model="klass" type="text" name="klass" placeholder="Dropdown?" class="form-control">
              <p></p>
          </div>
          <div class="form-group">
              <label>Lärare</label>
-             <input type="text" name="larare" placeholder="Dropdown?" class="form-control">
+             <input ng-model="larare" type="text" name="larare" placeholder="Dropdown?" class="form-control" >
              <p></p>
          </div>
 
