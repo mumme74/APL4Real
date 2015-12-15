@@ -10,6 +10,18 @@ module.service("loggService",function ($http,$q){
     $http.get(url).success(function (data){
         deferred.resolve(data);
     });
-    return deferred.promise;
-    
+    return deferred.promise;  
 });
+
+
+module.controller("readCtrl",function ($scope, loggService){
+    var promise = loggService.getData();
+    promise.then(function(data){
+       $scope.data = data;
+       console.log(data);
+    });
+});
+
+
+
+
