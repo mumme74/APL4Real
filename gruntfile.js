@@ -17,7 +17,9 @@ module.exports = function(grunt) {
             aplapp: {
                 files: {
                     'js/aplapp.min.js': [
-                        'src/js/configAngular.js'
+                        'src/js/configAngular.js',
+                        'src/js/loginController.js',
+                        'src/js/registrationController.js'
                     ]
                 }
             }

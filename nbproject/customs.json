@@ -1,6 +1,7 @@
 {
     "elements": {},
     "attributes": {
-        "ui-view": {}
+        "ui-view": {},
+        "ui-sref": {}
     }
 }

@@ -14,3 +14,19 @@
 
 var module = angular.module("apl",["ui.router"]);
 
+module.config(function ($urlRouterProvider,$stateProvider){
+    
+    $urlRouterProvider.otherwise("/");
+    
+    $stateProvider.state("home",{
+        url:"/",
+        templateUrl:"templates/login.html",
+        controller:"loginCtrl"
+    }).state("registration",{
+        url:"/registration",
+        templateUrl:"templates/registration.html",
+        controller:"registrationCtrl"
+    });
+});
+
+
