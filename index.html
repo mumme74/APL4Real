@@ -1,35 +1,31 @@
-<!DOCTYPE html> 
-<html>
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html ng-app="apl">
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        <title>APL</title>
-        <!-- Bootstrap -->
-        <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <style>
+            footer p {min-height: 50px;}
+            footer {margin-top: 100px;}
+        </style>
     </head>
     <body>
-        <div style="margin: auto; margin-top: 50px; min-width: 250px; max-width: 250px;">
-            <div style="background-color: #4ce875" class="well text-center" ng-controller="urlCtrl">
-                 <br/>
-                  <input ng-model="loginname" type='text' placeholder='Användarnamn'>
-                <br/><br/>
-                <input type='password' placeholder='Lösenord'>
-                <br/><br/>
-                <a id="glöm" href="#">Glömt lösenord?</a>
-                <a class="btn btn-primary">Login</a>
-                <br/><br/>
-                <a href="registration.html">Ny användare?</a>
-                <br/>
-            </div>
-        </div>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="bower_components/angular/angular.min.js"></script>
-    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-    <!-- Own javascript files -->
-    <script src="js/loggapp.js"></script>
-</body>
+        <header ng-include="'templates/header.html'"></header>
+        <div ui-view></div> 
+        <!--declare-->
+        <footer ng-include="'templates/footer.html'"></footer>
+        <!-- jquery, angular, angular-ui och bootstrap -->
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/angular/angular.min.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- min konfigurationsfil -->
+        <script src="src/js/configAngular.js"></script>
+    </body>
 </html>
