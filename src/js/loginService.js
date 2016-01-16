@@ -36,11 +36,11 @@ module.service("loginService", function ($q) {
         });
         return deferred.promise;
     };
-    this.logInHandledare = function (user, pass) {
+    this.logInHandledare = function (användarnamn, lösenord) {
         var deferred = $q.defer();
         var data = {
-            "användarnamn": user,
-            "lösenord": pass
+            "användarnamn": användarnamn,
+            "lösenord": lösenord
         };
         $.ajax({
             url: 'http://localhost:8080/aplBackend/webresources/apl/login',
@@ -50,8 +50,18 @@ module.service("loginService", function ($q) {
                 "Content-Type": 'application/json'
             },
             dataType: 'json',
-            success: function (status, data) {
-                deferred.resolve([status, data]);
+            success: function (data) {
+                deferred.resolve(data.status);
+            },
+            fail: function (data, status) {
+                deferred.resolve(status);
+            },
+            always: function (data, status) {
+                deferred.resolve(status);
+            },
+            error: function (data)
+            {
+                deferred.resolve(data.status);
             }
         });
         return deferred.promise;

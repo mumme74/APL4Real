@@ -4,10 +4,9 @@
  * and open the template in the editor.
  */
 module.controller("loginCtrl", function ($window, $scope, loginService) {
-    $scope.onSignIn = function (googleUser) {
-        console.log("logging in");
-        // The ID token you need to pass to your backend:
-        var id_token = googleUser.getAuthResponse().id_token;
+    $scope.googleLogin = function (googleAnvändare) {
+        
+        var id_token = googleAnvändare.getAuthResponse().id_token;
         var promise = loginService.logInGoogle(id_token);
         promise.then(function (status) {
             if (status === 412) {
@@ -21,6 +20,20 @@ module.controller("loginCtrl", function ($window, $scope, loginService) {
             }
         });
     };
-    window.onSignIn = $scope.onSignIn;
+    $scope.handledareLogin = function(){
+        console.log("handledarlogin");
+        var användarnamn = $scope.username;
+        var lösenord = $scope.password;
+        var promise = loginService.logInHandledare(användarnamn, lösenord);
+        promise.then(function (status) {
+            if (status === 200) {
+                console.log("logged in");
+                alert("Du är inloggad!");
+            } else {
+                console.log("error: Status "+status);
+            }
+        });
+    };
+    window.onSignIn = $scope.googleLogin;
 });
 
