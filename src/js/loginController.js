@@ -12,10 +12,10 @@ module.controller("loginCtrl", function ($window, $scope, loginService) {
         promise.then(function (status) {
             if (status === 412) {
                 console.log("register");
-                $window.location.href = "#/register";
+                $window.location.href = "#/registration";
             } else if (status === 200) {
                 console.log("logged in");
-                $window.location.href = "#/loggedin";
+                alert("Du är inloggad!");
             } else {
                 console.log("error: Status "+status);
             }
