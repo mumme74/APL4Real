@@ -1,6 +1,8 @@
 <div style="margin: auto; margin-top: 50px; min-width: 250px; max-width: 250px;">
-    <div style="background-color: #4ce875" class="well text-center" ng-controller="urlCtrl">
+    <div style="background-color: #4ce875" class="well text-center" ng-controller="loginCtrl">
+        <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
         <br/>
+        <h2>Logga in som handledare</h2>
         <input ng-model="loginname" type='text' placeholder='Användarnamn'>
         <br/><br/>
         <input type='password' placeholder='Lösenord'>
@@ -12,3 +14,4 @@
         <br/>
     </div>
 </div>
+<script src="https://apis.google.com/js/platform.js" async defer></script>

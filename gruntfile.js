@@ -12,12 +12,13 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
      uglify: {
             options: {
-                mangle: false //behåll inte variabelnamn
+                mangle: false //behåll variabelnamn
             },
             aplapp: {
                 files: {
                     'js/aplapp.min.js': [
                         'src/js/configAngular.js',
+                        'src/js/loginService.js',
                         'src/js/loginController.js',
                         'src/js/registrationController.js'
                     ]
