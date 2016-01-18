@@ -1,0 +1,33 @@
+<html ng-app="elevHandledare">
+    <head>
+        <title>APL</title>
+        <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="http://getbootstrap.com/examples/signin/signin.css" rel="stylesheet">
+        <link href="justified-nav.css" rel="stylesheet">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body ng-controller="elevCtrl">
+        
+        <form class="form-signin" name="regForm">
+            <h1>Koppla elever till handledare:</h1>
+            <table class="table table-striped">
+                <tr>
+                    <td><label>Elever</label></td>
+                    <td><label>Handledare</label></td>
+                </tr>
+                <tr ng-repeat="elev in elever">
+                    <td>{{elev.namn}}</td>
+                    <td><select class="dropdown">
+                            <option>{{elev.handledare_id}}</option>
+                        </select></td>
+                </tr>
+            </table>
+        </form> 
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="bower_components/angular/angular.min.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+        <script src="js/ng.js"></script>
+    </body>
+</html>
