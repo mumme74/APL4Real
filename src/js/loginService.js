@@ -6,14 +6,17 @@
 
 
 
+/* global SERVER_URL */
+
 module.service("loginService", function ($q) {
+    this.url = SERVER_URL + "/apl/login";
     this.logInGoogle = function (id_token) {
         var deferred = $q.defer();
         var data = {
             "id": id_token
         };
         $.ajax({
-            url: 'http://localhost:8080/aplBackend/webresources/apl/login',
+            url: this.url,
             type: 'post',
             data: JSON.stringify(data),
             headers: {
@@ -43,7 +46,7 @@ module.service("loginService", function ($q) {
             "lösenord": lösenord
         };
         $.ajax({
-            url: 'http://localhost:8080/aplBackend/webresources/apl/login',
+            url: this.url,
             type: 'post',
             data: JSON.stringify(data),
             headers: {
