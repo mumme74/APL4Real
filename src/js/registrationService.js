@@ -9,9 +9,13 @@ module.service("registrationService", function ($http, $q) {
     this.postRegistration = function () {
         var deferred = $q.defer();
         var url = SERVER_URL + "/apl/user";
-        var data = {id:parseInt($scope.getId()), //<----?
+        var data = {
+            id:String($scope.googleLogin = function (googleAnvändare) {
+                var id_token = googleAnvändare.getAuthResponse().id_token;
+                var promise = loginService.logInGoogle(id_token);
+        }), //<----Google id
                     namn:String($scope.nnm),
-                    telnr:String($scope.tfl),
+                    tlfnr:String($scope.tfl),
                     klass:parseInt($scope.kl)
         };
         $http.post(url, data).then(
