@@ -26,6 +26,10 @@ module.config(function ($urlRouterProvider,$stateProvider){
         url:"/registration",
         templateUrl:"templates/registration.html",
         controller:"registrationCtrl"
+    }).state("handledarreg",{
+        url:"/handledarreg",
+        templateUrl:"templates/handledare_registrering.html",
+        controller:"handledareRegCtrl"
     });
 });
 

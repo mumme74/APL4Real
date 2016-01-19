@@ -1,0 +1,19 @@
+<div>
+    <div class="well text-center" ng-controller="handledareRegCtrl">
+        <h2>Registrera handledare</h2>
+        <form>
+            <input ng-model="name" type='text' placeholder='Namn'>
+            <br/>
+            <input ng-model="username" type='text' placeholder='Användarnamn'>
+            <br/>
+            <input ng-model="email" type='text' placeholder='Email'>
+            <br/>
+            <input ng-model="phone" type='text' placeholder='Telefonnummer'>
+            <br/>
+            <input ng-model="password" type='password' placeholder='Lösenord'>
+            <br/>
+            <a ng-click="registreraHandledare()" class="btn btn-primary">Skicka</a>
+        </form>
+    </div>
+</div>
+<script src="https://apis.google.com/js/platform.js" async defer></script>

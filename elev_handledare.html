@@ -7,7 +7,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body ng-controller="elevCtrl">
+    <body ng-controller="lärareCtrl">
         
         <form class="form-signin" name="regForm">
             <h1>Koppla elever till handledare:</h1>
@@ -18,8 +18,8 @@
                 </tr>
                 <tr ng-repeat="elev in elever">
                     <td>{{elev.namn}}</td>
-                    <td><select class="dropdown">
-                            <option>{{elev.handledare_id}}</option>
+                    <td><select class="dropdown" ng-model="countSelected" ng-change="onchange(countList[countSelected-1])">
+                            <option ng-repeat="handledaren in handledare" >{{handledaren.namn}}</option>
                         </select></td>
                 </tr>
             </table>
@@ -28,6 +28,6 @@
         <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="bower_components/angular/angular.min.js"></script>
         <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-        <script src="js/ng.js"></script>
+        <script src="js/aplapp.min.js"></script>
     </body>
 </html>
