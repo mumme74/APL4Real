@@ -7,7 +7,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body ng-controller="elevCtrl">
+    <body ng-controller="lärareCtrl">
         
         <form class="form-signin" name="regForm">
             <h1>Koppla elever till handledare:</h1>
@@ -19,7 +19,7 @@
                 <tr ng-repeat="elev in elever">
                     <td>{{elev.namn}}</td>
                     <td><select class="dropdown">
-                            <option>{{elev.handledare_id}}</option>
+                            <option ng-repeat="handledaren in handledare" >{{handledaren.namn}}</option>
                         </select></td>
                 </tr>
             </table>
