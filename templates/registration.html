@@ -11,23 +11,22 @@
                     <h4>Ange namn & telefonnummer:</h4>
                 <div class="well">
                     <form>
-                        <input type="text" ng-model="name" placeholder="Namn Efternamn"><br/><br/>
-                        <input type="text" ng-model="telnr" placeholder="Telefonnummer">
+                        <input type="text" ng-model="nmn" placeholder="Namn Efternamn"><br/><br/>
+                        <input type="text" ng-model="tfl" placeholder="Telefonnummer">
                     </form>
                 </div>
                     <h4>Lägg till din klass:</h4>
                 <div class="well">
-                    <select ng-model="klasserna" class="btn btn-default" ng-change="">
-                        <option ng-repeat="klass in klasser" value='{{klass.name}}'>{{klass.name}}</option>
+                    <select ng-model="kl" class="btn btn-default">
+                        <option ng-repeat="klass in klasser" value='{{klass.id}}'>{{klass.name}}</option>
                     </select> 
                 </div>
                     <button class="btn btn-primary alert" style="margin-left: 420px; margin-top: -8px" 
-                            onclick="window.location.href='inloggad'" ng-click="sendReg()" >Fortsätt</button>
+                            ng-click="postRegistration()" onclick="">Fortsätt</button>
                 </div>
             </div>
         </div>
-        
-        
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script>
             function onSignIn(googleUser) {

@@ -9,10 +9,19 @@ module.controller("registrationCtrl",function ($scope, registrationService){
 //        $scope.data = data;
 //        console.log (data); 
 //    });
+
+        var promiseKlasser = registrationService.getKlasser();
+        promiseKlasser.then(function (data){
+            $scope.klasser = data;
+        });
+        
+
     console.log("Kör registring!!");
     registrationService.postRegistration();
+   
+});
     
 
      
-});
+
 
