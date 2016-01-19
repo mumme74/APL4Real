@@ -1,0 +1,42 @@
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+
+module.service("registrationService", function ($http, $q) {
+    this.postRegistration = function () {
+        var deferred = $q.defer();
+        var url = SERVER_URL + "/apl/user";
+        var data = {
+            id: "eyJhbGciOiJSUzI1NiIsImtpZCI6ImUwNTA2ZDIzN2M3YmI3OTA2N2VhMjlmNjFjODQzNWI3NWRiYTM2ZTQifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXRfaGFzaCI6Im9nRURlbnBnRW9LNVh1bzBrS1BzMmciLCJhdWQiOiI2MDY4NTE0MDI5Mi12bHZnbGxzbnBoaWU2OWRibTBxYWc0bjR2NG9xbG5lZC5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsInN1YiI6IjExNjMyNzY1NjUwMzU4ODM1NDkzMCIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhenAiOiI2MDY4NTE0MDI5Mi12bHZnbGxzbnBoaWU2OWRibTBxYWc0bjR2NG9xbG5lZC5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsImhkIjoidXRiLnZheGpvLnNlIiwiZW1haWwiOiJkYW5sdW5AdXRiLnZheGpvLnNlIiwiaWF0IjoxNDUzMTk1MDU5LCJleHAiOjE0NTMxOTg2NTksIm5hbWUiOiJEYW5pZWwgTHVuZGJlcmcgVEVLTklLVU0iLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDYuZ29vZ2xldXNlcmNvbnRlbnQuY29tLy1NZnNQZVpMelVuMC9BQUFBQUFBQUFBSS9BQUFBQUFBQUFjdy8za1U4S3daSzBUZy9zOTYtYy9waG90by5qcGciLCJnaXZlbl9uYW1lIjoiRGFuaWVsIiwiZmFtaWx5X25hbWUiOiJMdW5kYmVyZyBURUtOSUtVTSIsImxvY2FsZSI6InN2In0.ajiYuPIkv0OuZhzAGK4V9_xhTzvjhPpjrLUQifdBeez22zYRz6JSXnwP9ox5MoOV4v6LzK4MskPul6MmEmvhex721EmbVLneiPhgcMsdOtf_H_Dcf13-9PWIYkxVVShc1_wSfl9GRoe165PrsdKIRpFmLXM457Jh7-a4IdSSKVRwvDXiCDyvmmN3ElKLphj8OSJ248r4WbYhvpEUphN05WVthBREwUEhQ41qSp0tqadXUtDAG8V0JAf5dwNdCMCzbCPdpb33T_13lfqyaJi-V1oyGiaPaNfqPwyNkPj--guIQTLDnEoc9vWcivFBr0I0O6EliWW3gGvHg3hPDX2GRQ",
+            namn: "Daniel Lundberg",
+            tfnr: "0470-34567",
+            klass: 1
+        };
+        $http.post(url, data).then(
+                function successCallback(response) {
+                    console.log("fungerar!");
+                    deferred.resolve(response.status);
+                },
+                function errorCallback(response) {
+                    console.log("Fungerar inte!!");
+                    deferred.resolve(response.status);
+                }
+        );
+
+        return deferred.promise;
+    };
+
+    //hämta klasserna
+
+    this.getKlass = function () {
+        var deferred = $q.defer();
+        var url = "";
+        $http.get(url).success(function (data) {
+            deferred.resolve(data);
+        });
+        return deferred.promise;
+    };
+});
