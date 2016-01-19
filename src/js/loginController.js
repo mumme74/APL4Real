@@ -8,6 +8,7 @@ module.controller("loginCtrl", function ($window, $scope, loginService) {
         
         var id_token = googleAnvändare.getAuthResponse().id_token;
         var promise = loginService.logInGoogle(id_token);
+        console.log(id_token);
         promise.then(function (status) {
             if (status === 412) {
                 console.log("register");

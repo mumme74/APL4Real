@@ -21,7 +21,8 @@ module.exports = function(grunt) {
                         'src/js/configAngular.js',
                         'src/js/loginService.js',
                         'src/js/loginController.js',
-                        'src/js/registrationController.js'
+                        'src/js/registrationController.js',
+                        'src/js/registrationService.js'
                     ]
                 }
             }
