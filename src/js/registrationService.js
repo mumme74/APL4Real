@@ -6,17 +6,14 @@
 
 
 module.service("registrationService", function ($http, $q) {
-    this.postRegistration = function () {
+    this.postRegistration = function (google_id, namn, klass, tfnr) {
         var deferred = $q.defer();
         var url = SERVER_URL + "/apl/user";
         var data = {
-            id:String($scope.googleLogin = function (googleAnvändare) {
-                var id_token = googleAnvändare.getAuthResponse().id_token;
-                var promise = loginService.logInGoogle(id_token);
-        }), //<----Google id
-                    namn:String($scope.nnm),
-                    tlfnr:String($scope.tfl),
-                    klass:parseInt($scope.kl)
+            id: google_id,
+            namn: namn,
+            tfnr: tfnr,
+            klass: parseInt(klass)
         };
         $http.post(url, data).then(
                 function successCallback(response) {
@@ -31,15 +28,15 @@ module.service("registrationService", function ($http, $q) {
 
         return deferred.promise;
     };
-    
-    
-    this.getKlasser = function (){
+
+
+    this.getKlasser = function () {
         var deferred = $q.defer();
         var url = SERVER_URL + "/apl/klass"; //<----?
-        $http({method:"GET",url:url}).success(function (data,status){
+        $http({method: "GET", url: url}).success(function (data, status) {
             console.log(data);
             deferred.resolve(data);
-        }).error(function (data,status){
+        }).error(function (data, status) {
             console.log("Error");
             console.log(status);
             deferred.reject();
