@@ -9,29 +9,32 @@ module.controller("loginCtrl", function ($window, $scope, loginService) {
         var id_token = googleAnvändare.getAuthResponse().id_token;
         var promise = loginService.logInGoogle(id_token);
         console.log(id_token);
-        promise.then(function (status) {
-            if (status === 412) {
+        promise.then(function (data) {
+            if (data.behorighet === 0) {
+                console.log("Inloggad som elev.");
+                $window.location.href = "#/elev";
+            } else if (data.behorighet === 1) {
+                console.log("Inloggad som lärare.");
+                $window.location.href = "#/lärare";
+            } else if (data.behorighet === -1){
                 console.log("register");
                 $window.location.href = "#/registration";
-            } else if (status === 200) {
-                console.log("logged in");
-                alert("Du är inloggad!");
             } else {
-                console.log("error: Status "+status);
+                console.log("error");
+                console.log(data);
             }
         });
     };
     $scope.handledareLogin = function(){
-        console.log("handledarlogin");
         var användarnamn = $scope.username;
         var lösenord = $scope.password;
         var promise = loginService.logInHandledare(användarnamn, lösenord);
         promise.then(function (status) {
             if (status === 200) {
-                console.log("logged in");
-                alert("Du är inloggad!");
-            } else {
-                console.log("error: Status "+status);
+                console.log("Inloggad som handledare.");
+                $window.location.href = "#/handledare";
+            } else if (status === 401) {
+                console.log("Fel användarnamn/lösenord.");
             }
         });
     };
