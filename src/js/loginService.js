@@ -33,11 +33,11 @@ module.service("loginService", function ($q) {
         });
         return deferred.promise;
     };
-    this.logInHandledare = function (användarnamn, lösenord) {
+    this.logInHandledare = function (anvandarnamn, losenord) {
         var deferred = $q.defer();
         var data = {
-            "anvandarnamn": användarnamn,
-            "losenord": lösenord
+            "anvandarnamn": anvandarnamn,
+            "losenord": losenord
         };
         $.ajax({
             url: this.url + "/handledare/login",
