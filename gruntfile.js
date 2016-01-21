@@ -24,6 +24,9 @@ module.exports = function(grunt) {
                         'src/js/handledareRegController.js',
                         'src/js/registrationController.js',
                         'src/js/registrationService.js',
+                        'src/js/larareController.js',
+                        'src/js/elevController.js',
+                        'src/js/handledareController.js',
                         'src/js/ng.js'
                     ]
                 }

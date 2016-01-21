@@ -30,6 +30,18 @@ module.config(function ($urlRouterProvider,$stateProvider){
         url:"/handledarreg",
         templateUrl:"templates/handledare_registrering.html",
         controller:"handledareRegCtrl"
+    }).state("elev",{
+        url:"/elev",
+        templateUrl:"templates/elev.html",
+        controller:"elevCtrl"
+    }).state("larare",{
+        url:"/larare",
+        templateUrl:"templates/larare.html",
+        controller:"larareCtrl"
+    }).state("handledare",{
+        url:"/handledare",
+        templateUrl:"templates/handledare.html",
+        controller:"handledareCtrl"
     });
 });
 
