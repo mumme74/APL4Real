@@ -12,41 +12,45 @@
  */
 
 
-var module = angular.module("apl",["ui.router"]);
+var module = angular.module("apl", ["ui.router"]);
 
-module.config(function ($urlRouterProvider,$stateProvider){
-    
+module.config(function ($urlRouterProvider, $stateProvider) {
+
     $urlRouterProvider.otherwise("/");
-    
-    $stateProvider.state("home",{
-        url:"/",
-        templateUrl:"templates/login.html",
-        controller:"loginCtrl"
-    }).state("registration",{
-        url:"/registration",
-        templateUrl:"templates/registration.html",
-        controller:"registrationCtrl"
-    }).state("handledarreg",{
-        url:"/handledarreg",
-        templateUrl:"templates/handledare_registrering.html",
-        controller:"handledareRegCtrl"
-    }).state("elev",{
-        url:"/elev",
-        templateUrl:"templates/elev.html",
-        controller:"elevCtrl"
-    }).state("larare",{
-        url:"/larare",
-        templateUrl:"templates/larare.html",
-        controller:"larareCtrl"
-    }).state("handledare",{
-        url:"/handledare",
-        templateUrl:"templates/handledare.html",
-        controller:"handledareCtrl"
-    }).state("handledarenatverk",{
-        url:"/handledarenatverk",
-        templateUrl:"templates/handledareNatverk.html",
-        controller:"lärareCtrl"
-});
+
+    $stateProvider.state("home", {
+        url: "/",
+        templateUrl: "templates/login.html",
+        controller: "loginCtrl"
+    }).state("registration", {
+        url: "/registration",
+        templateUrl: "templates/registration.html",
+        controller: "registrationCtrl"
+    }).state("handledarreg", {
+        url: "/handledarreg",
+        templateUrl: "templates/handledare_registrering.html",
+        controller: "handledareRegCtrl"
+    }).state("elev", {
+        url: "/elev",
+        templateUrl: "templates/elev.html",
+        controller: "elevCtrl"
+    }).state("larare", {
+        url: "/larare",
+        templateUrl: "templates/larare.html",
+        controller: "larareCtrl"
+    }).state("handledare", {
+        url: "/handledare",
+        templateUrl: "templates/handledare.html",
+        controller: "handledareCtrl"
+    }).state("handledarenatverk", {
+        url: "/handledarenatverk",
+        templateUrl: "templates/handledareNatverk.html",
+        controller: "lärareCtrl"
+    }).state("elev_handledare", {
+        url: "/elev_handledare",
+        templateUrl: "templates/elev_handledare.html",
+        controller: "larareCtrl"
+    });
 });
 
 

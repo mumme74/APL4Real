@@ -27,7 +27,8 @@ module.exports = function(grunt) {
                         'src/js/larareController.js',
                         'src/js/elevController.js',
                         'src/js/handledareController.js',
-                        'src/js/ng.js'
+                        'src/js/getService.js',
+                        'src/js/postService.js'
                     ]
                 }
             }
