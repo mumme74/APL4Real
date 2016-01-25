@@ -12,7 +12,9 @@ module.controller("handledareRegCtrl", function ($scope, registrationService) {
         var email = $scope.email;
         var tfnr = $scope.phone;
         var namn = $scope.name;
-        var promise = registrationService.registreraHandledare(användarnamn, namn, lösenord, email, tfnr);
+        var foretag = $scope.frtg;
+        var program = $scope.pg;
+        var promise = registrationService.registreraHandledare(användarnamn, namn, lösenord, email, tfnr, foretag, program);
         promise.then(function (status) {
             if (status === 200) {
                 console.log("logged in");

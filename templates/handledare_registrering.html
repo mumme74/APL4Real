@@ -1,19 +1,28 @@
-<div>
+<div class="container">
+    <div class="col-sm-6 col-sm-offset-3">
     <div class="well text-center" ng-controller="handledareRegCtrl">
-        <h2>Registrera handledare</h2>
+        <h2>Registrera handledare</h2><br/>
         <form>
             <input ng-model="name" type='text' placeholder='Namn'>
-            <br/>
+            <br/><br/>
             <input ng-model="username" type='text' placeholder='Användarnamn'>
-            <br/>
+            <br/><br/>
             <input ng-model="email" type='text' placeholder='Email'>
-            <br/>
-            <input ng-model="phone" type='text' placeholder='Telefonnummer'>
-            <br/>
+            <br/><br/>
+            <input ng-model="phone" type='text' placeholder='Telefonnumme'>
+            <br/><br/>
+            <input ng-model="frtg" type='text' placeholder='Företag'>
+            <br/><br/>Välj programm:
+            <select ng-model="pr" class="btn btn-default">
+               <option ng-repeat="" value='{{program.id}}'>{{program.namn}}</option>
+            </select>
+            <br/><br/>
             <input ng-model="password" type='password' placeholder='Lösenord'>
+            <br/>
             <br/>
             <a ng-click="registreraHandledare()" class="btn btn-primary">Skicka</a>
         </form>
     </div>
+    </div>    
 </div>
 <script src="https://apis.google.com/js/platform.js" async defer></script>

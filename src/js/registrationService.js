@@ -54,7 +54,9 @@ module.service("registrationService", function ($http, $q) {
             lösenord: lösenord,
             email: email,
             tfnr: tfnr,
-            namn: namn
+            namn: namn,
+            foretag: foretag,
+            program: program
         };
         $http.post(url, data).then(
                 function successCallback(response) {
