@@ -1,0 +1,19 @@
+<!--<script src="../js/aplapp.min.js"></script>-->
+<div>Sök:<input type="text" ng-model="query">
+    <select class="dropdown"><option ng-model="ui.filters" ng-repeat="handledaren in program|unique:'namn'">{{handledaren.namn}}</option></select></div>
+<table>
+    <tr>
+        <td>Namn</td>
+        <td>Epost</td>
+        <td>Telefonnummer</td>
+        <td>Företag</td>
+        <td>Program</td>
+    </tr>
+    <tr ng-repeat="handledaren in program|filter:query">
+        <td>{{handledaren.handledare}}</td>
+        <td>{{handledaren.email}}</td>
+        <td>{{handledaren.telefonnummer}}</td>
+        <td>{{handledaren.foretag}}</td>
+        <td>{{handledaren.namn}}</td>
+    </tr>
+</table>

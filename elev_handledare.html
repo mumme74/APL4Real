@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body ng-controller="lärareCtrl">
-        
+
         <form class="form-signin" name="regForm">
             <h1>Koppla elever till handledare:</h1>
             <table class="table table-striped">
@@ -18,9 +18,14 @@
                 </tr>
                 <tr ng-repeat="elev in elever">
                     <td>{{elev.namn}}</td>
-                    <td><select class="dropdown" ng-model="countSelected" ng-change="onchange(countList[countSelected-1])">
-                            <option ng-repeat="handledaren in handledare" >{{handledaren.namn}}</option>
-                        </select></td>
+                    <td>
+                        <select ng-model="selectedValue">
+                            <option ng-repeat="handledaren in handledare" value="{{handledaren.id}}">{{handledaren.namn}}</option>
+                        </select>
+<!--                        <select ng-model="selectedHandledare" 
+                                ng-options="handledaren.id as handledaren.namn for handledaren in handledare" ng-change="alert(handledare[selectedHandledare - 1])">
+                        </select>-->
+                    </td>
                 </tr>
             </table>
         </form> 

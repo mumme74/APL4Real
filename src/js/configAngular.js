@@ -42,7 +42,11 @@ module.config(function ($urlRouterProvider,$stateProvider){
         url:"/handledare",
         templateUrl:"templates/handledare.html",
         controller:"handledareCtrl"
-    });
+    }).state("handledarenatverk",{
+        url:"/handledarenatverk",
+        templateUrl:"templates/handledareNatverk.html",
+        controller:"lärareCtrl"
+});
 });
 
 
