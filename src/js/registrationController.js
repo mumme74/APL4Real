@@ -13,7 +13,16 @@ module.controller("registrationCtrl", function ($scope, $window, registrationSer
     var promiseKlasser = registrationService.getKlasser();
     promiseKlasser.then(function (data) {
         $scope.klasser = data;
+    });    
+    
+    
+    $scope.id_token = "";
+    var promiseProgram = registrationService.getProgram();
+    promiseProgram.then(function (data) {
+        $scope.programs = data;
     });
+
+    
 
 
     $scope.postRegistration = function () {

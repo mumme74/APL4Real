@@ -43,6 +43,20 @@ module.service("registrationService", function ($http, $q) {
         });
         return deferred.promise;
     };
+        this.getProgram = function () {
+        var deferred = $q.defer();
+        var url = SERVER_URL + "/apl/program"; //<----?
+        $http({method: "GET", url: url}).success(function (data, status) {
+            console.log(data);
+            deferred.resolve(data);
+        }).error(function (data, status) {
+            console.log("Error");
+            console.log(status);
+            deferred.reject();
+        });
+        return deferred.promise;
+    };
+
 
     this.registreraHandledare = function (användarnamn, namn, lösenord, email, tfnr) {
         var deferred = $q.defer();
