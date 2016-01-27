@@ -45,7 +45,7 @@ module.service("registrationService", function ($http, $q) {
     };
         this.getProgram = function () {
         var deferred = $q.defer();
-        var url = SERVER_URL + "/apl/program"; //<----?
+        var url = SERVER_URL + "/program"; //<----?
         $http({method: "GET", url: url}).success(function (data, status) {
             console.log(data);
             deferred.resolve(data);

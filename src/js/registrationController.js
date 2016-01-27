@@ -9,10 +9,12 @@ module.controller("registrationCtrl", function ($scope, $window, registrationSer
 //        $scope.data = data;
 //        console.log (data); 
 //    });
+        console.log("hello world");
     $scope.id_token = "";
     var promiseKlasser = registrationService.getKlasser();
     promiseKlasser.then(function (data) {
         $scope.klasser = data;
+        console.log(data);
     });    
     
     
@@ -20,6 +22,7 @@ module.controller("registrationCtrl", function ($scope, $window, registrationSer
     var promiseProgram = registrationService.getProgram();
     promiseProgram.then(function (data) {
         $scope.programs = data;
+        console.log(data);
     });
 
     

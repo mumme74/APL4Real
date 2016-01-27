@@ -5,6 +5,11 @@
  */
 
 module.controller("handledareRegCtrl", function ($scope, registrationService) {
+        var promiseProgram = registrationService.getProgram();
+    promiseProgram.then(function (data) {
+        $scope.programs = data;
+        console.log(data);
+    });
     $scope.registreraHandledare = function(){
         console.log("handreg");
         var användarnamn = $scope.username;
