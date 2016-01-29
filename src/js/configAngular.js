@@ -44,12 +44,15 @@ module.config(function ($urlRouterProvider, $stateProvider) {
         controller: "handledareCtrl"
     }).state("handledarenatverk", {
         url: "/handledarenatverk",
-        templateUrl:"templates/handledareNatverk.html",
+        templateUrl:"templates/handledare_natverk.html",
         controller: "lärareCtrl"
     }).state("elev_handledare", {
         url: "/elev_handledare",
         templateUrl: "templates/elev_handledare.html",
         controller: "larareCtrl"
+    }).state("elevloggbok",{
+        url:"/elevloggbok",
+        templateUrl:"templates/handledare_natverk.html"
     });
 });
 
