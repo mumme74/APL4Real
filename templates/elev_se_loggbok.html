@@ -1,0 +1,35 @@
+
+<div ng-controller="elevSeLoggCtrl">
+    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 col-lg-offset-1 
+         col-md-offset-1 col-sm-offset-1 col-xs-offset-1" id="wrapper">
+        <div class="well ridge">
+            <div class="loggbok" ng-repeat="logg in loggar">
+                <h3>{{logg.elev_id}} <span class="small">{{logg.datum}}</span></h3>
+                <div id="inlägg">
+                    <p>
+                        {{logg.innehall}}
+                    </p>
+                    <p>{{logg.intryck}}</p>
+                    <div id="bildDiv"></div>
+                </div>
+                <div id="kommentarDiv">
+                    <input class="form-control" placeholder="Kommentar"/>
+                    <button class="btn btn-default">Skicka kommentar</button>
+                </div>
+                <div class="alert alert-link well ridge">  Kommentar 
+                    <h4>Lärar-Jocke <span class="small">31/1 -16</span></h4>
+                    <p>
+                        Lärar-Jocke skriver en jättesnäll kommentar till
+                        Kalles logg.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing 
+                        elit. Integer luctus luctus dolor a tincidunt.
+                        Mauris finibus, libero vel congue laoreet, lacus 
+                        sem consequat mi, eget egestas ligula dolor ac diam.
+                        Phasellus molestie malesuada erat, id aliquet ligula
+                        elementum ac.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
