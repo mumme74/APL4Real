@@ -1,0 +1,29 @@
+ <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">APL</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Översikt</a></li>
+            <li><a href="#about">Närvaro</a></li>
+            <li><a href="#contact">Loggböcker</a></li>
+            <li><a href="#contact">Moment</a></li>
+            <li><a href="#contact">Användare</a></li>
+            <li><a href="#contact">Kontakt</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="">Lärarens sida</a></li>
+            <li><div ng-controller="larareCtrl">
+            <a class="btn btn-primary" ng-click="logout()">Logga ut</a>
+            </div></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
