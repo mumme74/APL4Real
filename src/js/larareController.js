@@ -9,7 +9,6 @@ module.controller("larareCtrl", function ($scope, $window, getService, postServi
         anvandare.id_token = "";
         localStorage.anvandare = JSON.stringify(anvandare);
         var auth2 = gapi.auth2.getAuthInstance();
-        console.log(auth2);
         auth2.signOut().then(function () {
             console.log('User signed out.');
             $window.location.href = "#/";
@@ -17,14 +16,10 @@ module.controller("larareCtrl", function ($scope, $window, getService, postServi
     };
     $scope.getPeople = function () {
         var id_token = JSON.parse(localStorage.anvandare).id_token;
-        var elevPromise = getService.getElever(id_token);
-        elevPromise.then(function (data) {
-            console.log(data);
+        getService.getElever(id_token).then(function (data) {
             $scope.elever = data;
         });
-        var handledarePromise = getService.getHandledare(id_token);
-        handledarePromise.then(function (data) {
-            console.log(data);
+        getService.getHandledare(id_token).then(function (data) {
             $scope.handledare = data;
         });
     };
@@ -41,16 +36,13 @@ module.controller("larareCtrl", function ($scope, $window, getService, postServi
                 });
             }
         }
-        console.log(array);
         if (array.length > 0)
         {
-            var promise = postService.updateElevHandledare(id_token, array);
-            promise.then(function (response) {
+            postService.updateElevHandledare(id_token, array).then(function (response) {
                 console.log(response);
             });
             
         }
     };
-    window.getPeople = $scope.getPeople;
 });
 
