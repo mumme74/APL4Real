@@ -50,9 +50,10 @@ module.config(function ($urlRouterProvider, $stateProvider) {
         url: "/elev_handledare",
         templateUrl: "templates/elev_handledare.html",
         controller: "larareCtrl"
-    }).state("elevloggbok",{
-        url:"/elevloggbok",
-        templateUrl:"templates/handledare_natverk.html"
+    }).state("elev_loggbok",{
+        url:"/elev_loggbok",
+        templateUrl:"templates/elev_loggbok.html",
+        controller: "elevCtrl"
     });
 });
 
