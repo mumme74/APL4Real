@@ -32,7 +32,7 @@ module.config(function ($urlRouterProvider, $stateProvider) {
         controller: "handledareRegCtrl"
     }).state("elev", {
         url: "/elev",
-        templateUrl: "templates/elev.html",
+        templateUrl: "templates/elevtemplates/elev.html",
         controller: "elevCtrl"
     }).state("larare", {
         url: "/larare",
@@ -40,7 +40,7 @@ module.config(function ($urlRouterProvider, $stateProvider) {
         controller: "larareCtrl"
     }).state("handledare", {
         url: "/handledare",
-        templateUrl: "templates/handledare.html",
+        templateUrl: "templates/templateshandledare/handledare.html",
         controller: "handledareCtrl"
     }).state("handledarenatverk", {
         url: "/handledarenatverk",
@@ -48,12 +48,16 @@ module.config(function ($urlRouterProvider, $stateProvider) {
         controller: "lärareCtrl"
     }).state("elev_handledare", {
         url: "/elev_handledare",
-        templateUrl: "templates/elev_handledare.html",
+        templateUrl: "templates/elevtemplates/elev_handledare.html",
         controller: "larareCtrl"
     }).state("elev_loggbok",{
         url:"/elev_loggbok",
-        templateUrl:"templates/elev_loggbok.html",
+        templateUrl:"templates/elevtemplates/elev_loggbok.html",
         controller: "elevCtrl"
+    }).state("elev_se_loggbok",{
+        url:"/elev_se_loggbok",
+        templatesUrl:"templates/elevtemplates/elev_se_loggbok.html",
+        controller:"elevSeLoggCtrl"
     });
 });
 
