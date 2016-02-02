@@ -30,7 +30,8 @@ module.exports = function(grunt) {
                         'src/js/getService.js',
                         'src/js/postService.js',
                         'src/js/elevSeLoggbokController.js',
-                        'src/js/elevSeLoggbokService.js'
+                        'src/js/elevSeLoggbokService.js',
+                        'src/js/narvaroService.js'
                     ]
                 }
             }
