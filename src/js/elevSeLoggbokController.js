@@ -4,12 +4,11 @@
  * and open the template in the editor.
  */
 
-module.controller("elevSeLoggCtrl", function ($scope, $window, getService, postService) {
+module.controller("elevSeLoggCtrl", function ($scope, getServiceLoggar) {
     var anvandare = JSON.parse(localStorage.anvandare);
     var id_token = anvandare.id_token;
-    var promiseLoggar = getService.getLoggar(id_token);
+    var promiseLoggar = getServiceLoggar.getLoggar(id_token);
     promiseLoggar.then(function (data){
-        console.log(data);
         $scope.loggar = data;
     });
     
