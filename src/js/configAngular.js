@@ -58,6 +58,10 @@ module.config(function ($urlRouterProvider, $stateProvider) {
             url:"/elev_se_loggbok",
         templatesUrl:"templates/elevtemplates/elev_se_loggbok.html",
         controller:"elevSeLoggCtrl"
+    }).state("elevnarvaro",{
+            url:"/elevnarvaro",
+        templatesUrl:"templates/elev_narvaro.html",
+        controller:"postNarvaroCtrl"
     });
 });
 

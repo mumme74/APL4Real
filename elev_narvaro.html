@@ -1,0 +1,21 @@
+<div class="container" style="margin-top: 60px;">
+    <div class="col-lg-4 col-md-4 col-sm-6" style=" max-width: 350px;"><h3>Lägg till närvaro</h3>
+        <div class="well">
+            <input ng-model="datum" type="date"/>
+            <br/><br/>
+            <p>Välj hur länge du var på arbetsplatsen:</p>
+            <div class="btn-group" data-toggle="buttons">
+                <div align="center"><br>
+                    <p style="background-color: green"><input type="radio" name="group1" ng-click="getLjus('gron')" value="2">Var där hela den dagen<br>
+                    <p style="background-color: yellow"><input type="radio" name="group1" ng-click="getLjus('gul')" value="1">Var där delar den dagen<br>
+                    <p style="background-color: red"><input type="radio" name="group1" ng-click="getLjus('rod')" value="0">Var inte där den dagen</p><br>
+                </div>
+            </div>
+            <br/>
+            <br/>
+            <a class="btn btn-info" ng-click="skickaNarvaro()">Skicka</a>
+            
+            <br/>
+        </div>
+    </div>
+</div>
