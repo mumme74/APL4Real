@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div ng-controller="lärareSeLoggCtrl"></div>
+        
+        <div class="loggbok" ng-repeat="logg in loggar">
+                <h3>{{logg.elev_id}} <span class="small">{{logg.datum}}</span></h3>
+                <div id="inlägg">
+                    <p>
+                        {{logg.innehall}}
+                    </p>
+                    <p>{{logg.intryck}}</p>
+                    <p>
+                        {{logg.bild_id}}
+                    </p>
+                </div>
+        <div id="kommentarDiv">
+                    <input class="form-control" placeholder="Kommentar"/>
+                    <button class="btn btn-default">Skicka kommentar</button>
+                </div>
+        <div>
+            
+            
+        </div>
+        </div>
+        
+    </body>
+</html>
