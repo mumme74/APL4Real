@@ -3,17 +3,26 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-module.service("getService", function ($http, $q) {
+module.service("getServiceLoggar", function ($http, $q) {
 
+    var url = "http://localhost:8080/aplBackend/webresources/elev";
+    
     this.getLoggar = function (id_token) {
         var deferred = $q.defer();
-        var url = SERVER_URL + "/elev/allaLoggar";
-        $http({method: "GET", url: url, data: id_token}).success(function (data, status) {
-            deferred.resolve(data);
-        }).error(function (data, status) {
-            console.log("Error");
-            console.log(status);
-            deferred.reject();
+        $.ajax({
+            url: "http://localhost:8080/aplBackend/webresources/elev/allaLoggar",
+            type: 'GET',
+            headers: {
+                "Authorization": id_token,
+                "Content-Type": 'application/json'
+            },
+            dataType: 'json',
+            success: function (data) {
+                deferred.resolve(data);
+            },
+            error: function (data) {
+                deferred.resolve(data);
+            }
         });
         return deferred.promise;
     };
