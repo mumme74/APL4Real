@@ -8,7 +8,7 @@ module.service("getService", function ($http, $q) {
     this.getLoggar = function (id_token) {
         var deferred = $q.defer();
         var url = SERVER_URL + "/elev/allaLoggar";
-        $http({method: "GET", url: url, body: id_token}).success(function (data, status) {
+        $http({method: "GET", url: url, data: id_token}).success(function (data, status) {
             deferred.resolve(data);
         }).error(function (data, status) {
             console.log("Error");

@@ -32,7 +32,7 @@ module.config(function ($urlRouterProvider, $stateProvider) {
         controller: "handledareRegCtrl"
     }).state("elev", {
         url: "/elev",
-        templateUrl: "templates/elevtemplates/elev.html",
+        templateUrl: "templates/elev.html",
         controller: "elevCtrl"
     }).state("larare", {
         url: "/larare",
