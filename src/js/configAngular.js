@@ -55,7 +55,7 @@ module.config(function ($urlRouterProvider, $stateProvider) {
         templateUrl:"templates/elevtemplates/elev_loggbok.html",
         controller: "elevCtrl"
     }).state("elev_se_loggbok",{
-        url:"/elev_se_loggbok",
+            url:"/elev_se_loggbok",
         templatesUrl:"templates/elevtemplates/elev_se_loggbok.html",
         controller:"elevSeLoggCtrl"
     });
