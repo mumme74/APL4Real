@@ -5,12 +5,12 @@
  */
 module.service("getServiceLoggar", function ($http, $q) {
 
-    var url = "http://localhost:8080/aplBackend/webresources/elev";
+    this.url = SERVER_URL + "/elev";
     
     this.getLoggar = function (id_token) {
         var deferred = $q.defer();
         $.ajax({
-            url: "http://localhost:8080/aplBackend/webresources/elev/allaLoggar",
+            url: this.url + "/allaLoggar",
             type: 'GET',
             headers: {
                 "Authorization": id_token,
