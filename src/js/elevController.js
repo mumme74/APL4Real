@@ -9,19 +9,14 @@ module.controller("elevCtrl", function ($scope, $window, postService) {
         var anvandare = JSON.parse(localStorage.anvandare);
         anvandare.id_token = "";
         localStorage.anvandare = JSON.stringify(anvandare);
-        var auth2 = gapi.auth2.getAuthInstance();
-        console.log(auth2);
-        auth2.signOut().then(function () {
-            console.log('User signed out.');
-            $window.location.href = "#/";
-        });
+        $window.location.href = "#/logout";
     };
     $scope.postLogg = function () {
         var id_token = JSON.parse(localStorage.anvandare).id_token;
         //Tidszon fix
         $scope.datum.setHours(12);
         //Göra om till databasens Date
-        var datum = $scope.datum.toISOString().substring(0,10);
+        var datum = $scope.datum.toISOString().substring(0, 10);
         var innehall = $scope.text;
         var ljus = $scope.ljus;
         console.log(datum);
@@ -48,8 +43,8 @@ module.controller("elevCtrl", function ($scope, $window, postService) {
         else
             $scope.ljus = 2;
         $(".vald").removeClass("vald");
-        $("."+ljus).addClass("vald");
-        
+        $("." + ljus).addClass("vald");
+
     };
 });
 

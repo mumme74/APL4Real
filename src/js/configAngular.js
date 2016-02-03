@@ -4,14 +4,6 @@
  * and open the template in the editor.
  */
 
-
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-
 var module = angular.module("apl", ["ui.router"]);
 
 module.config(function ($urlRouterProvider, $stateProvider) {
@@ -22,6 +14,10 @@ module.config(function ($urlRouterProvider, $stateProvider) {
         url: "/",
         templateUrl: "templates/login.html",
         controller: "loginCtrl"
+    }).state("logout", {
+        url: "/logout",
+        templateUrl: "templates/logout.html",
+        controller: "logoutCtrl"
     }).state("registration", {
         url: "/registration",
         templateUrl: "templates/registration.html",
@@ -44,36 +40,36 @@ module.config(function ($urlRouterProvider, $stateProvider) {
         controller: "handledareCtrl"
     }).state("handledarenatverk", {
         url: "/handledarenatverk",
-        templateUrl:"templates/lararetemplates/handledare_natverk.html",
+        templateUrl: "templates/lararetemplates/handledare_natverk.html",
         controller: "lärareCtrl"
     }).state("elev_handledare", {
         url: "/elev_handledare",
         templateUrl: "templates/elevtemplates/elev_handledare.html",
         controller: "larareCtrl"
-    }).state("elev_loggbok",{
-        url:"/elev_loggbok",
-        templateUrl:"templates/elevtemplates/elev_loggbok.html",
+    }).state("elev_loggbok", {
+        url: "/elev_loggbok",
+        templateUrl: "templates/elevtemplates/elev_loggbok.html",
         controller: "elevCtrl"
-    }).state("elev_se_loggbok",{
-        url:"/elev_se_loggbok",
-        templatesUrl:"templates/elevtemplates/elev_se_loggbok.html",
-        controller:"elevSeLoggCtrl"
-    }).state("elevnarvaro",{
-            url:"/elevnarvaro",
-        templateUrl:"templates/elevtemplates/elev_narvaro.html",
-        controller:"postNarvaroCtrl"
-    }).state("lärare_se_loggbok",{
-        url:"/lärare_se_loggbok",
-        templateUrl:"/lärare_se_loggbok.html",
-        controller:"lärareSeLoggCtrl"
-    }).state("elev_kontakt",{
-        url:"/elev_kontakt",
-        templateUrl:"templates/elevtemplates/elev_kontakt.html",
-        controller:""
-    }).state("elev_moment",{
-            url:"/elev_moment",
-        templateUrl:"templates/elevtemplates/elev_moment.html",
-        controller:""
+    }).state("elev_se_loggbok", {
+        url: "/elev_se_loggbok",
+        templatesUrl: "templates/elevtemplates/elev_se_loggbok.html",
+        controller: "elevSeLoggCtrl"
+    }).state("elevnarvaro", {
+        url: "/elevnarvaro",
+        templateUrl: "templates/elevtemplates/elev_narvaro.html",
+        controller: "postNarvaroCtrl"
+    }).state("lärare_se_loggbok", {
+        url: "/lärare_se_loggbok",
+        templateUrl: "/lärare_se_loggbok.html",
+        controller: "lärareSeLoggCtrl"
+    }).state("elev_kontakt", {
+        url: "/elev_kontakt",
+        templateUrl: "templates/elevtemplates/elev_kontakt.html",
+        controller: ""
+    }).state("elev_moment", {
+        url: "/elev_moment",
+        templateUrl: "templates/elevtemplates/elev_moment.html",
+        controller: ""
     });
 });
 

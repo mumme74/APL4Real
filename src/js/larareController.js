@@ -8,11 +8,7 @@ module.controller("larareCtrl", function ($scope, $window, getService, postServi
         var anvandare = JSON.parse(localStorage.anvandare);
         anvandare.id_token = "";
         localStorage.anvandare = JSON.stringify(anvandare);
-        var auth2 = gapi.auth2.getAuthInstance();
-        auth2.signOut().then(function () {
-            console.log('User signed out.');
-            $window.location.href = "#/";
-        });
+        $window.location.href = "#/logout";
     };
     $scope.getPeople = function () {
         var id_token = JSON.parse(localStorage.anvandare).id_token;
