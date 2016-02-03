@@ -55,24 +55,24 @@ module.config(function ($urlRouterProvider, $stateProvider) {
         templateUrl:"templates/elevtemplates/elev_loggbok.html",
         controller: "elevCtrl"
     }).state("elev_se_loggbok",{
-            url:"/elev_se_loggbok",
+        url:"/elev_se_loggbok",
         templatesUrl:"templates/elevtemplates/elev_se_loggbok.html",
         controller:"elevSeLoggCtrl"
     }).state("elevnarvaro",{
             url:"/elevnarvaro",
-        templatesUrl:"templates/elevtemplates/elev_narvaro.html",
+        templateUrl:"templates/elevtemplates/elev_narvaro.html",
         controller:"postNarvaroCtrl"
     }).state("lärare_se_loggbok",{
-            url:"/lärareseloggbok",
-        templatesUrl:"/lärare_se_loggbok.html",
+        url:"/lärare_se_loggbok",
+        templateUrl:"/lärare_se_loggbok.html",
         controller:"lärareSeLoggCtrl"
     }).state("elev_kontakt",{
         url:"/elev_kontakt",
-        templatesUrl:"templates/elevtemplates/elev_kontakt.html",
+        templateUrl:"templates/elevtemplates/elev_kontakt.html",
         controller:""
     }).state("elev_moment",{
             url:"/elev_moment",
-        templatesUrl:"templates/elevtemplates/elev_moment.html",
+        templateUrl:"templates/elevtemplates/elev_moment.html",
         controller:""
     });
 });
