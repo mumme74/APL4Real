@@ -44,7 +44,7 @@ module.config(function ($urlRouterProvider, $stateProvider) {
         controller: "handledareCtrl"
     }).state("handledarenatverk", {
         url: "/handledarenatverk",
-        templateUrl:"templates/handledare_natverk.html",
+        templateUrl:"templates/lararetemplates/handledare_natverk.html",
         controller: "lärareCtrl"
     }).state("elev_handledare", {
         url: "/elev_handledare",
