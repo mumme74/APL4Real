@@ -8,5 +8,8 @@
 /js/
 /css/
 
+#ska inte ändras
+src/js/globalVars.js
+
 #bower filer använd bower install
 /bower_components/
