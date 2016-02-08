@@ -1,6 +1,6 @@
 
 
-module.service("natverkService", function ($http){
+module.service("natverkService", function ($http,$q){
     this.getNatverk = function (){
         var deferred = $q.defer();
         var url = "http://10.97.72.5:8080/aplBackend/webresources/handledare/program";
