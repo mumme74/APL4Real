@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-module.controller("larareCtrl", function ($scope, $window, getService, postService) {
+module.controller("larareCtrl", function ($scope, $window, getService, postService, globalService) {
     $scope.logout = function () {
         var anvandare = JSON.parse(localStorage.anvandare);
         anvandare.id_token = "";
@@ -34,11 +34,13 @@ module.controller("larareCtrl", function ($scope, $window, getService, postServi
         }
         if (array.length > 0)
         {
-            postService.updateElevHandledare(id_token, array).then(function (response) {
-                console.log(response);
+            postService.updateElevHandledare(array).then(function (responses) {
+                console.log(responses);
             });
-            
         }
     };
+    globalService.kollaStorage().then(function (responses) {
+        console.log(responses);
+    });
 });
 

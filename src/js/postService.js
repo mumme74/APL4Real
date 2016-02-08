@@ -8,53 +8,21 @@
 
 /* global SERVER_URL */
 
-module.service("postService", function ($q) {
-    this.url = SERVER_URL + "/post";
+module.service("postService", function ($q, globalService) {
+    this.url = "/post";
 
-    this.updateElevHandledare = function (id_token, data) {
-        var deferred = $q.defer();
-        $.ajax({
-            url: this.url + "/elevhandledare",
-            type: 'post',
-            headers: {
-                "Authorization": id_token,
-                "Content-Type": 'application/json'
-            },
-            data: JSON.stringify(data),
-            dataType: 'json',
-            success: function (data) {
-                deferred.resolve(data);
-            },
-            error: function (data) {
-                deferred.resolve(data);
-            }
-        });
-        return deferred.promise;
+    this.updateElevHandledare = function (data) {
+        var targetUrl = this.url + "/elevhandledare";
+        return globalService.skickaData(targetUrl, data);
     };
 
-    this.postLogg = function (id_token, datum, innehall, ljus) {
-        var deferred = $q.defer();
+    this.postLogg = function (datum, innehall, ljus) {
+        var targetUrl = this.url + "/logg";
         var data = {
             "datum": datum,
             "innehall": innehall,
             "ljus": ljus
         };
-        $.ajax({
-            url: this.url + "/logg",
-            type: 'post',
-            headers: {
-                "Authorization": id_token,
-                "Content-Type": 'application/json'
-            },
-            data: JSON.stringify(data),
-            dataType: 'json',
-            success: function (data) {
-                deferred.resolve(data);
-            },
-            error: function (data) {
-                deferred.resolve(data);
-            }
-        });
-        return deferred.promise;
+        return globalService.skickaData(targetUrl, data);
     };
 });

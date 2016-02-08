@@ -12,17 +12,14 @@ module.service("loginService", function ($q) {
     this.url = SERVER_URL + "/apl";
     this.logInGoogle = function (id_token) {
         var deferred = $q.defer();
-        var data = {
-            "id": id_token
-        };
+
         $.ajax({
             url: this.url + "/google/login",
-            type: 'post',
-            data: JSON.stringify(data),
+            type: 'get',
             headers: {
-                "Content-Type": 'application/json'
+                "Content-Type": 'application/json',
+                "Authorization": id_token
             },
-            dataType: 'json',
             success: function (data) {
                 deferred.resolve(data);
             },
@@ -35,29 +32,21 @@ module.service("loginService", function ($q) {
     };
     this.logInHandledare = function (anvandarnamn, losenord) {
         var deferred = $q.defer();
-        var data = {
-            "anvandarnamn": anvandarnamn,
-            "losenord": losenord
-        };
+        var basic_auth = "Basic " + btoa(anvandarnamn + ":" + losenord);
+
         $.ajax({
             url: this.url + "/handledare/login",
-            type: 'post',
-            data: JSON.stringify(data),
+            type: 'get',
             headers: {
-                "Content-Type": 'application/json'
+                "Content-Type": 'application/json',
+                "Authorization": basic_auth
             },
-            dataType: 'json',
             success: function (data) {
-                deferred.resolve(data.status);
+
+                deferred.resolve(200);
             },
-            fail: function (data, status) {
-                deferred.resolve(status);
-            },
-            always: function (data, status) {
-                deferred.resolve(status);
-            },
-            error: function (data)
-            {
+            error: function (data) {
+                
                 deferred.resolve(data.status);
             }
         });
