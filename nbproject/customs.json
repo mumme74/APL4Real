@@ -2,6 +2,7 @@
     "elements": {},
     "attributes": {
         "ui-view": {},
-        "ui-sref": {}
+        "ui-sref": {},
+        "ui-sref-active": {}
     }
 }
