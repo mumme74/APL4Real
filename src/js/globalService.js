@@ -27,6 +27,10 @@ module.service("globalService", function ($q, $http) {
     };
     this.kollaStorage = function () {
         var deferred = $q.defer();
+        if(!localStorage.oskickat)
+        {
+            localStorage.oskickat = JSON.parse([]);
+        }
         if (localStorage.oskickat.length > 2)
         {
             var dataArray = JSON.parse(localStorage.oskickat);
