@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-module.service("getService", function (http, $q){
+module.service("larareloggGetService", function (http, $q){
 
     this.url = SERVER_URL + "/elev";
     

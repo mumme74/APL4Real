@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-module.controller("lärareSeLoggCtrl", function ($scope, getServiceLoggar){
-        var anvandare = JSON.parse(localStorage.anvandare);
+module.controller("larareSeLoggCtrl", function ($scope, larareloggGetService) {
+    var anvandare = JSON.parse(localStorage.anvandare);
     var id_token = anvandare.id_token;
-    var promiseLoggar = getService.getLoggar(id_token);
-    promiseLoggar.then(function (data){
+    var promiseLoggar = larareloggGetService.getLoggar(id_token);
+    promiseLoggar.then(function (data) {
         console.log(data);
         $scope.loggar = data;
     });

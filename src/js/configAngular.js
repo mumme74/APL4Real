@@ -58,10 +58,10 @@ module.config(function ($urlRouterProvider, $stateProvider) {
         url: "/elevnarvaro",
         templateUrl: "templates/elevtemplates/elev_narvaro.html",
         controller: "postNarvaroCtrl"
-    }).state("lärare_se_loggbok", {
-        url: "/lärare_se_loggbok",
-        templateUrl: "/lärare_se_loggbok.html",
-        controller: "lärareSeLoggCtrl"
+    }).state("larare_se_loggbok", {
+        url: "/larare_se_loggbok",
+        templateUrl: "templates/lararetemplates/larare_se_loggbok.html",
+        controller: "larareSeLoggCtrl"
     }).state("elev_kontakt", {
         url: "/elev_kontakt",
         templateUrl: "templates/elevtemplates/elev_kontakt.html",
@@ -102,7 +102,11 @@ module.config(function ($urlRouterProvider, $stateProvider) {
         url: "/larare_kontakt",
         templateUrl: "templates/lararetemplates/larare_kontakt.html",
         controller:""
-    })
+    }).state("larare_c_loggbok", {
+        url: "/larare_c_loggbok",
+        templateUrl: "templates/lararetemplates/larare_c_loggbok.html",
+        controller:""
+    });
 });
 
 
