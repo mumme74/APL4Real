@@ -86,7 +86,23 @@ module.config(function ($urlRouterProvider, $stateProvider) {
         url: "/handledare_sida",
         templateUrl: "templates/handledaretemplates/handledare_sida.html",
         controller:""
-    });
+    }).state("larare_oversikt", {
+        url: "/larare_oversikt",
+        templateUrl: "templates/lararetemplates/larare_oversikt.html",
+        controller:""
+    }).state("larare_narvaro", {
+        url: "/larare_narvaro",
+        templateUrl: "templates/lararetemplates/larare_narvaro.html",
+        controller:""
+    }).state("larare_moment", {
+        url: "/larare_moment",
+        templateUrl: "templates/lararetemplates/larare_moment.html",
+        controller:""
+    }).state("larare_kontakt", {
+        url: "/larare_kontakt",
+        templateUrl: "templates/lararetemplates/larare_kontakt.html",
+        controller:""
+    })
 });
 
 
