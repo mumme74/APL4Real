@@ -29,7 +29,7 @@ module.service("globalService", function ($q, $http) {
         var deferred = $q.defer();
         if(!localStorage.oskickat)
         {
-            localStorage.oskickat = JSON.parse([]);
+            localStorage.oskickat = JSON.stringify([]);
         }
         if (localStorage.oskickat.length > 2)
         {
