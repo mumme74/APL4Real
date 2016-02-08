@@ -36,12 +36,12 @@ module.config(function ($urlRouterProvider, $stateProvider) {
         controller: "larareCtrl"
     }).state("handledare", {
         url: "/handledare",
-        templateUrl: "templates//handledare.html",
+        templateUrl: "templates/handledare.html",
         controller: "handledareCtrl"
     }).state("handledarenatverk", {
         url: "/handledarenatverk",
         templateUrl: "templates/lararetemplates/handledare_natverk.html",
-        controller: "larareCtrl"
+//        controller: "natverkCtrl"
     }).state("elev_handledare", {
         url: "/elev_handledare",
         templateUrl: "templates/lararetemplates/elev_handledare.html",
