@@ -40,10 +40,11 @@ module.service("globalService", function ($q, $http) {
             } else {
                 auth = anvandare.id_token;
             }
-            
+
             function postData() {
                 var data = dataArray.pop();
-                if (data.google_id !== anvandare.google_id)
+                if (data.google_id !== anvandare.google_id
+                        || data.anvandarnamn !== anvandare.anvandarnamn)
                 {
                     failed.push(data);
                     localStorage.oskickat = JSON.stringify(failed);
@@ -58,10 +59,10 @@ module.service("globalService", function ($q, $http) {
                     headers: {'Authorization': auth}
                 }).success(function (rdata, status, headers, config) {
                     response = {
-                        data : rdata,
-                        status : status,
-                        headers : headers, 
-                        config : config
+                        data: rdata,
+                        status: status,
+                        headers: headers,
+                        config: config
                     };
                     responses.push(response);
                     console.log("1.0.0");
@@ -75,10 +76,10 @@ module.service("globalService", function ($q, $http) {
                     }
                 }).error(function (rdata, status, headers, config) {
                     response = {
-                        data : rdata,
-                        status : status,
-                        headers : headers, 
-                        config : config
+                        data: rdata,
+                        status: status,
+                        headers: headers,
+                        config: config
                     };
                     responses.push(response);
                     failed.push(data);
