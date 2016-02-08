@@ -1,6 +1,6 @@
 
 
-module.controller("lärareCtrl",function($scope, $http){
+module.controller("larareCtrl",function($scope, $http){
     $http.get("http://10.97.72.5:8080/aplBackend/webresources/elev").success(function(data){
         $scope.elever = data;
 

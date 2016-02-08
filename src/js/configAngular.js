@@ -41,7 +41,7 @@ module.config(function ($urlRouterProvider, $stateProvider) {
     }).state("handledarenatverk", {
         url: "/handledarenatverk",
         templateUrl: "templates/lararetemplates/handledare_natverk.html",
-        controller: "lärareCtrl"
+        controller: "larareCtrl"
     }).state("elev_handledare", {
         url: "/elev_handledare",
         templateUrl: "templates/lararetemplates/elev_handledare.html",
@@ -61,7 +61,7 @@ module.config(function ($urlRouterProvider, $stateProvider) {
     }).state("larare_se_loggbok", {
         url: "/larare_se_loggbok",
         templateUrl: "templates/lararetemplates/larare_se_loggbok.html",
-        controller: "larareSeLoggCtrl"
+        controller: ""
     }).state("elev_kontakt", {
         url: "/elev_kontakt",
         templateUrl: "templates/elevtemplates/elev_kontakt.html",
