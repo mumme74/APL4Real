@@ -5,19 +5,27 @@
  */
 
 module.service("getService", function (http, $q){
+
+    this.url = SERVER_URL + "/elev";
     
-    this.getLoggar = function (id_token){
-        
+    this.getLoggar = function (id_token) {
         var deferred = $q.defer();
-        var url = SERVER_URL + "elev/allaLoggar";
-        $http({method: "GET", url:url, body: id_token}).success(function (data, status){
-            deferred.resolve(data);
-        }).error(function (data, status){
-            console.log("ERROR");
-            console.log(status);
-            deferred.reject();
+        $.ajax({
+            url: this.url + "/allaLoggar",
+            type: 'GET',
+            headers: {
+                "Authorization": id_token,
+                "Content-Type": 'application/json'
+            },
+            dataType: 'json',
+            success: function (data) {
+                deferred.resolve(data);
+            },
+            error: function (data) {
+                deferred.resolve(data);
+            }
         });
         return deferred.promise;
-        };
-    
+    };
+
 });

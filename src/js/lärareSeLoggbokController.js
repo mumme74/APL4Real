@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-module.controller("lärareSeLoggCtrl", function ($scope, $window, getService, postService){
+module.controller("lärareSeLoggCtrl", function ($scope, getServiceLoggar){
         var anvandare = JSON.parse(localStorage.anvandare);
     var id_token = anvandare.id_token;
     var promiseLoggar = getService.getLoggar(id_token);

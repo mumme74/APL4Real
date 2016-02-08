@@ -11,9 +11,9 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div ng-controller="lärareSeLoggCtrl"></div>
+        <div ng-controller="lärareSeLoggCtrl">
         
-        <div class="loggbok" ng-repeat="logg in loggar">
+        <div class="SeLoggbok" ng-repeat="logg in loggar">
                 <h3>{{logg.elev_id}} <span class="small">{{logg.datum}}</span></h3>
                 <div id="inlägg">
                     <p>
@@ -21,7 +21,7 @@ and open the template in the editor.
                     </p>
                     <p>{{logg.intryck}}</p>
                     <p>
-                        {{logg.bild_id}}
+                        
                     </p>
                 </div>
         <div id="kommentarDiv">
@@ -31,6 +31,7 @@ and open the template in the editor.
         <div>
             
             
+        </div>
         </div>
         </div>
         
