@@ -11,12 +11,12 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Aktivitet</a></li>
-            <li><a href="#about">Se moment</a></li>
-            <li><a href="#contact">Kontakt</a></li>
+              <li><a ui-sref="handledare_aktivitet">Aktivitet</a></li>
+              <li><a ui-sref="handledare_moment" >Se moment</a></li>
+              <li><a ui-sref="handledare_kontakt">Kontakt</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="../navbar/">Handledarens sida</a></li>
+              <li><a ui-sref="handledare_sida">Handledarens sida</a></li>
             <li><div ng-controller="handledareCtrl">
             <a class="btn btn-primary" ng-click="logout()">Logga ut</a>
             </div></li>
