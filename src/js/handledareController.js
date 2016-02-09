@@ -48,36 +48,29 @@ module.controller("handledareCtrl", function ($scope, $window, getService, globa
     };
     $scope.godkann = function (index) {
         console.log("Godkänner " + index);
+        //Ta ut aktiviteten
         var item = $scope.aktiviteter.splice(index, 1)[0];
-        var url = "/handledare/godkann";
-        var data = {
-            id: item.id,
-            elev_id: item.elev_id
-        };
-        $scope.skicka(url, data, item.typ);
+        $scope.skicka(item, 1);
     };
     $scope.neka = function (index) {
         console.log("Nekar " + index);
         var item = $scope.aktiviteter.splice(index, 1)[0];
-        var url = "/handledare/neka";
+        $scope.skicka(item, 2);
+    };
+    $scope.skicka = function (item, godkant) {
+        var url = "/handledare/aktivitet";
         var data = {
             id: item.id,
-            elev_id: item.elev_id
+            typ: item.typ,
+            godkant: godkant
         };
-        $scope.skicka(url, data, item.typ);
-    };
-    $scope.skicka = function (url, data, typ) {
-        var urlTyp = $scope.parseUrlTyp(typ);
-        if (urlTyp)
-        {
-            url += urlTyp;
 
-            globalService.skickaData(url, data).then(function(responses){
-                console.log(responses);
-            });
-        } else {
-            alert("Något gick fel, kontakta support.");
-        }
+        globalService.skickaData(url, data).then(function (responses) {
+            console.log(responses);
+        });
     };
+    globalService.kollaStorage().then(function (responses) {
+        console.log(responses);
+    });
 });
 
