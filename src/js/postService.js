@@ -16,12 +16,13 @@ module.service("postService", function ($q, globalService) {
         return globalService.skickaData(targetUrl, data);
     };
 
-    this.postLogg = function (datum, innehall, ljus) {
+    this.postLogg = function (datum, innehall, ljus, imgUrl) {
         var targetUrl = this.url + "/logg";
         var data = {
             "datum": datum,
             "innehall": innehall,
-            "ljus": ljus
+            "ljus": ljus,
+            "imgUrl": imgUrl
         };
         return globalService.skickaData(targetUrl, data);
     };

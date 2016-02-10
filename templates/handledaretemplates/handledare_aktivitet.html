@@ -1,3 +1,37 @@
 <header ng-include="'templates/headers/handledarehead.html'"></header>
-</br>
-<h1>Aktivitet</h1>
+<div ng-init="getAktiviteter()" >
+    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 col-lg-offset-1 
+         col-md-offset-1 col-sm-offset-1 col-xs-offset-1" id="wrapper">
+        <div class="well ridge">
+            <h1 class="text-center">Aktiviteter ({{aktiviteter.length}})</h1>
+            <div class="seLoggbok" ng-repeat="aktivitet in aktiviteter">
+                
+                <h3 ng-click="show(this)">
+                    {{parseRubrik(aktivitet.typ)}} <span class="small">{{aktivitet.datum}}</span>
+                </h3>
+                <div class="aktivitet" id="{{this.$id}}">
+                    <!-- Närvaro -->
+                    <div ng-if="aktivitet.typ === 0">
+                        <p>Din elev rapporterade att hen var <strong>{{parseLjus(aktivitet.trafikljus)}}</strong> denna dag.</p>
+                    </div>
+                    <!-- Loggbok -->
+                    <div ng-if="aktivitet.typ === 1">
+                        <p>Din elev har skickat in följande loggbok:</p>
+                        <br/>
+                        <p>{{aktivitet.innehall}}</p>
+                    </div>
+                    <!-- Moment -->
+                    <div ng-if="aktivitet.typ === 2">
+                        <p>Din elev tycker att de har avklarat följande moment:</p>
+                        <br/>
+                        <p>{{aktivitet.innehall}}</p>
+                    </div>
+
+                    <p>Stämmer detta?</p>
+                    <a class="btn btn-primary" ng-click="godkann(aktiviteter.indexOf(aktivitet))">Ja</a>
+                    <a class="btn btn-danger" ng-click="neka(aktiviteter.indexOf(aktivitet))">Nej</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
