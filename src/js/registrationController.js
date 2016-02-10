@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-module.controller("registrationCtrl", function ($scope, $window, registrationService) {
+module.controller("registrationCtrl", function ($scope, $window, $location, registrationService) {
 //    var promise = registrationService.getData();
 //    promise.then(function(data){
 //        $scope.data = data;
@@ -37,6 +37,7 @@ module.controller("registrationCtrl", function ($scope, $window, registrationSer
         if (google_id !== "")
         {
             var promise = registrationService.postRegistration(google_id, namn, klass, tfnr);
+            $location.path('/');
         }
         promise.then(function (response) {
             console.log(response.status);

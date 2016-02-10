@@ -27,7 +27,7 @@ module.service("globalService", function ($q, $http) {
     };
     this.kollaStorage = function () {
         var deferred = $q.defer();
-        if(!localStorage.oskickat)
+        if (!localStorage.oskickat)
         {
             localStorage.oskickat = JSON.stringify([]);
         }
@@ -46,14 +46,20 @@ module.service("globalService", function ($q, $http) {
             }
 
             function postData() {
+                console.log("Posting data");
                 var data = dataArray.pop();
                 if (data.google_id !== anvandare.google_id
                         || data.anvandarnamn !== anvandare.anvandarnamn)
                 {
                     failed.push(data);
                     localStorage.oskickat = JSON.stringify(failed);
-                    postData();
-                    return;
+                    if (dataArray.length > 0)
+                    {
+                        postData();
+                        return;
+                    } else {
+                        return;
+                    }
                 }
                 localStorage.oskickat = JSON.stringify(failed);
                 $http({
