@@ -39,4 +39,3 @@ module.controller("kommentarCtrl", function ($scope, globalService, kommentarSer
         });
     };
 });
-
