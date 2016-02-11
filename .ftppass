@@ -1,0 +1,10 @@
+{
+  "labbserver": {
+    "username": "frontend",
+    "password": "frontend"
+  },
+  "server": {
+    "username": "",
+    "password": ""
+  }
+}
