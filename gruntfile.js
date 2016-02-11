@@ -38,7 +38,9 @@ module.exports = function(grunt) {
                         'src/js/larareSeLoggbokService.js',
                         'src/js/ng.js',
                         'src/js/larareKontaktController.js',
-                        'src/js/larareKontaktService.js'
+                        'src/js/larareKontaktService.js',
+                        'src/js/kommentarController.js',
+                        'src/js/kommentarService.js'
                     ]
                 }
             }

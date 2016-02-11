@@ -13,22 +13,17 @@
                     <p>Jag tyckte att denna dagen var {{logg.intryck}}.</p>
                     <div id="bildDiv"></div>
                 </div>
-                <div id="kommentarDiv">
-                    <input class="form-control" placeholder="Kommentar"/>
-                    <button class="btn btn-default">Skicka kommentar</button>
+                <div id="kommentarDiv" ng-controller="kommentarCtrl" ng-init="laddaKommentar(logg.ID)">
+                    <input class="form-control" placeholder="Kommentar" id="{{logg.ID}}"/>
+                    <button class="btn btn-default" ng-click="postKommentar(logg.ID)">Skicka kommentar</button>
                 </div>
-                <div class="alert alert-link well ridge">  Kommentar 
-                    <h4>Lärar-Jocke <span class="small">31/1 -16</span></h4>
-                    <p>
-                        Lärar-Jocke skriver en jättesnäll kommentar till
-                        Kalles logg.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing 
-                        elit. Integer luctus luctus dolor a tincidunt.
-                        Mauris finibus, libero vel congue laoreet, lacus 
-                        sem consequat mi, eget egestas ligula dolor ac diam.
-                        Phasellus molestie malesuada erat, id aliquet ligula
-                        elementum ac.
-                    </p>
+                <div ng-repeat="kommentar in kommentarer" ng-controller="kommentarCtrl">
+                    <div class="alert alert-link well ridge"> 
+                        <h4>{{kommentar.namn}} <span class="small">{{kommentar.datum}}</span></h4>
+                        <p>
+                            {{kommentar.innehall}}
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
