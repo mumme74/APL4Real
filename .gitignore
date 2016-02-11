@@ -1,4 +1,4 @@
-#projekt filer
+﻿#projekt filer
 /nbproject/
 
 #använd npm install
@@ -13,3 +13,6 @@ src/js/globalVars.js
 
 #bower filer använd bower install
 /bower_components/
+
+#build folder
+/build/
