@@ -11,5 +11,4 @@ module.controller("elevSeLoggCtrl", function ($scope, getServiceLoggar) {
     promiseLoggar.then(function (data){
         $scope.loggar = data;
     });
-    
 });
