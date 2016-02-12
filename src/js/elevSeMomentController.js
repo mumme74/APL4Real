@@ -6,4 +6,14 @@ module.controller("elevSeMomentCtrl", function ($scope, getMoment) {
         $scope.moment = data;
     });
     
+    $scope.getStatus = function (status) {
+        if (status === 0)
+            return "Icke avklarad";
+        else if (status === 1)
+            return "Väntande";
+        else if(status === 2)
+            return "Avklarad!";
+        
+    };
+
 });
