@@ -5,12 +5,12 @@
  */
 
 
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
-  // Project configuration.
-  grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
-     uglify: {
+    // Project configuration.
+    grunt.initConfig({
+        pkg: grunt.file.readJSON('package.json'),
+        uglify: {
             options: {
                 mangle: false //behåll variabelnamn
             },
@@ -37,19 +37,54 @@ module.exports = function(grunt) {
                         'src/js/larareSeLoggbokController.js',
                         'src/js/larareSeLoggbokService.js',
                         'src/js/ng.js',
+                        'src/js/larareKontaktController.js',
+                        'src/js/larareKontaktService.js',
+                        'src/js/kommentarController.js',
+                        'src/js/kommentarService.js',
                         'src/js/elevSeMomentController.js',
                         'src/js/elevSeMomentService.js'
                     ]
                 }
             }
-        } //end uglify
+        }, //end uglify
+        copy: {
+            all: {
+                files: [
+                    {src: 'index.html', dest: 'build/index.html'},
+                    {src: 'icon.ico', dest: 'build/icon.ico'},
+                    {src: 'templates/**', dest: 'build/'},
+                    {src: 'css/**', dest: 'build/'},
+                    {src: 'js/**', dest: 'build/'},
+                    {src: 'bower_components/**', dest: 'build/'}
 
-  });
+                ]
+            }
+        }, //end copy
+        "ftp-deploy": {
+            build: {
+                auth: {
+                    host: '10.97.72.5',
+                    port: 21,
+                    authKey: 'labbserver'
+                },
+                src: 'build/',
+                dest: 'frontend/'
+            }
+        }
+    });
 
-  // Load the plugin that provides the "uglify" task.
-  grunt.loadNpmTasks('grunt-contrib-uglify');
+    // Load the plugin that provides the "uglify" task.
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    //copy tasks
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    //ftp task
+     grunt.loadNpmTasks('grunt-ftp-deploy');
+    
 
-  // Default task(s).
-  grunt.registerTask('build', ['uglify']);
+
+    // Default task(s).
+    grunt.registerTask('build', ['uglify']);
+    //Send to server
+    grunt.registerTask('deploy', ['copy','ftp-deploy']);
 
 };

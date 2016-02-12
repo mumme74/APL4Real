@@ -59,7 +59,7 @@ header + div {
   margin-right: 2em;
 }
 .faded {
-  background: -webkit-linear-gradient(#333333, #333333);
+  background: -webkit-linear-gradient(#333, #333);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

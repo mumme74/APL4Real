@@ -101,7 +101,7 @@ module.config(function ($urlRouterProvider, $stateProvider) {
     }).state("larare_kontakt", {
         url: "/larare_kontakt",
         templateUrl: "templates/lararetemplates/larare_kontakt.html",
-        controller:""
+        controller:"larareKontaktCtrl"
     }).state("larare_c_loggbok", {
         url: "/larare_c_loggbok",
         templateUrl: "templates/lararetemplates/larare_c_loggbok.html",

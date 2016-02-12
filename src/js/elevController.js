@@ -3,7 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-var fuck;
+//global för att ändringar i $scope aldrig stannade kvar
+var gbild;
 module.controller("elevCtrl", function ($scope, $window, postService, globalService) {
     $scope.logout = function () {
         var anvandare = JSON.parse(localStorage.anvandare);
@@ -18,15 +19,16 @@ module.controller("elevCtrl", function ($scope, $window, postService, globalServ
         var datum = $scope.datum.toISOString().substring(0, 10);
         var innehall = $scope.text;
         var ljus = $scope.ljus;
-        console.log(datum);
-        if (datum && innehall && ljus >= 0)
+        var bild = gbild;
+        console.log(bild);
+        if (datum && innehall && ljus >= 0 && bild)
         {
-            postService.postLogg(datum, innehall, ljus)
+            postService.postLogg(datum, innehall, ljus, bild)
                     .then(function (responses) {
                         if (responses.length == 1)
                         {
                             status = responses[0].status;
-                            if (status == 201){
+                            if (status == 201) {
                                 $window.location.href = "#/elev";
                             } else if (status == 500) {
                                 alert("Ett okänt fel inträffades på servern.");
@@ -37,21 +39,27 @@ module.controller("elevCtrl", function ($scope, $window, postService, globalServ
                             console.log(responses);
                         }
                     });
-                }
-            };
-            $scope.valj = function (ljus) {
-                if (ljus === "rod")
-                    $scope.ljus = 0;
-                else if (ljus === "gul")
-                    $scope.ljus = 1;
-                else
-                    $scope.ljus = 2;
-                $(".vald").removeClass("vald");
-                $("." + ljus).addClass("vald");
+        }
+    };
+    $scope.valj = function (ljus) {
+        if (ljus === "rod")
+            $scope.ljus = 0;
+        else if (ljus === "gul")
+            $scope.ljus = 1;
+        else
+            $scope.ljus = 2;
+        $(".vald").removeClass("vald");
+        $("." + ljus).addClass("vald");
 
-            };
-            globalService.kollaStorage().then(function (responses) {
-                console.log(responses);
-            });
-        });
+    };
+    $scope.onImgUrl = function (responseText, statusText, xhr, $form) {
+        console.log(responseText.filename);
+        gbild = responseText.filename;
+        console.log(gbild);
+    };
+    window.onImgUrl = $scope.onImgUrl;
+    globalService.kollaStorage().then(function (responses) {
+        console.log(responses);
+    });
+});
 

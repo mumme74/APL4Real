@@ -1,11 +1,16 @@
-module.service("getMoment", function ($http, $q) {
-
-    this.url = SERVER_URL + "/moment";
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+module.service("getLarareKontaktService", function ($q){
+    var url = SERVER_URL + "/larare/kontakt";
+    //var url = "localhost:8080/aplBackend/webresources/larare/kontakt";
     
-    this.getMoment = function (id_token) {
+    this.getKontakt = function (id_token) {
         var deferred = $q.defer();
         $.ajax({
-            url: this.url,
+            url: url,
             type: 'GET',
             headers: {
                 "Authorization": id_token,
@@ -21,5 +26,6 @@ module.service("getMoment", function ($http, $q) {
         });
         return deferred.promise;
     };
-
+    
 });
+
