@@ -36,7 +36,9 @@ module.exports = function(grunt) {
                         'src/js/narvaroService.js',
                         'src/js/larareSeLoggbokController.js',
                         'src/js/larareSeLoggbokService.js',
-                        'src/js/ng.js'
+                        'src/js/ng.js',
+                        'src/js/elevSeMomentController.js',
+                        'src/js/elevSeMomentService.js'
                     ]
                 }
             }

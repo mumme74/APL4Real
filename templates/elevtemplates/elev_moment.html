@@ -5,17 +5,20 @@
     </div>
     <table class='table table-bordered table-striped'>
         <tr>
-            <td><div class="col-lg-7 ">Lorem Ipsum on lihtsalt proovitekst, mida kasutatakse printimis- ja ladumistööstuses.</div></td>
-            <td><div class="col-lg-3 ">Icke avklarad</div></td>
-            <td><div class="col-lg-2 ">Klar? <input type="checkbox"></div></td>
+            <th><div class="col-lg-7 ">Innehåll av momentet</div></th>
+            <th><div class="col-lg-3 ">Avklarad</div></th>
+            <th><div class="col-lg-2 ">Skicka in som godkänd</div></th>
 
         </tr>
         <tr>
-            <td><div class="col-lg-7 ">Lorem Ipsum on lihtsalt proovitekst, mida kasutatakse printimis- ja ladumistööstuses.</div></td>
-            <td><div class="col-lg-3 ">Avklarad</div></td>
-            <td><div class="col-lg-2 ">Klar? <input type="checkbox"></div></td>
+            <td><div class="col-lg-7 ">Lerom ipsum text här.</div></td>
+            <td><div class="col-lg-3 ">Icke Avklarad</div></td>
+            <td><div class="col-lg-2 "><button class="btn btn-success">Skicka</button></div></td>
+        </tr>
+        <tr ng-repeat="momenten in moment">
+            <td><div class="col-lg-7 ">{{momenten.innehall}}</div></td>
+            <td><div class="col-lg-3 ">Icke Avklarad</div></td>
+            <td><div class="col-lg-2 "><button class="btn btn-success">Skicka</button></div></td>
         </tr>
     </table>
-        <button class="btn btn-success"><p>Skicka klarade<br>
-till Handledaren</p></button>
 </div>

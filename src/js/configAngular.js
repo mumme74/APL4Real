@@ -69,7 +69,7 @@ module.config(function ($urlRouterProvider, $stateProvider) {
     }).state("elev_moment", {
         url: "/elev_moment",
         templateUrl: "templates/elevtemplates/elev_moment.html",
-        controller: ""
+        controller: "elevSeMomentCtrl"
     }).state("handledare_aktivitet", {
         url: "/handledare_aktivitet",
         templateUrl: "templates/handledaretemplates/handledare_aktivitet.html",
