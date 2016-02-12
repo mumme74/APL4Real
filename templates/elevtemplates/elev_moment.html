@@ -13,7 +13,9 @@
         <tr ng-repeat="momenten in moment">
             <td><div class="col-lg-7 ">{{momenten.innehall}}</div></td>
             <td><div class="col-lg-3 ">{{getStatus(momenten.godkand)}}</div></td>
-            <td><div class="col-lg-2 "><button class="btn btn-success">Skicka</button></div></td>
+            <td><div class="col-lg-2 "><a ng-if="Status(momenten.godkand)" ui-sref="elev_moment"
+                                          class="btn btn-success" 
+                                          ng-click="setStatus(momenten.moment_id)">Skicka</a></div></td>
         </tr>
     </table>
 </div>
