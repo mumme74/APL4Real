@@ -1,5 +1,5 @@
 <header ng-include="'templates/headers/handledarehead.html'"></header>
-<div ng-init="getAktiviteter()" >
+<div ng-init="getHandledareAktiviteter()" >
     <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 col-lg-offset-1 
          col-md-offset-1 col-sm-offset-1 col-xs-offset-1" id="wrapper">
         <div class="well ridge">
@@ -19,6 +19,7 @@
                         <p>Din elev har skickat in följande loggbok:</p>
                         <br/>
                         <p>{{aktivitet.innehall}}</p>
+                        <img ng-if='aktivitet.bild !== null' ng-src="{{getBildUrl(aktivitet.bild)}}" alt="Uppladdad bild" />
                     </div>
                     <!-- Moment -->
                     <div ng-if="aktivitet.typ === 2">

@@ -48,13 +48,32 @@ module.service("getService", function ($q) {
         return deferred.promise;
     };
     
-    this.getAktiviteter = function (basic_auth) {
+    this.getHandledareAktiviteter = function (basic_auth) {
         var deferred = $q.defer();
         $.ajax({
             url: this.url + "/aktiviteter",
             type: 'get',
             headers: {
                 "Authorization": basic_auth
+            },
+            success: function (data) {
+                deferred.resolve(data);
+            },
+            error: function (data)
+            {
+                deferred.resolve(data);
+            }
+        });
+        return deferred.promise;
+    };
+    
+    this.getNekadeAktiviteter = function (id_token) {
+        var deferred = $q.defer();
+        $.ajax({
+            url: this.url + "/nekade_aktiviteter",
+            type: 'get',
+            headers: {
+                "Authorization": id_token
             },
             success: function (data) {
                 deferred.resolve(data);
