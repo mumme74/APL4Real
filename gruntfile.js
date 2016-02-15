@@ -47,7 +47,9 @@ module.exports = function (grunt) {
                         'src/js/momentManager.js',
                         'src/js/momentService.js',
                         'src/js/elevKontaktController.js',
-                        'src/js/elevKontaktService.js'
+                        'src/js/elevKontaktService.js',
+                        'src/js/hlKontaktController.js',
+                        'src/js/hlKontaktService.js'
                         
                         
                     ]

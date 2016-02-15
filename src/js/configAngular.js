@@ -81,7 +81,7 @@ module.config(function ($urlRouterProvider, $stateProvider) {
     }).state("handledare_kontakt", {
         url: "/handledare_kontakt",
         templateUrl: "templates/handledaretemplates/handledare_kontakt.html",
-        controller: ""
+        controller: "hlKontaktCtrl"
     }).state("handledare_moment", {
         url: "/handledare_moment",
         templateUrl: "templates/handledaretemplates/handledare_moment.html",

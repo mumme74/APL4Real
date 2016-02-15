@@ -3,16 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-module.service("elevKontaktService", function ($q){
-    this.url = SERVER_URL + "/elev";
+module.service("hlKontaktService", function ($q){
+    this.url = SERVER_URL + "/handledare";
     
-    this.getKontakt = function (id_token) {
+    this.getKontakt = function (basic_auth) {
         var deferred = $q.defer();
         $.ajax({
             url: this.url + "/kontakt",
             type: 'GET',
             headers: {
-                "Authorization": id_token,
+                "Authorization": basic_auth,
                 "Content-Type": 'application/json'
             },
             dataType: 'json',
