@@ -65,7 +65,7 @@ module.config(function ($urlRouterProvider, $stateProvider) {
     }).state("elev_kontakt", {
         url: "/elev_kontakt",
         templateUrl: "templates/elevtemplates/elev_kontakt.html",
-        controller: ""
+        controller: "elevKontaktCtrl"
     }).state("elev_moment", {
         url: "/elev_moment",
         templateUrl: "templates/elevtemplates/elev_moment.html",
