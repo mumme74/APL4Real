@@ -85,7 +85,7 @@ module.config(function ($urlRouterProvider, $stateProvider) {
     }).state("handledare_moment", {
         url: "/handledare_moment",
         templateUrl: "templates/handledaretemplates/handledare_moment.html",
-        controller: ""
+        controller: "momentCtrl"
     }).state("handledare_sida", {
         url: "/handledare_sida",
         templateUrl: "templates/handledaretemplates/handledare_sida.html",
@@ -101,7 +101,7 @@ module.config(function ($urlRouterProvider, $stateProvider) {
     }).state("larare_moment", {
         url: "/larare_moment",
         templateUrl: "templates/lararetemplates/larare_moment.html",
-        controller: ""
+        controller: "momentCtrl"
     }).state("larare_kontakt", {
         url: "/larare_kontakt",
         templateUrl: "templates/lararetemplates/larare_kontakt.html",

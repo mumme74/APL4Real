@@ -43,7 +43,10 @@ module.exports = function (grunt) {
                         'src/js/kommentarService.js',
                         'src/js/elevSeMomentController.js',
                         'src/js/elevSeMomentService.js',
-                        'src/js/aktivitetController.js'
+                        'src/js/aktivitetController.js',
+                        'src/js/momentController.js',
+                        'src/js/momentService.js'
+                        
                         
                     ]
                 }
