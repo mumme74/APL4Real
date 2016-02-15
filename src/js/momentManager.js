@@ -6,7 +6,7 @@
 
 
 module.controller("momentCtrler", function ($scope, momentService) {
-    
+
     //Klasser
     $scope.id_token = "";
     var promiseKlasser = momentService.getKlasser();
@@ -15,18 +15,12 @@ module.controller("momentCtrler", function ($scope, momentService) {
         console.log(data);
     });
     //elever
-    $scope.getElever = function () {
-        var id_token = JSON.parse(localStorage.anvandare).id_token;
-        momentService.getElever(id_token).then(function (data) {
+    $scope.getEleverna = function () {
+//        var id_token = JSON.parse(localStorage.anvandare).id_token;
+        var promiseEleverna = momentService.getEleverna();
+        momentService.getEleverna(id_token).then(function (data) {
             $scope.elever = data;
-    });
-};
+        });
+    };
     
-    //moment
-    $scope.id_token = "";
-    var promiseMoment = momentService.getMoment();
-    promiseMoment.then(function (data){
-        $scope.moment = data;
-        console.log(data);
-    }); 
 });

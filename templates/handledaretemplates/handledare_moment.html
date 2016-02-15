@@ -3,21 +3,25 @@
     <div class="jumbotron">
         <h1>Moment:</h1>
     </div>
-        <p>Välj din elev:</p>
-    <div ng-init="getElever()">
+        <p>Välj klass:</p>
+        <select ng-model="dropdownKlass" class="btn btn-default"> 
+            <option ng-repeat="klass in klasser">
+                {{klass.namn}}
+            </option> 
+        </select>
+        <p>Välj elev:</p>
         <select ng-model="dropdownElev" class="btn btn-default"> 
             <option ng-repeat="elev in elever">
                 {{elev.namn}}
             </option> 
-        </select>
-     </div>   
+        </select>   
     <button>Välj</button>
     
     <br><br>
     <table class='table table-bordered table-striped'>
         <tr>
             <th>Innehåll</th>
-            <th>Avklarat</th>
+            <th>Status</th>
             <th>Bekräfta</th>
         </tr>
         <tr ng-repeat="momenten in moment">
@@ -27,4 +31,5 @@
                    ng-click="setStatus(momenten.moment_id)">Skicka</a></td>
         </tr>
     </table>
+    <a class="btn btn-success">Godkänn</a>
 </div>
