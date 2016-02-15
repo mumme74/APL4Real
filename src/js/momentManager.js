@@ -15,12 +15,13 @@ module.controller("momentCtrler", function ($scope, momentService) {
         console.log(data);
     });
     //elever
-    $scope.getEleverna = function () {
-//        var id_token = JSON.parse(localStorage.anvandare).id_token;
-        var promiseEleverna = momentService.getEleverna();
-        momentService.getEleverna(id_token).then(function (data) {
-            $scope.elever = data;
-        });
-    };
+    var anvandare = JSON.parse(localStorage.anvandare);
+    var id_token = anvandare.id_token;
+    var promiseLoggar = momentService.getElever(id_token);
+    promiseLoggar.then(function (data){
+        $scope.eleverna = data;
+        console.log(data);
+    });
+    
     
 });

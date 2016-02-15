@@ -17,7 +17,7 @@ module.service("momentService", function ($http, $q){
     
     //Elever
      this.url = SERVER_URL + "/get";
-    this.getEleverna = function (id_token) {
+    this.getElever = function (id_token) {
         var deferred = $q.defer();
         $.ajax({
             url: this.url + "/elever",
