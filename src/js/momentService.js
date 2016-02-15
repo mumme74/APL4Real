@@ -1,12 +1,6 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 module.service("momentService", function ($http, $q){
       
-    //Klasser  
+    
     this.getKlasser = function () {
         var deferred = $q.defer();
         var url = SERVER_URL + "/apl/klass";
@@ -21,23 +15,29 @@ module.service("momentService", function ($http, $q){
         return deferred.promise;
     };
     
-    //Elever
-    this.getElever = function () {
+  
+    this.url = SERVER_URL + "/get";
+    this.getElever = function (id_token) {
         var deferred = $q.defer();
-        var url = SERVER_URL + "/elev"; 
-        $http({method: "GET", url: url}).success(function (data, status) {
-            console.log(data);
-            deferred.resolve(data);
-        }).error(function (data, status) {
-            console.log("Error");
-            console.log(status);
-            deferred.reject();
+        $.ajax({
+            url: this.url + "/elever",
+            type: 'get',
+            headers: {
+                "Authorization": id_token
+            },
+            success: function (data) {
+                deferred.resolve(data);
+            },
+            error: function (data)
+            {
+                deferred.resolve(data);
+            }
         });
         return deferred.promise;
     };
 
 
-    //Moment
+ 
     this.getMoment = function () {
         var deffered = $defer();
         var url = SERVER_URL + "/moment";

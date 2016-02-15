@@ -5,10 +5,9 @@
  */
 
 
-module.controller("momentCtrl", function ($scope, momentService) {
+module.controller("momentCtrler", function ($scope, momentService) {
     
     //Klasser
-    console.log("hello world!");
     $scope.id_token = "";
     var promiseKlasser = momentService.getKlasser();
     promiseKlasser.then(function (data) {
@@ -16,12 +15,12 @@ module.controller("momentCtrl", function ($scope, momentService) {
         console.log(data);
     });
     //elever
-    $scope.id_token = "";
-    var promiseElever = momentService.getElever();
-    promiseElever.then(function (data) {
-        $scope.elever = data;
-        console.log(data);
+    $scope.getElever = function () {
+        var id_token = JSON.parse(localStorage.anvandare).id_token;
+        momentService.getElever(id_token).then(function (data) {
+            $scope.elever = data;
     });
+};
     
     //moment
     $scope.id_token = "";
