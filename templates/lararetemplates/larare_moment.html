@@ -11,7 +11,7 @@
         </select>
         <p>Välj elev:</p>
         <select ng-model="sokElev" class="btn btn-default"> 
-            <option ng-repeat="elev in elever">
+            <option ng-repeat="elev in eleverna">
                 {{elev.namn}}
             </option> 
         </select>
@@ -47,14 +47,14 @@
           <h4>Beskrivning av Moment:</h4>
           <textarea ng-model="nyInnehall"></textarea>
           <h4>Välj Klass</h4>
-          <select ng-model="sokKlass" class="btn btn-default"> 
-            <option ng-repeat="klass in klasser">
+          <select ng-model="dropdownKlass" ng-change="getElevernana()" class="btn btn-default"> 
+              <option ng-repeat="klass in klasser" value='{{klass.id}}' >
                 {{klass.namn}}
             </option> 
             </select>
             <h4>Välj elev</h4>
             <select ng-model="dropdownElev" class="btn btn-default"> 
-                <option ng-repeat="elev in elever">
+                <option ng-repeat="elev in eleverna">
                     {{elev.namn}}
                 </option> 
             </select>
