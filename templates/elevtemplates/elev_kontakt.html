@@ -5,23 +5,14 @@
     </div>
     <table class="table table-striped" style="width:100%">
         <tr>
-            <td>Namn:</td>
-            <td>Telefon:</td>		
-            <td>E-mail:</td>
+            <th>Namn</th>
+            <th>Mail</th>
+            <th>Telefonnummer</th>
         </tr>
-        <tr>
-            <td>Johan Lennartsson</td>
-            <td>073776688</td>	
-            <td>jol_le@hotmail.se</td>
-        </tr>
-        <tr>
-            <td>Anders Iwarsson</td>
-            <td>0734125412</td>		
-            <td>anderslol@gmail.com</td>
-        <tr>
-            <td>Lasse Ohlsson</td>
-            <td>075642932</td>
-            <td>lasseolikus@hotmail.se</td>
+        <tr ng-repeat="kontakt in kontakter">
+            <td>{{kontakt.namn}}</td>
+            <td>{{kontakt.mail}}</td>
+            <td>{{kontakt.tfnr}}</td>
         </tr>
     </table>
 </div>
