@@ -11,4 +11,9 @@ module.controller("elevSeLoggCtrl", function ($scope, getServiceLoggar) {
     promiseLoggar.then(function (data){
         $scope.loggar = data;
     });
+    $scope.getBildUrl = function (bild) {
+        //tar bort citattecknen som kommer vem fan vet var ifrån
+        bild = bild.substr(1, bild.length - 2);
+        return "//10.97.72.5/fileload/uploads/" + bild;
+    };
 });

@@ -52,7 +52,7 @@ module.config(function ($urlRouterProvider, $stateProvider) {
         controller: "elevCtrl"
     }).state("elev_se_loggbok", {
         url: "/elev_se_loggbok",
-        templatesUrl: "templates/elevtemplates/elev_se_loggbok.html",
+        templateUrl: "templates/elevtemplates/elev_se_loggbok.html",
         controller: "elevSeLoggCtrl"
     }).state("elevnarvaro", {
         url: "/elevnarvaro",
