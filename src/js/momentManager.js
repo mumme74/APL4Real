@@ -17,11 +17,19 @@ module.controller("momentCtrler", function ($scope, momentService) {
     //elever
     var anvandare = JSON.parse(localStorage.anvandare);
     var id_token = anvandare.id_token;
-    var promiseLoggar = momentService.getElever(id_token);
-    promiseLoggar.then(function (data){
+    var promiseElever = momentService.getElevFranKlass(id_token);
+    promiseElever.then(function (data){
         $scope.eleverna = data;
         console.log(data);
     });
     
+    
+    //moment
+    $scope.id_token = "";
+    var promiseMoment = momentService.allaSeMoment();
+    promiseMoment.then(function (data) {
+        $scope.moment = data;
+        console.log(data);
+    });
     
 });

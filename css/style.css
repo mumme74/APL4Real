@@ -59,7 +59,7 @@ header + div {
   margin-right: 2em;
 }
 .faded {
-  background: -webkit-linear-gradient(#333, #333);
+  background: -webkit-linear-gradient(#333333, #333333);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -71,5 +71,8 @@ header + div {
 }
 .mleft {
   margin-left: 2em;
+}
+.center-img {
+  margin: 0 auto;
 }
 /*# sourceMappingURL=style.css.map */

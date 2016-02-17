@@ -110,6 +110,18 @@ module.config(function ($urlRouterProvider, $stateProvider) {
         url: "/larare_c_loggbok",
         templateUrl: "templates/lararetemplates/larare_c_loggbok.html",
         controller: ""
+    }).state("se_moment_larare",{
+        url:"/se_moment_larare",
+        templateUrl:"templates/lararetemplates/se_moment_larare.html",
+        controller:"momentCtrler"
+    }).state("skapa_moment",{
+        url:"/skapa_moment",
+        templateUrl:"templates/lararetemplates/skapa_moment.html",
+        controller:""
+    }).state("tilldela_moment",{
+        url:"/tilldela_moment",
+        templateUrl:"templates/lararetemplates/tilldela_moment.html",
+        controller:""
     });
 });
 

@@ -1,71 +1,10 @@
 <header ng-include="'templates/headers/lararehead.html'"></header>
-<div ng-controller="momentCtrler" class="container">
-    <div class="jumbotron">
-        <h1>Moment:</h1>
+<br><br><br>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Moment</h1>
+            <a ui-sref="se_moment_larare">Se Moment</a>
+            <a ui-sref="tilldela_moment">Tilldela Moment</a>
+            <a ui-sref="skapa_moment">Skapa Moment</a>
+        </div>
     </div>
-        <p>Välj klass:</p>
-        <select ng-model="sokKlass" class="btn btn-default"> 
-            <option ng-repeat="klass in klasser">
-                {{klass.namn}}
-            </option> 
-        </select>
-        <p>Välj elev:</p>
-        <select ng-model="sokElev" class="btn btn-default"> 
-            <option ng-repeat="elev in eleverna">
-                {{elev.namn}}
-            </option> 
-        </select>
-        
-    <button>Sök</button>
-    
-    <br><br>
-    <table class='table table-bordered table-striped'>
-        <tr>
-            <th>Innehåll</th>
-            <th>Avklarat</th>
-            <th>Bekräfta</th>
-        </tr>
-        <tr ng-repeat="momenten in moment">
-            <td>{{momenten.innehall}}</td>
-            <td>{{getStatus(moment.godkand)}}</td>
-            <td><a ng-if="Status(momenten.godkand)" class="btn btn-success" 
-                   ng-click="setStatus(momenten.moment_id)">Skicka</a></td>
-        </tr>
-    </table>
-    <!-- Modal Button -->
-    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#skapaMoment">Skapa Moment</button>
-    <!-- Modal -->
-    <div id="skapaMoment" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Skapa Moment</h4>
-      </div>
-      <div class="modal-body">
-          <h4>Beskrivning av Moment:</h4>
-          <textarea ng-model="nyInnehall"></textarea>
-          <h4>Välj Klass</h4>
-          <select ng-model="dropdownKlass" ng-change="getElevernana()" class="btn btn-default"> 
-              <option ng-repeat="klass in klasser" value='{{klass.id}}' >
-                {{klass.namn}}
-            </option> 
-            </select>
-            <h4>Välj elev</h4>
-            <select ng-model="dropdownElev" class="btn btn-default"> 
-                <option ng-repeat="elev in eleverna">
-                    {{elev.namn}}
-                </option> 
-            </select>
-            
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-success">Spara</button>  
-        <button type="button" class="btn btn-default" data-dismiss="modal">Stäng</button>
-      </div>
-    </div>
-
-  </div>
-    </div>
-</div>

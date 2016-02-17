@@ -27,7 +27,7 @@
         </tr>
         <tr ng-repeat="momenten in moment">
             <td>{{momenten.innehall}}</td>
-            <td>{{getStatus(moment.godkand)}}</td>
+            <td>{{getStatus(momenten.godkand)}}</td>
             <td><a ng-if="Status(momenten.godkand)" class="btn btn-success" 
                    ng-click="setStatus(momenten.moment_id)">Skicka</a></td>
         </tr>

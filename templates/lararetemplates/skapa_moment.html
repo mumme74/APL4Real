@@ -1,0 +1,23 @@
+<header ng-include="'templates/headers/lararehead.html'"></header>
+    
+<div class="container">
+    <div class="jumbotron">
+        <h1>Skapa Moment:</h1>
+        <a ui-sref="se_moment_larare">Se Moment</a>
+        <a ui-sref="tilldela_moment">Tilldela Moment</a>
+        <a ui-sref="skapa_moment">Skapa Moment</a>
+    </div>
+    <div class="col-sm-6">
+        <h3>Innehåll:</h3>
+        <textarea rows="4" cols="60" placeholder="Fyll i elevens moment" ></textarea><br>
+        <button class="btn btn-primary">Spara</button>
+    </div>
+    <div class="col-sm-6">
+        <h3>Skapade Moment:</h3>
+        <table>
+         <tr>
+             <td>{{"moment in momenten"}}</td>
+         </tr>
+        </table>
+    </div>
+</div>
