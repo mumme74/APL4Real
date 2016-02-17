@@ -1,0 +1,26 @@
+<header ng-include="'templates/headers/lararehead.html'"></header>
+
+<div class="container" ng-init="laddaAnv()">
+    <div class="row">
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+            
+            <select ng-model="ddElev">
+                <option ng-repeat="elev in EleverLista" value="{{elev.ID}}">
+                    {{elev.namn}}
+                </option>
+            </select>
+            
+        </div>
+        
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+            
+            <select ng-model="ddHandledare">
+                <option ng-repeat="HL in HLLista" value="{{HL.ID}}">
+                    {{HL.email}}
+                </option>
+            </select>
+            
+        </div>
+        
+    </div>
+</div>

@@ -51,8 +51,9 @@ module.exports = function (grunt) {
                         'src/js/hlKontaktController.js',
                         'src/js/hlKontaktService.js',
                         'src/js/larareSeNarvaroController.js',
-                        'src/js/larareSeNarvaroService.js'
-                        
+                        'src/js/larareSeNarvaroService.js',
+                        'src/js/redigeraAnvController.js',
+                        'src/js/redigeraAnvService.js'
                         
                     ]
                 }
