@@ -49,7 +49,9 @@ module.exports = function (grunt) {
                         'src/js/elevKontaktController.js',
                         'src/js/elevKontaktService.js',
                         'src/js/hlKontaktController.js',
-                        'src/js/hlKontaktService.js'
+                        'src/js/hlKontaktService.js',
+                        'src/js/larareSeNarvaroController.js',
+                        'src/js/larareSeNarvaroService.js'
                         
                         
                     ]

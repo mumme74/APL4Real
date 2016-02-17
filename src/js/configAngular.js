@@ -97,7 +97,7 @@ module.config(function ($urlRouterProvider, $stateProvider) {
     }).state("larare_narvaro", {
         url: "/larare_narvaro",
         templateUrl: "templates/lararetemplates/larare_narvaro.html",
-        controller: ""
+        controller: "larareSeNarvaroCtrl"
     }).state("larare_moment", {
         url: "/larare_moment",
         templateUrl: "templates/lararetemplates/larare_moment.html",

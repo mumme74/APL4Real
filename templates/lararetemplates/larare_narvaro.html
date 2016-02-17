@@ -1,3 +1,81 @@
 <header ng-include="'templates/headers/lararehead.html'"></header>
-</br></br>
-<h1>Närvaro</h1>
+
+<div ng-controller="larareSeNarvaroCtrl">
+
+    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 col-lg-offset-1 
+         col-md-offset-1 col-sm-offset-1 col-xs-offset-1" id="wrapper">
+        <div class="well ridge">
+            <h1 class="text-center">Närvaro</h1>
+            <label class="text-center">Välj elev:
+                <select ng-model="selected_elev"
+                        ng-init="selected_elev = -1"
+                        ng-options="elev.elev_id as elev.namn for elev in elever">
+                </select>
+            </label>
+            <br/>
+            <div ng-show='selected_elev > -1'>
+                <label class="text-center">År:
+                    <select ng-init="selected_year = currentYear"
+                            ng-model="selected_year"
+                            ng-options="year as year for year in years"
+                            ng-change="getVeckor(selected_elev, selected_year, selected_month)">
+                    </select>
+                </label>
+                <label class="text-center">Månad:
+                    <select ng-init="selected_month = '' + currentMonth"
+                            ng-model="selected_month"
+                            ng-change="getVeckor(selected_elev, selected_year, selected_month)">
+                        <option value = "0">Januari</option>
+                        <option value = "1">Februari</option>
+                        <option value = "2">Mars</option>
+                        <option value = "3">April</option>
+                        <option value = "4">Maj</option>
+                        <option value = "5">Juni</option>
+                        <option value = "6">Juli</option>
+                        <option value = "7">Augusti</option>
+                        <option value = "8">September</option>
+                        <option value = "9">Oktober</option>
+                        <option value = "10">November</option>
+                        <option value = "11">December</option> 
+                    </select>
+                </label>
+            </div>
+            <div ng-if="selected_elev === -1">
+                <div class="narvaro_vecka" ng-repeat="elev in elever">
+                    <h2 ng-if='elev.elev_id === -1' class='text-center'>Alla Elever</h2>
+                    <div ng-if='elev.elev_id !== -1'>
+                        <h4>{{elev.namn}}</h4>
+                        <div class="narvaro_head">
+                            <div class="narvaro_dag">Sön</div>
+                            <div class="narvaro_dag">Mån</div>
+                            <div class="narvaro_dag">Tis</div>
+                            <div class="narvaro_dag">Ons</div>
+                            <div class="narvaro_dag">Tors</div>
+                            <div class="narvaro_dag">Fre</div>
+                            <div class="narvaro_dag">Lör</div>
+                        </div>
+                        <div class="narvaro_vecka" ng-repeat="vecka in veckor">
+                            <div ng-repeat="narvaro in vecka" class="ng-class: parseClass(getLjus(elev, narvaro.datum)) + ' ' + todayClass(narvaro.datum); narvaro_dag">{{narvaro.datum.getDate()}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-if="selected_elev > -1">
+                <h2 ng-init='elev = getElev(selected_elev)' class="text-center">{{elev.namn}}</h2>
+                <div class="narvaro_head">
+                    <div class="narvaro_dag">Sön</div>
+                    <div class="narvaro_dag">Mån</div>
+                    <div class="narvaro_dag">Tis</div>
+                    <div class="narvaro_dag">Ons</div>
+                    <div class="narvaro_dag">Tors</div>
+                    <div class="narvaro_dag">Fre</div>
+                    <div class="narvaro_dag">Lör</div>
+                </div>
+                <div class="narvaro_vecka" ng-repeat="vecka in veckor">
+                    <div ng-repeat="narvaro in vecka" class="ng-class: parseClass(getLjus(elev, narvaro.datum)); narvaro_dag">{{narvaro.datum.getDate()}}</div>
+                </div>
+            </div>
+            <div class='clear'></div>
+        </div>
+    </div>
+</div>
