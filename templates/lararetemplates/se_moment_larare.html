@@ -3,32 +3,32 @@
     <div class="jumbotron">
         <h1>Se Moment:</h1>
     </div>
-        <p>Välj klass:</p>
+    <div class="col-sm-4">
+        <h3>Välj klass:</h3>
         <select ng-model="sokKlass" class="btn btn-default" ng-change="updateraElevLista()"> 
             <option ng-repeat="klass in klasser" value="{{klass.id}}">
                 {{klass.namn}}
             </option> 
         </select>
-        <p>Välj elev:</p>
+    </div>
+    <div class="col-sm-4"> 
+        <h3>Välj elev:</h3>
         <select ng-model="sokElev" class="btn btn-default" ng-change="updateraElevsMoment()"> 
             <option ng-repeat="elev in eleverna" value="{{elev.id}}">
                 {{elev.namn}}
             </option> 
         </select>
-        
-    <button>Sök</button>
-    
-    <br><br>
+    </div>
+    <br><br><br>    <br><br><br>
+
     <table class='table table-bordered table-striped'>
         <tr>
             <th>Innehåll</th>
             <th>Avklarat</th>
-            <th>Bekräfta</th>
         </tr>
-        <tr ng-repeat="momenten in moment">
-            <td>{{momenten.innehall}}</td>
-            <td>{{moment.godkand}}</td>
-            <td>{{}}</td>
+        <tr ng-repeat="momenten in moment" value="{{moment.id}}" >
+            <td>{{momenten.moment}}</td>
+            <td>{{momenten.godkand}}</td>
         </tr>
     </table>
   </div>

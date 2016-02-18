@@ -28,21 +28,32 @@ module.controller("momentCtrler", function ($scope, momentService) {
 
     //hämta moment använder ng-change för att uppdatera
     $scope.updateraElevsMoment = function () {
-        $scope.id_token = "";
+        var anvandare = JSON.parse(localStorage.anvandare);
+        var id_token = anvandare.id_token;
+        var elev_id_input = parseInt($scope.sokElev);
+        console.log(elev_id_input);
+        var elev_id = {"elev_id":elev_id_input};
+        console.log(elev_id);
+        var obj = JSON.stringify(elev_id);
+        console.log(elev_id);
+        console.log("Test2");
+        console.log("typeof elev_id: " + typeof elev_id_input);
         console.log("updateraElevsMoment");
-        var promiseMoment = momentService.allaSeMoment(id_token, $scope.sokElev);
+        var promiseMoment = momentService.getMoment(id_token, obj);
         promiseMoment.then(function (data) {
             $scope.moment = data;
+            console.log(data);
         });
     };
-    //T(m)oment
-    var anvandare = JSON.parse(localStorage.anvandare);
-    var id_token = anvandare.id_token;
-    var elev_id = {elev_id:$scope.sokElev}
-    var promiseToment = momentService.getToment(id_token, elev_id);
-    promiseToment.then(function (data) {
-        $scope.Toment = data;
-        console.log(data);
-    });
+
+    $scope.seAllaMoment = function () {
+        var anvandare = JSON.parse(localStorage.anvandare);
+        console.log("SeallaMoment");
+        var promiseAllaMoment = momentService.getAllaMoment(anvandare);
+        promiseAllaMoment.then(function (data) {
+            $scope.momentena = data;
+            console.log(data);
+        });
+    };
 
 });

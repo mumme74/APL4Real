@@ -22,10 +22,13 @@ module.controller("aktivitetCtrl", function ($scope, $window, getService, global
         else if (i === 2)
             return "Moment";
     };
-    $scope.getBildUrl = function (bild) {
+    $scope.getBildUrl = function (bild, storlek) {
         //tar bort citattecknen som kommer vem fan vet var ifrån
         bild = bild.substr(1, bild.length - 2);
-        return "//10.97.72.5/fileload/uploads/" + bild;
+        if (storlek)
+            return "//10.97.72.5/fileload/?file=" + bild + "&size=" + storlek;
+        else
+            return "//10.97.72.5/fileload/?file=" + bild;
     };
     $scope.getHandledareAktiviteter = function () {
         var basic_auth = JSON.parse(localStorage.anvandare).basic_auth;
@@ -94,7 +97,7 @@ module.controller("aktivitetCtrl", function ($scope, $window, getService, global
         };
         $scope.skickaElev(data);
     };
-    $scope.skickaElev = function(data) {
+    $scope.skickaElev = function (data) {
         var url = "/elev/aktivitet";
         globalService.skickaData(url, data).then(function (responses) {
             console.log(responses);

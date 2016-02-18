@@ -3,24 +3,68 @@
 <div class="container" ng-init="laddaAnv()">
     <div class="row">
         <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-            
-            <select ng-model="ddElev">
+
+            <label for="ddElev">Välj elev:</label>
+            <br/>
+            <select ng-model="ddElev" ng-change="laddaElev()" id="ddElev">
                 <option ng-repeat="elev in EleverLista" value="{{elev.ID}}">
                     {{elev.namn}}
                 </option>
             </select>
-            
+            <br/><br/>
+            <input id="elevnamn" value="{{elevObj.namn}}" placeholder="Namn"/>
+            <br/><br/>
+            <input id="elevtfnr" value="{{elevObj.tfnr}}" placeholder="Telefonnummer"/>
+            <br/><br/>
+            <input id="elevemail" value="{{elevObj.email}}" placeholder="Email"/>
+            <br/><br/>
+            <label for="klass">Klass</label>
+            <br/>
+            <select ng-model="elevklass" id="klass" 
+                    ng-options="klass.id as klass.namn for klass in klasser">
+            </select>
+            <br/><br/>
+            <label for="HLinput">Handledare</label>
+            <br/>
+            <select ng-model="elevHL_id" id="HLinput" 
+                    ng-options="HL.ID as HL.email for HL in HLLista">
+            </select>
+            <br/><br/><br/>
+            <button class="btn btn-default" ng-click="sparaElev()">Spara</button>
+            <button class="btn btn-default" ng-click="rensa()">Avbryt</button>
+
         </div>
-        
+
         <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-            
-            <select ng-model="ddHandledare">
+
+            <label for="ddHL">Välj handledare:</label>
+            <br/>
+            <select ng-model="ddHandledare" ng-change="laddaHL()" id="ddHL">
                 <option ng-repeat="HL in HLLista" value="{{HL.ID}}">
                     {{HL.email}}
                 </option>
             </select>
             
+            <br/><br/>
+            <input id="HLnamn" value="{{HLObj.namn}}" placeholder="Namn"/>
+            <br/><br/>
+            <input id="HLtfnr" value="{{HLObj.tfnr}}" placeholder="Telefonnummer"/>
+            <br/><br/>
+            <input id="HLemail" value="{{HLObj.email}}" placeholder="Email"/>
+            <br/><br/>
+            <input id="HLforetag" value="{{HLObj.foretag}}" placeholder="Företag"/>
+            <br/><br/>
+            <input id="HLanvnamn" value="{{HLObj.email}}" placeholder="Användarnamn"/>
+            <br/><br/>
+            <input id="HLlosen" placeholder="Lösenord"/>
+            <br/>
+            <label for="HLlosen">(Ange lösenord om du vill byta till ett nytt, <br/>annars låter du den vara tom)</label>
+            <br/><br/>
+
+
+            <button class="btn btn-default" ng-click="sparaHL()">Spara</button>
+            <button class="btn btn-default" ng-click="rensa()">Avbryt</button>
         </div>
-        
     </div>
 </div>
+<footer ng-include="'templates/footer.html'"></footer>
