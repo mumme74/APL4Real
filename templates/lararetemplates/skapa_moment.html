@@ -1,5 +1,5 @@
 <header ng-include="'templates/headers/lararehead.html'"></header>
-    
+
 <div ng-controller="momentCtrler" class="container">
     <div class="jumbotron">
         <h1>Skapa Moment:</h1>
@@ -10,11 +10,11 @@
         <button class="btn btn-primary">Spara</button>
     </div>
     <div class="col-sm-6">
-        <h3>Skapade Moment:</h3>
+        <h3>Alla Moment:</h3>
         <table>
-         <tr>
-             <td ng-repeat="momenten in moment">{{momenten.id}}</td>
-         </tr>
+            <tr>
+                <td ng-repeat="momenten in momentena">{{momenten.innehall}}</td>
+            </tr>
         </table>
     </div>
 </div>

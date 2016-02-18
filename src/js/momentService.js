@@ -36,12 +36,13 @@ module.service("momentService", function ($http, $q){
         });
         return deferred.promise;
     };
-
-    this.getToment = function (id_token, elev_id) {
+        
+        //hämta moment
+    this.getMoment = function (id_token,elev_id) {
         var deferred = $q.defer();
-        var url = SERVER_URL + "/moment/elev/";
+        var url = SERVER_URL + "/moment/elev";
      $.ajax({
-            url: this.url,
+            url: url,
             type: 'post',
             headers: {
                 "Authorization": id_token,
@@ -59,29 +60,31 @@ module.service("momentService", function ($http, $q){
         
         return deferred.promise;
     };
-
-
-//        //T(m)oment
-//        this.url = SERVER_URL + "/moment";
-//    this.allaSeMoment = function (id_token,elev) {
-//            var deferred = $q.defer();
-//        $.ajax({
-//            url: this.url + "/elev/"+elev,
-//            type: 'get',
-//            headers: {
-//                "Authorization": id_token,
-//                "Content-Type": "application/json"
-//            },
-//            success: function (data) {
-//                deferred.resolve(data);
-//            },
-//            error: function (data)
-//            {
-//                deferred.resolve(data);
-//            }
-//        });
-//        return deferred.promise;
-//    };
-
+    
+        
+    //hämta alla moment
+    this.seallaMoment = function (anvandare,elev_id) {
+        var deferred = $q.defer();
+        var url = SERVER_URL + "/moment/elev";
+     $.ajax({
+            url: url,
+            type: 'post',
+            headers: {
+                "Authorization": anvandare,
+                "Content-Type": "application/json"
+            },
+            data: elev_id,
+            success: function (data) {
+                deferred.resolve(data);
+            },
+            error: function (data)
+            {
+                deferred.resolve(data);
+            }
+        });
+        
+        return deferred.promise;
+    };
+    
     
  });
