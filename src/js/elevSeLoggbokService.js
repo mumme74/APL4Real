@@ -8,6 +8,7 @@ module.service("getServiceLoggar", function ($http, $q) {
     this.url = SERVER_URL + "/elev";
     
     this.getLoggar = function (id_token) {
+        console.log("hello?");
         var deferred = $q.defer();
         $.ajax({
             url: this.url + "/allaLoggar",
@@ -18,9 +19,11 @@ module.service("getServiceLoggar", function ($http, $q) {
             },
             dataType: 'json',
             success: function (data) {
+                console.log("wat!");
                 deferred.resolve(data);
             },
             error: function (data) {
+                console.log("hello!");
                 deferred.resolve(data);
             }
         });

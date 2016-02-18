@@ -5,12 +5,19 @@
  */
 
 module.controller("elevSeLoggCtrl", function ($scope, getServiceLoggar) {
+    console.log("hello?");
     var anvandare = JSON.parse(localStorage.anvandare);
     var id_token = anvandare.id_token;
     var promiseLoggar = getServiceLoggar.getLoggar(id_token);
-    promiseLoggar.then(function (data){
+    promiseLoggar.then(function (data) {
+        console.log(data);
         $scope.loggar = data;
     });
+    $scope.show = function (e) {
+        console.log("#" + e.$id + "_kommentarer");
+        $(".kommentarContainer").not("#" + e.$id + "_kommentarer").slideUp();
+        $("#" + e.$id + "_kommentarer").slideToggle();
+    };
     $scope.getBildUrl = function (bild) {
         //tar bort citattecknen som kommer vem fan vet var ifrån
         bild = bild.substr(1, bild.length - 2);

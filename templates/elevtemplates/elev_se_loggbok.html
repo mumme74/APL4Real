@@ -1,5 +1,5 @@
 <header ng-include="'templates/headers/elevhead.html'"></header>
-<div ng-controller="elevSeLoggCtrl">
+<div>
     <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 col-lg-offset-1 
          col-md-offset-1 col-sm-offset-1 col-xs-offset-1" id="wrapper">
         <div class="well ridge">
@@ -19,10 +19,14 @@
                             ng-click="postKommentar(logg.ID)">
                         Skicka kommentar
                     </button>
-                    <button class="btn btn-default" ng-click="laddaKommentar(logg.ID)">Ladda kommentarer</button>
-                </div>
-                <div ng-controller="kommentarCtrl" id="{{logg.ID}}kommentar">
-                    
+                    <button class="btn btn-default" ng-click="show(this)">
+                        Ladda kommentarer ({{logg.kommentarer.length}})</button>
+                    <div class="kommentarContainer" id="{{this.$id}}_kommentarer">
+                        <div class='alert alert-link well ridge kommentar' ng-repeat="kommentar in logg.kommentarer">
+                            <h4>{{kommentar.namn}} <span class='small'>{{kommentar.datum}}</span></h4>
+                            <p>{{kommentar.innehall}}<p> 
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
