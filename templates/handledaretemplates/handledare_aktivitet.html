@@ -19,7 +19,7 @@
                         <p>Din elev har skickat in följande loggbok:</p>
                         <br/>
                         <p>{{aktivitet.innehall}}</p>
-                        <img ng-if='aktivitet.bild !== null' ng-src="{{getBildUrl(aktivitet.bild)}}" alt="Uppladdad bild" />
+                        <img ng-if='aktivitet.bild !== null' ng-src="{{getBildUrl(aktivitet.bild, 300)}}" alt="Uppladdad bild" />
                     </div>
                     <!-- Moment -->
                     <div ng-if="aktivitet.typ === 2">
