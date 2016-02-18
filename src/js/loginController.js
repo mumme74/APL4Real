@@ -3,10 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-module.controller("loginCtrl", function ($window, $scope, loginService) {
+module.controller("loginCtrl", function ($location, $window, $scope, loginService) {
     $scope.googleLogin = function (googleAnvandare) {
 
         var id_token = googleAnvandare.getAuthResponse().id_token;
+        var expires_at = googleAnvandare.getAuthResponse().expires_at;
+        console.log(expires_at);
         var google_id = googleAnvandare.getBasicProfile().getId();
         loginService.logInGoogle(id_token).then(function (data) {
             if (data.behorighet === 0) {
@@ -14,22 +16,31 @@ module.controller("loginCtrl", function ($window, $scope, loginService) {
                 var anvandare = {
                     id_token: id_token,
                     google_id: google_id,
-                    behorighet: 0
+                    behorighet: 0,
+                    expires_at: expires_at
                 };
                 localStorage.anvandare = JSON.stringify(anvandare);
-                $window.location.href = "#/elev";
+                if ($location.path() === "/")
+                    $window.location.href = "#/elev";
+                else
+                    $window.location.reload();
             } else if (data.behorighet === 1) {
                 console.log("Inloggad som lärare.");
                 var anvandare = {
                     id_token: id_token,
                     google_id: google_id,
-                    behorighet: 1
+                    behorighet: 1,
+                    expires_at: expires_at
                 };
                 localStorage.anvandare = JSON.stringify(anvandare);
-                $window.location.href = "#/larare";
+                if ($location.path() === "/")
+                    $window.location.href = "#/larare";
+                else
+                    $window.location.reload();
             } else if (data.behorighet === -1) {
                 console.log("register");
-                $window.location.href = "#/registration";
+                if ($window.location.href === "#/")
+                    $window.location.href = "#/registration";
             } else {
                 console.log("error");
                 console.log(data);
@@ -53,11 +64,30 @@ module.controller("loginCtrl", function ($window, $scope, loginService) {
                 console.log("Fel användarnamn/lösenord.");
             } else {
                 console.log("Okänt fel");
-                
+
                 console.log(status);
             }
         });
     };
-    window.onSignIn = $scope.googleLogin;
+    $scope.checkLogin = function (googleAnvandare) {
+        if (localStorage.anvandare) {
+            if (JSON.parse(localStorage.anvandare).expires_at) {
+                if (JSON.parse(localStorage.anvandare).expires_at > Date.now()) {
+                    if ($location.path() === "/") {
+                        var behorighet = JSON.parse(localStorage.anvandare).behorighet;
+                        if (behorighet === 0)
+                            $window.location.href = "#/elev";
+                        else if (behorighet === 1)
+                            $window.location.href = "#/larare";
+                    }
+                    console.log("id_token not expired yet.");
+                    return;
+                }
+            }
+        }
+        console.log("id_token expired. Getting a new one.");
+        $scope.googleLogin(googleAnvandare);
+    };
+    window.onSignIn = $scope.checkLogin;
 });
 

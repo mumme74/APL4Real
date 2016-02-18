@@ -29,3 +29,27 @@ module.service("larareloggGetService", function ($q){
     };
 
 });
+
+module.service("larareEleverService", function ($q){
+    var url = SERVER_URL + "/larare";
+    
+    this.getElever = function (id_token){
+        var deferred = $q.defer();
+        $.ajax({
+            url: url + "/elever",
+            type: 'GET',
+            headers: {
+                "Authorization": id_token,
+                "Content-Type": 'application/json'
+            },
+            dataType: 'json',
+            success: function (data) {
+                deferred.resolve(data);
+            },
+            error: function (data) {
+                deferred.resolve(data);
+            }
+        });
+        return deferred.promise;
+    };
+    });

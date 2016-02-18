@@ -61,7 +61,7 @@ module.config(function ($urlRouterProvider, $stateProvider) {
     }).state("larare_se_loggbok", {
         url: "/larare_se_loggbok",
         templateUrl: "templates/lararetemplates/larare_se_loggbok.html",
-        controller: ""
+        controller: "larareSeLoggCtrl"
     }).state("elev_kontakt", {
         url: "/elev_kontakt",
         templateUrl: "templates/elevtemplates/elev_kontakt.html",
