@@ -47,8 +47,9 @@ module.service("redigeraService", function ($q){
     
     this.getElevInfo = function (id_token, elev_id){
         var deferred = $q.defer();
+        var url = SERVER_URL + "/info";
         $.ajax({
-            url: this.url + "/elev",
+            url: url + "/elev",
             type: 'POST',
             headers: {
                 "Authorization": id_token,
@@ -68,8 +69,9 @@ module.service("redigeraService", function ($q){
     
     this.getHLInfo = function (id_token, HL_id){
         var deferred = $q.defer();
+        var url = SERVER_URL + "/info";
         $.ajax({
-            url: this.url + "/handledare",
+            url: url + "/handledare",
             type: 'POST',
             headers: {
                 "Authorization": id_token,
