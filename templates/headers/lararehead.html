@@ -14,7 +14,16 @@
             <li ui-sref-active="active"><a ui-sref="larare_oversikt">Översikt</a></li>
             <li ui-sref-active="active"><a ui-sref="larare_narvaro">Närvaro</a></li>
             <li ui-sref-active="active"><a ui-sref="larare_se_loggbok">Loggböcker</a></li>
-            <li ui-sref-active="active"><a ui-sref="larare_moment">Moment</a></li>
+            <li ui-sref-active="active" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    Moment <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li ui-sref-active="active"><a ui-sref="se_moment_larare">Se Moment</a></li>
+                    <li ui-sref-active="active" ><a ui-sref="tilldela_moment">Tilldela Moment</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li ui-sref-active="active" ><a ui-sref="skapa_moment">Skapa Moment</a></li>
+                </ul>
+            </li>
             <li ui-sref-active="active"><a ui-sref="handledarenatverk">Handledarnätverk</a></li>
             <li ui-sref-active="active"><a ui-sref="redigera_anv">Redigera användare</a></li>
             <li ui-sref-active="active"><a ui-sref="larare_kontakt">Kontakt</a></li>

@@ -2,19 +2,16 @@
 <div ng-controller="momentCtrler" class="container">
     <div class="jumbotron">
         <h1>Se Moment:</h1>
-        <a ui-sref="se_moment_larare">Se Moment</a>
-        <a ui-sref="tilldela_moment">Tilldela Moment</a>
-        <a ui-sref="skapa_moment">Skapa Moment</a>
     </div>
         <p>Välj klass:</p>
-        <select ng-model="sokKlass" class="btn btn-default"> 
-            <option ng-repeat="klass in klasser">
+        <select ng-model="sokKlass" class="btn btn-default" ng-change="updateraElevLista()"> 
+            <option ng-repeat="klass in klasser" value="{{klass.id}}">
                 {{klass.namn}}
             </option> 
         </select>
         <p>Välj elev:</p>
-        <select ng-model="sokElev" class="btn btn-default"> 
-            <option ng-repeat="elev in eleverna">
+        <select ng-model="sokElev" class="btn btn-default" ng-change="updateraElevsMoment()"> 
+            <option ng-repeat="elev in eleverna" value="{{elev.id}}">
                 {{elev.namn}}
             </option> 
         </select>
@@ -30,9 +27,8 @@
         </tr>
         <tr ng-repeat="momenten in moment">
             <td>{{momenten.innehall}}</td>
-            <td>{{getStatus(moment.godkand)}}</td>
-            <td><a ng-if="Status(momenten.godkand)" class="btn btn-success" 
-                   ng-click="setStatus(momenten.moment_id)">Skicka</a></td>
+            <td>{{moment.godkand}}</td>
+            <td>{{}}</td>
         </tr>
     </table>
   </div>
