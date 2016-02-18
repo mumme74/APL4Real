@@ -6,12 +6,12 @@
 
 module.service("larareloggGetService", function ($q){
 
-    this.url = SERVER_URL + "/elev";
+    this.url = SERVER_URL + "/larare/";
     
-    this.getLoggar = function (id_token) {
+    this.getLoggar = function (id_token,elev_id) {
         var deferred = $q.defer();
         $.ajax({
-            url: this.url + "/allaLoggar",
+            url: this.url + "elev/"+elev_id+"/logg",
             type: 'GET',
             headers: {
                 "Authorization": id_token,

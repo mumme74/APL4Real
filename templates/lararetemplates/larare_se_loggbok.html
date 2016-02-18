@@ -1,26 +1,22 @@
 <body ng-app="test">
-<header ng-include="'templates/headers/lararehead.html'"></header>
-<!--<div ng-controller="larareSeLoggCtrl">-->
-    
-
-    <div class="row">
-        <div class="col-lg-10 col-lg-10 col-lg-10 " >
-            <div class="dropdown">
-                <select ng-model="valdElev" ng-change="getElev()">
-                    <option ng-repeat=" elev in elever" value="{{elev.ID}}">
-                        {{elev.namn}}
-                    </option>
-                </select>
-            </div>
-        </div>
-    </div>
-  
-
-
+    <header ng-include="'templates/headers/lararehead.html'"></header>
     <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 col-lg-offset-1 
          col-md-offset-1 col-sm-offset-1 col-xs-offset-1" id="wrapper">
         <div class="well ridge">
-            <h1 class="text-center">Tidsflöde för alla mina loggar</h1>
+            <h1 class="text-center">Tidsflöde för alla mina elevers loggar</h1>
+            <div class="row">
+                <div class="col-lg-10 col-lg-10 col-lg-10 " >
+                    <div class="dropdown">
+                        <label>Välj Elev:
+                        <select ng-model="valdElev" ng-change="getElev()">
+                            <option ng-repeat=" elev in elever" value="{{elev.ID}}">
+                                {{elev.namn}}
+                            </option>
+                        </select>
+                        </label>
+                    </div>
+                </div>
+            </div>
             <div class="seLoggbok" ng-repeat="logg in loggar">
                 <h3>{{logg.namn}} <span class="small">{{logg.datum}}</span></h3>
                 <div id="inlägg">
