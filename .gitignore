@@ -16,3 +16,5 @@ src/js/globalVars.js
 
 #build folder
 /build/
+css/style.css
+css/style.css.map
