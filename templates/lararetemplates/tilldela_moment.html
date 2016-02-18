@@ -1,6 +1,28 @@
 <header ng-include="'templates/headers/lararehead.html'"></header>
-    <div class="container">
-        <div class="jumbotron">
-            <h1>Tilldela Moment:</h1>
-        </div>
+<div ng-controller="momentCtrler" class="container">
+    <div class="jumbotron">
+        <h1>Tilldela Moment:</h1>
     </div>
+    <div class="col-sm-4">
+        <h3>Välj klass:</h3>
+        <select ng-model="sokKlass" class="btn btn-default" ng-change="updateraElevLista()"> 
+            <option ng-repeat="klass in klasser" value="{{klass.id}}">
+                {{klass.namn}}
+            </option> 
+        </select>
+    </div>
+    <div class="col-sm-4">
+        <h3>Elever</h3>
+        <table>
+            <tr>
+                <th>Elever</th>
+                <th>Tilldela</th>
+            </tr>
+            <tr>
+                <td  ng-change="updateraElevsMoment()" ng-repeat="elev in eleverna" value="{{elev.id}}">{{elev.namn}}</td>
+                <td>Checkbox</td>
+            </tr>
+        </table>
+    </div>
+    
+</div>

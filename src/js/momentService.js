@@ -41,6 +41,7 @@ module.service("momentService", function ($http, $q){
     this.getMoment = function (id_token,elev_id) {
         var deferred = $q.defer();
         var url = SERVER_URL + "/moment/elev";
+//        var url = "http://localhost:8080/aplBackend/webresources/moment/elev";
      $.ajax({
             url: url,
             type: 'post',
@@ -66,6 +67,7 @@ module.service("momentService", function ($http, $q){
     this.seallaMoment = function (anvandare,elev_id) {
         var deferred = $q.defer();
         var url = SERVER_URL + "/moment/elev";
+//        var url = "http://localhost:8080/aplBackend/webresources/moment/elev";
      $.ajax({
             url: url,
             type: 'post',

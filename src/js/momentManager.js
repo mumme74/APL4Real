@@ -30,16 +30,23 @@ module.controller("momentCtrler", function ($scope, momentService) {
     $scope.updateraElevsMoment = function () {
         var anvandare = JSON.parse(localStorage.anvandare);
         var id_token = anvandare.id_token;
-        var elev_id = {elev_id:$scope.sokElev};
+        var elev_id_input = parseInt($scope.sokElev);
+        console.log(elev_id_input);
+        var elev_id = {"elev_id":elev_id_input};
+        console.log(elev_id);
+        var obj = JSON.stringify(elev_id);
+        console.log(elev_id);
+        console.log("Test2");
+        console.log("typeof elev_id: " + typeof elev_id_input);
         console.log("updateraElevsMoment");
-        var promiseMoment = momentService.getMoment(id_token, elev_id);
+        var promiseMoment = momentService.getMoment(id_token, obj);
         promiseMoment.then(function (data) {
             $scope.moment = data;
             console.log(data);
         });
     };
-    
-    $scope.seAllaMoment = function (){
+
+    $scope.seAllaMoment = function () {
         var anvandare = JSON.parse(localStorage.anvandare);
         console.log("SeallaMoment");
         var promiseAllaMoment = momentService.getAllaMoment(anvandare);
@@ -48,5 +55,5 @@ module.controller("momentCtrler", function ($scope, momentService) {
             console.log(data);
         });
     };
-    
+
 });

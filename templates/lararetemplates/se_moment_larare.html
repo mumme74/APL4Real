@@ -25,12 +25,10 @@
         <tr>
             <th>Innehåll</th>
             <th>Avklarat</th>
-            <th>Bekräfta</th>
         </tr>
-        <tr ng-repeat="momenten in moment">
-            <td>{{momenten.innehall}}</td>
-            <td>{{moment.godkand}}</td>
-            <td>{{}}</td>
+        <tr ng-repeat="momenten in moment" value="{{moment.id}}" >
+            <td>{{momenten.moment}}</td>
+            <td>{{momenten.godkand}}</td>
         </tr>
     </table>
   </div>
