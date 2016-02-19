@@ -37,7 +37,7 @@ module.config(function ($urlRouterProvider, $stateProvider) {
     }).state("handledare", {
         url: "/handledare",
         templateUrl: "templates/handledare.html",
-        controller: "handledareCtrl"
+        controller: "aktivitetCtrl"
     }).state("handledarenatverk", {
         url: "/handledarenatverk",
         templateUrl: "templates/lararetemplates/handledare_natverk.html"//,
