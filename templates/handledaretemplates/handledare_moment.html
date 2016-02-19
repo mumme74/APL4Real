@@ -3,35 +3,15 @@
     <div class="jumbotron">
         <h1>Moment:</h1>
     </div>
-    <div class="col-sm-4">
-        <h3>Välj klass:</h3>
-        <select ng-model="sokKlass" class="btn btn-default" ng-change="updateraElevLista()"> 
-            <option ng-repeat="klass in klasser" value="{{klass.id}}">
-                {{klass.namn}}
-            </option> 
-        </select>
-    </div>
-    <div class="col-sm-4"> 
-        <h3>Välj elev:</h3>
-        <select ng-model="sokElev" class="btn btn-default" ng-change="updateraElevsMoment()"> 
-            <option ng-repeat="elev in eleverna" value="{{elev.id}}">
-                {{elev.namn}}
-            </option> 
-        </select>
-    </div>
-    <br><br><br> 
-    <br><br>
     <table class='table table-bordered table-striped'>
         <tr>
             <th>Innehåll</th>
             <th>Status</th>
             <th>Bekräfta</th>
         </tr>
-        <tr ng-repeat="momenten in moment">
+        <tr ng-repeat="momenten in momentena">
             <td>{{momenten.innehall}}</td>
-            <td>{{getStatus(momenten.godkand)}}</td>
-            <td><a ng-if="Status(momenten.godkand)" class="btn btn-success" 
-                   ng-click="setStatus(momenten.moment_id)">Skicka</a></td>
+            <td>{{momenten.godkand}}</td>
         </tr>
     </table>
     <a class="btn btn-success">Godkänn</a>

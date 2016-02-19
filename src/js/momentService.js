@@ -64,15 +64,15 @@ module.service("momentService", function ($http, $q){
     
         
     //hämta alla moment
-    this.seallaMoment = function (anvandare,elev_id) {
+    this.handledareSeMoment = function (elev_id) {
         var deferred = $q.defer();
-        var url = SERVER_URL + "/moment/elev";
+        var url = SERVER_URL + "/moment/handledare";
 //        var url = "http://localhost:8080/aplBackend/webresources/moment/elev";
      $.ajax({
             url: url,
-            type: 'post',
+            type: 'get',
             headers: {
-                "Authorization": anvandare,
+                "Authorization": elev_id,
                 "Content-Type": "application/json"
             },
             data: elev_id,
