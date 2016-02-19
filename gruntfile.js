@@ -53,7 +53,9 @@ module.exports = function (grunt) {
                         'src/js/larareSeNarvaroController.js',
                         'src/js/larareSeNarvaroService.js',
                         'src/js/redigeraAnvController.js',
-                        'src/js/redigeraAnvService.js'
+                        'src/js/redigeraAnvService.js',
+                        'src/js/larareService.js'
+                        
                         
                     ]
                 }

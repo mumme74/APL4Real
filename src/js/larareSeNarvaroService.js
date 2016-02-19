@@ -4,27 +4,24 @@
  * and open the template in the editor.
  */
 
-module.service("larareNarvaroGetService", function ($q){
+/* global SERVER_URL */
+
+module.service("larareNarvaroGetService", function ($q, $http) {
 
     this.url = SERVER_URL;
-    
-    this.getGodkandNarvaro = function (id_token) {
+
+    this.getGodkandNarvaro = function (id_token, data) {
         var deferred = $q.defer();
-        $.ajax({
+        $http({
+            method: "POST",
             url: this.url + "/narvaro/godkand",
-            type: 'get',
-            headers: {
-                "Authorization": id_token
-            },
-            success: function (data) {
-                deferred.resolve(data);
-            },
-            error: function (data)
-            {
-                deferred.resolve(data);
-            }
+            data: JSON.stringify(data),
+            headers: {'Authorization': id_token}
+        }).success(function (rdata, status, headers, config) {
+            deferred.resolve(rdata);
+        }).error(function (rdata, status, headers, config) {
+            deferred.resolve(status);
         });
         return deferred.promise;
     };
-
 });
