@@ -32,7 +32,7 @@ module.controller("momentCtrler", function ($scope, momentService) {
         var id_token = anvandare.id_token;
         var elev_id_input = parseInt($scope.sokElev);
         console.log(elev_id_input);
-        var elev_id = {"elev_i d":elev_id_input};
+        var elev_id = {"elev_id":elev_id_input};
         console.log(elev_id);
         var obj = JSON.stringify(elev_id);
         var promiseMoment = momentService.getMoment(id_token, obj);
