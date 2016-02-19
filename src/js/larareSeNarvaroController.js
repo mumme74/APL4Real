@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-module.controller("larareSeNarvaroCtrl", function ($scope, larareNarvaroGetService) {
+module.controller("larareSeNarvaroCtrl", function ($scope, larareNarvaroGetService, larareService) {
     $scope.years = [];
     $scope.start = 0;
     $scope.currentMonth = new Date().getMonth();
@@ -11,15 +11,21 @@ module.controller("larareSeNarvaroCtrl", function ($scope, larareNarvaroGetServi
 
     var anvandare = JSON.parse(localStorage.anvandare);
     var id_token = anvandare.id_token;
-    larareNarvaroGetService.getGodkandNarvaro(id_token).then(function (data) {
-        var alla = [];
-        alla.push({elev_id: -1, namn: "Alla"});
-        $scope.elever = alla.concat(data);
-        $scope.getVeckor();
-        for (var i = $scope.currentYear - 10; i <= $scope.currentYear; i++)
-            $scope.years.push(i);
-        $scope.years.reverse();
+    larareService.getKlasser(id_token).then(function (data) {
+        $scope.klasser = data;
     });
+    $scope.getElever = function (klass_id) {
+        var data = {klass_id:klass_id};
+        larareNarvaroGetService.getGodkandNarvaro(id_token, data).then(function (data) {
+            var alla = [];
+            alla.push({elev_id: -1, namn: "Alla"});
+            $scope.elever = alla.concat(data);
+            $scope.getVeckor();
+            for (var i = $scope.currentYear - 10; i <= $scope.currentYear; i++)
+                $scope.years.push(i);
+            $scope.years.reverse();
+        });
+    }
     $scope.parseClass = function (p) {
         if (p === 0)
             return 'rod';
