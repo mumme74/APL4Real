@@ -32,7 +32,7 @@ module.controller("momentCtrler", function ($scope, momentService) {
         var id_token = anvandare.id_token;
         var elev_id_input = parseInt($scope.sokElev);
         console.log(elev_id_input);
-        var elev_id = {"elev_id":elev_id_input};
+        var elev_id = {"elev_id": elev_id_input};
         console.log(elev_id);
         var obj = JSON.stringify(elev_id);
         var promiseMoment = momentService.getMoment(id_token, obj);
@@ -53,4 +53,16 @@ module.controller("momentCtrler", function ($scope, momentService) {
         });
     };
 
+    $scope.parseMoment = function(p){
+        console.log(p);
+        if (p == 0) {
+            return "Ej avklarad";
+        } else if (p == 1) {
+            return "Väntande svar";
+        } else if (p == 2) {
+            return "Avklarad";
+        } else if (p == 3) {
+            return "Nekad";
+        }
+    };
 });

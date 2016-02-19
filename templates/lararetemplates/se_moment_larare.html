@@ -28,7 +28,7 @@
         </tr>
         <tr ng-repeat="momenten in moment" value="{{moment.id}}" >
             <td>{{momenten.innehall}}</td>
-            <td>{{momenten.godkand}}  /  </td>
+            <td>{{parseMoment(momenten.godkand)}}</td>
         </tr>
     </table>
   </div>
