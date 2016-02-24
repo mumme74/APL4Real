@@ -33,7 +33,8 @@ module.service("larareService", function ($q) {
             url: this.url + "/elever",
             type: 'post',
             headers: {
-                "Authorization": id_token
+                "Authorization": id_token,
+                "Content-Type": 'application/json'
             },
             data: JSON.stringify(data),
             success: function (data) {

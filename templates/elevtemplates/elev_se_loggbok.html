@@ -21,6 +21,7 @@
                     </button>
                     <button class="btn btn-default" ng-click="show(this)">
                         Ladda kommentarer ({{logg.kommentarer.length}})</button>
+                    <br/><br/>
                     <div class="kommentarContainer" id="{{this.$id}}_kommentarer">
                         <div class='alert alert-link well ridge kommentar' ng-repeat="kommentar in logg.kommentarer">
                             <h4>{{kommentar.namn}} <span class='small'>{{kommentar.datum}}</span></h4>

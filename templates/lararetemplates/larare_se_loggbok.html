@@ -3,17 +3,24 @@
     <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 col-lg-offset-1 
          col-md-offset-1 col-sm-offset-1 col-xs-offset-1" id="wrapper">
         <div class="well ridge">
-            <h1 class="text-center">Tidsflöde för alla mina elevers loggar</h1>
+            <h1 class="text-center">Tidsflöde för elevers loggar</h1>
             <div class="row">
                 <div class="col-lg-10 col-lg-10 col-lg-10 " >
                     <div class="dropdown">
-                        <label>Välj Elev:
-                        <select ng-model="valdElev" ng-change="getElev()">
-                            <option ng-repeat=" elev in elever" value="{{elev.ID}}">
-                                {{elev.namn}}
-                            </option>
-                        </select>
+                        <label class="text-center">Välj klass
+                            <select ng-model="selected_klass"
+                                    ng-options="klass.id as klass.namn for klass in klasser"
+                                    ng-change="getElever(selected_klass)">
+                            </select>
                         </label>
+                        <label class="text-center">Välj elev:
+                            <select ng-model="selected_elev"
+                                    ng-init="selected_elev = -1"
+                                    ng-options="elev.id as elev.namn for elev in elever"
+                                    ng-change="getLogg(selected_elev)">
+                            </select>
+                        </label>
+                        <br/>
                     </div>
                 </div>
             </div>
@@ -24,27 +31,25 @@
                         {{logg.innehall}}
                     </p>
                     <p>Jag tyckte att denna dagen var {{logg.intryck}}.</p>
-                    <div id="bildDiv"></div>
+                    <img class="img-responsive center-img" ng-if='logg.bild !== null' ng-src="{{getBildUrl(logg.bild)}}" alt="Uppladdad bild" />
                 </div>
-                <div id="kommentarDiv">
-                    <input class="form-control" placeholder="Kommentar"/>
-                    <button class="btn btn-default">Skicka kommentar</button>
-                </div>
-                <div class="alert alert-link well ridge">  Kommentar 
-                    <h4>Lärar-Jocke <span class="small">31/1 -16</span></h4>
-                    <p>
-                        Lärar-Jocke skriver en jättesnäll kommentar till
-                        Kalles logg.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing 
-                        elit. Integer luctus luctus dolor a tincidunt.
-                        Mauris finibus, libero vel congue laoreet, lacus 
-                        sem consequat mi, eget egestas ligula dolor ac diam.
-                        Phasellus molestie malesuada erat, id aliquet ligula
-                        elementum ac.
-                    </p>
+                <div id="kommentarDiv" ng-controller="kommentarCtrl">
+                    <input class="form-control" placeholder="Kommentar" id="{{logg.ID}}"/>
+                    <button class="btn btn-default" 
+                            ng-click="postKommentar(logg.ID)">
+                        Skicka kommentar
+                    </button>
+                    <button class="btn btn-default" ng-click="show(this)">
+                        Ladda kommentarer ({{logg.kommentarer.length}})</button>
+                    <br/><br/>
+                    <div class="kommentarContainer" id="{{this.$id}}_kommentarer">
+                        <div class='alert alert-link well ridge kommentar' ng-repeat="kommentar in logg.kommentarer">
+                            <h4>{{kommentar.namn}} <span class='small'>{{kommentar.datum}}</span></h4>
+                            <p>{{kommentar.innehall}}<p> 
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </body>
