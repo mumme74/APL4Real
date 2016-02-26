@@ -4,18 +4,17 @@
  * and open the template in the editor.
  */
 module.service("kommentarService", function ($q){
-    this.url = SERVER_URL + "/kommentar";
+    this.url = SERVER_URL + "/logg";
     
     this.getKommentar = function (id_token, logg_id) {
         var deferred = $q.defer();
         $.ajax({
-            url: this.url + "/getKommentar",
-            type: 'POST',
+            url: this.url + logg_id+"/kommentar",
+            type: 'GET',
             headers: {
                 "Authorization": id_token,
                 "Content-Type": 'application/json'
             },
-            data: logg_id,
             dataType: 'json',
             success: function (data) {
                 deferred.resolve(data);

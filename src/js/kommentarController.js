@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 module.controller("kommentarCtrl", function ($scope, globalService, kommentarService) {
-    var url = "/kommentar";
+    var url = "/logg";
     $scope.postKommentar = function (logg_id) {
         var datumObj = new Date();
         var datum = datumObj.getFullYear() + "-"
@@ -14,7 +14,7 @@ module.controller("kommentarCtrl", function ($scope, globalService, kommentarSer
                 + ('0' + datumObj.getMinutes()).slice(-2);
         var kommentar = document.getElementById(logg_id).value;
         var data = {"loggbok_id": logg_id, "innehall": kommentar, "datum": datum};
-        globalService.skickaData(url + "/postKommentar", data).then(function (responses) {
+        globalService.skickaData(url + "/kommentar", data).then(function (responses) {
             console.log(responses);
         });
         document.getElementById(logg_id).value = "";
