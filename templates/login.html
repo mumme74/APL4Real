@@ -2,11 +2,16 @@
 <h1 class="tcenter">Logga in</h1>
 <hr>
 <div ng-controller="loginCtrl" class="container">
-    <div>
-        <div class="fright"> 
+    <div class="text-center">
+        <div class="text-center">
             <h2>Elev / Lärare</h2>
             <p class="faded">Använd din Google-Mail:</p> <hr>
-            <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+            <div class="row">
+                <div class="col-lg-2 col-lg-offset-5 col-md-2 col-md-offset-5 col-sm-2 col-sm-offset-5 col-xs-4 col-xs-offset-3">
+                    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+                </div>
+            </div>
+
         </div> 
     </div>
 </div>
