@@ -5,10 +5,9 @@
     </div>
     <div class="col-sm-4">
         <h3>Välj klass:</h3>
-        <select ng-model="sokKlass" class="btn btn-default" ng-change="updateraElevLista()"> 
-            <option ng-repeat="klass in klasser" value="{{klass.id}}">
-                {{klass.namn}}
-            </option> 
+        <select ng-model="selected_klass" 
+                ng-options=""
+                ng-change="updateraElevLista()"> 
         </select>
     </div>
     <div class="col-sm-4">
