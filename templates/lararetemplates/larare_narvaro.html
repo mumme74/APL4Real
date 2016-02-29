@@ -49,7 +49,7 @@
                 <div class="narvaro_vecka" ng-repeat="elev in elever">
                     <h2 ng-if='elev.elev_id === -1' class='text-center'>Alla Elever</h2>
                     <div ng-if='elev.elev_id !== -1'>
-                        <h4>{{elev.namn}}</h4>
+                        <h4 class="text-center">{{elev.namn}}</h4>
                         <div class="narvaro_head">
                             <div class="narvaro_dag">Sön</div>
                             <div class="narvaro_dag">Mån</div>
@@ -66,7 +66,7 @@
                 </div>
             </div>
             <div ng-if="selected_elev > -1">
-                <h2 ng-init='elev = getElev(selected_elev)' class="text-center">{{elev.namn}}</h2>
+                <h2 ng_show="selected_elev > -1" class="text-center">{{getElev(selected_elev).namn}}</h2>
                 <div class="narvaro_head">
                     <div class="narvaro_dag">Sön</div>
                     <div class="narvaro_dag">Mån</div>
@@ -77,10 +77,9 @@
                     <div class="narvaro_dag">Lör</div>
                 </div>
                 <div class="narvaro_vecka" ng-repeat="vecka in veckor">
-                    <div ng-repeat="narvaro in vecka" class="ng-class: parseClass(getLjus(elev, narvaro.datum)); narvaro_dag">{{narvaro.datum.getDate()}}</div>
+                    <div ng-repeat="narvaro in vecka" class="ng-class: parseClass(getLjus(getElev(selected_elev), narvaro.datum)); narvaro_dag">{{narvaro.datum.getDate()}}</div>
                 </div>
             </div>
-            <div class='clear'></div>
         </div>
     </div>
 </div>
