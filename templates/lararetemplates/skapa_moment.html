@@ -6,14 +6,14 @@
     </div>
     <div class="col-sm-6">
         <h3>Innehåll:</h3>
-        <textarea rows="4" cols="60" placeholder="Fyll i elevens moment" ></textarea><br>
-        <button class="btn btn-primary">Spara</button>
+        <textarea rows="4" cols="60" placeholder="Fyll i elevens moment" id="momentInnehall"></textarea><br>
+        <button class="btn btn-primary" ng-click="sparaMoment()">Spara</button>
     </div>
     <div class="col-sm-6">
         <h3>Alla Moment:</h3>
         <table>
-            <tr ng-repeat="momenten in moment">
-                <td>{{momenten.moment}}</td>
+            <tr ng-repeat="momenten in lararMoment">
+                <td>{{momenten.innehall}}</td>
               
             </tr>
         </table>

@@ -5,8 +5,11 @@
  */
 
 
-module.controller("momentCtrler", function ($scope, momentService) {
+module.controller("momentCtrler", function ($scope, momentService, globalService) {
 
+    var url = SERVER_URL + "moment";
+    var anvandare = JSON.parse(localStorage.anvandare);
+    var id_token = anvandare.id_token;
     //Klasser
     $scope.id_token = "";
     var promiseKlasser = momentService.getKlasser();
@@ -15,10 +18,16 @@ module.controller("momentCtrler", function ($scope, momentService) {
         console.log(data);
     });
 
+    var promiseMomentLärare = momentService.getMomentLärare(id_token);
+    promiseMomentLärare.then(function (data) {
+        $scope.lararMoment = data;
+        console.log("LärareSeMoment");
+        console.log(data);
+    });
+
     // hämta elever använder ng-change för att uppdatera
     $scope.updateraElevLista = function () {
-        var anvandare = JSON.parse(localStorage.anvandare);
-        var id_token = anvandare.id_token;
+
         var promiseElever = momentService.getElevFranKlass(id_token, $scope.sokKlass);
         promiseElever.then(function (data) {
             $scope.eleverna = data;
@@ -28,8 +37,6 @@ module.controller("momentCtrler", function ($scope, momentService) {
 
     //hämta moment använder ng-change för att uppdatera
     $scope.updateraElevsMoment = function () {
-        var anvandare = JSON.parse(localStorage.anvandare);
-        var id_token = anvandare.id_token;
         var elev_id_input = parseInt($scope.sokElev);
         console.log(elev_id_input);
         var elev_id = {"elev_id": elev_id_input};
@@ -43,7 +50,6 @@ module.controller("momentCtrler", function ($scope, momentService) {
     };
 
     $scope.handledareSeMoment = function () {
-        var anvandare = JSON.parse(localStorage.anvandare);
         console.log("SeallaMoment");
         var obj = JSON.stringify();
         var promiseAllaMoment = momentService.handledareSeMoment(anvandare, obj);
@@ -53,16 +59,28 @@ module.controller("momentCtrler", function ($scope, momentService) {
         });
     };
 
-    $scope.parseMoment = function(p){
+    $scope.parseMoment = function (p) {
         console.log(p);
-        if (p == 0) {
+        if (p === 0) {
             return "Ej avklarad";
-        } else if (p == 1) {
+        } else if (p === 1) {
             return "Väntande svar";
-        } else if (p == 2) {
+        } else if (p === 2) {
             return "Avklarad";
-        } else if (p == 3) {
+        } else if (p === 3) {
             return "Nekad";
+        }
+    };
+
+    $scope.sparaMoment = function () {
+        var innehall = document.getElementById("momentInnehall").value;
+        if (innehall.toString().trim() !== "") {
+            var data = {"beskrivning": innehall};
+            globalService.skickaData("/moment", data).then(function (responses) {
+                console.log(responses);
+            });
+            document.getElementById("momentInnehall").value = "";
+            location.reload();
         }
     };
 });

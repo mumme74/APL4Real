@@ -1,5 +1,5 @@
-module.service("momentService", function ($http, $q){
-       
+module.service("momentService", function ($http, $q) {
+
     //Klasser 
     this.getKlasser = function () {
         var deferred = $q.defer();
@@ -14,13 +14,13 @@ module.service("momentService", function ($http, $q){
         });
         return deferred.promise;
     };
-    
+
     //Elever
-     this.url = SERVER_URL + "/elev";
-    this.getElevFranKlass = function (id_token,klass) {
+    this.url = SERVER_URL + "/elev";
+    this.getElevFranKlass = function (id_token, klass) {
         var deferred = $q.defer();
         $.ajax({
-            url: this.url + "/klass/"+klass,
+            url: this.url + "/klass/" + klass,
             type: 'get',
             headers: {
                 "Authorization": id_token,
@@ -36,13 +36,13 @@ module.service("momentService", function ($http, $q){
         });
         return deferred.promise;
     };
-        
-        //hämta moment
-    this.getMoment = function (id_token,elev_id) {
+
+    //hämta moment
+    this.getMoment = function (id_token, elev_id) {
         var deferred = $q.defer();
         var url = SERVER_URL + "/moment/elev";
 //        var url = "http://localhost:8080/aplBackend/webresources/moment/elev";
-     $.ajax({
+        $.ajax({
             url: url,
             type: 'post',
             headers: {
@@ -58,17 +58,40 @@ module.service("momentService", function ($http, $q){
                 deferred.resolve(data);
             }
         });
-        
+
         return deferred.promise;
     };
-    
-        
+
+    //hämta moment
+    this.getMomentLärare = function (id_token) {
+        var deferred = $q.defer();
+        var url = SERVER_URL + "/moment/larare";
+        $.ajax({
+            url: url,
+            type: 'GET',
+            headers: {
+                "Authorization": id_token,
+                "Content-Type": "application/json"
+            },
+            success: function (data) {
+                deferred.resolve(data);
+            },
+            error: function (data)
+            {
+                deferred.resolve(data);
+            }
+        });
+
+        return deferred.promise;
+    };
+
+
     //hämta alla moment
     this.handledareSeMoment = function (elev_id) {
         var deferred = $q.defer();
         var url = SERVER_URL + "/moment/handledare";
 //        var url = "http://localhost:8080/aplBackend/webresources/moment/elev";
-     $.ajax({
+        $.ajax({
             url: url,
             type: 'get',
             headers: {
@@ -84,9 +107,9 @@ module.service("momentService", function ($http, $q){
                 deferred.resolve(data);
             }
         });
-        
+
         return deferred.promise;
     };
-    
-    
- });
+
+
+});
