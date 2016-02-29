@@ -121,7 +121,7 @@ module.config(function ($urlRouterProvider, $stateProvider) {
     }).state("tilldela_moment",{
         url:"/tilldela_moment",
         templateUrl:"templates/lararetemplates/tilldela_moment.html",
-        controller:""
+        controller:"larareTilldelaMomentCtrl"
     }).state("redigera_anv", {
         url: "/redigera",
         templateUrl: "templates/lararetemplates/larare_redigera_anv.html",
