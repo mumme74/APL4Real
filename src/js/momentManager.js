@@ -78,9 +78,17 @@ module.controller("momentCtrler", function ($scope, momentService, globalService
             var data = {"beskrivning": innehall};
             globalService.skickaData("/moment", data).then(function (responses) {
                 console.log(responses);
+                location.reload();
             });
             document.getElementById("momentInnehall").value = "";
-            location.reload();
         }
+    };
+    
+    $scope.raderaMoment = function (moment_id){
+        momentService.larareRaderaMoment(id_token, moment_id).then(function (responses) {
+            console.log(responses);
+            location.reload();
+        });
+        
     };
 });
