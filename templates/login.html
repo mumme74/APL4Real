@@ -2,45 +2,16 @@
 <h1 class="tcenter">Logga in</h1>
 <hr>
 <div ng-controller="loginCtrl" class="container">
-    <div class="col-sm-6">
+    <div>
         <div class="fright"> 
-        <h2>Elev / Lärare</h2>
-        <p class="faded">Använd din Google-Mail:</p> <hr>
-        <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-       </div> 
-    </div>
-    <div class="bright col-sm-6">
-        <div class="mleft">  
-        <h2>Handledare</h2>
-        <input ng-model="username" type='text' placeholder='Användarnamn'>
-        <br/><br/>
-        <input ng-model="password" type='password' placeholder='Lösenord'>
-        <br/><br/>
-        <a ng-click="handledareLogin()" class="btn btn-primary">Login</a>
-         <br/>
+            <h2>Elev / Lärare</h2>
+            <p class="faded">Använd din Google-Mail:</p> <hr>
+            <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
         </div> 
     </div>
 </div>
 <br/><hr>
-    <div class="tcenter">
-        <a href="#/registration">Ny användare?</a>
-    </div>
-
-
-<!--<div style="margin: auto; margin-top: 50px; min-width: 250px; max-width: 250px;">
-    <div style="background-color: #4ce875" class="well text-center" ng-controller="loginCtrl">
-        <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-        <br/>
-        <h2>Logga in som handledare</h2>
-        <input ng-model="username" type='text' placeholder='Användarnamn'>
-        <br/><br/>
-        <input ng-model="password" type='password' placeholder='Lösenord'>
-        <br/><br/>
-        <a id="glöm" href="#">Glömt lösenord?</a>
-        <a ng-click="handledareLogin()" class="btn btn-primary">Login</a>
-        <br/><br/>
-        <a href="#/registration">Ny användare?</a>
-        <br/>
-    </div>
-</div>-->
+<div class="tcenter">
+    <a href="#/registration">Ny användare?</a>
+</div>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
