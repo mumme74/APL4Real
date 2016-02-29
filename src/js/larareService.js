@@ -27,8 +27,11 @@ module.service("larareService", function ($q) {
         return deferred.promise;
     };
     
-    this.getElever = function (id_token, data) {
+    this.getElever = function (id_token, klass_id) {
         var deferred = $q.defer();
+        var data = {
+            klass_id:klass_id
+        };
         $.ajax({
             url: this.url + "/elever",
             type: 'post',
