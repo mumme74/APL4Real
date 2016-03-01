@@ -1,27 +1,17 @@
 <header ng-include="'templates/headers/handledarehead.html'"></header>
-<div ng-controller="momentCtrler" class="container">
+<div class="container" ng-init="handledareSeMoment()">
     <div class="jumbotron">
         <h1>Moment:</h1>
     </div>
-    <div class="col-sm-4"> 
-        <h3>Välj elev:</h3>
-        <select ng-model="" class="btn btn-default" ng-change=""> 
-            <option ng-repeat="elev in eleverna" value="{{elev.id}}">
-                {{elev.namn}}
-            </option> 
-        </select>
-    </div>
-    <br><br><br>
     
     <table class='table table-bordered table-striped'>
         <tr>
             <th>Innehåll</th>
             <th>Status</th>
-            <th>Bekräfta</th>
         </tr>
-        <tr ng-repeat="momenten in momentena">
-            <td>{{momenten.innehall}}</td>
-            <td>{{momenten.godkand}}<a class="btn btn-success">Godkänn</a></td>
+        <tr ng-repeat="moment in moments">
+            <td>{{moment.innehall}}</td>
+            <td>{{moment.status}}</td>
         </tr>
     </table>
 </div>
