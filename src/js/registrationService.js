@@ -58,7 +58,7 @@ module.service("registrationService", function ($http, $q) {
     };
 
 
-    this.registreraHandledare = function (användarnamn, namn, lösenord, email, tfnr) {
+    this.registreraHandledare = function (användarnamn, namn, lösenord, email, tfnr, foretag, program ) {
         var deferred = $q.defer();
         var url = SERVER_URL + "/apl/handledare";
         var data = {
