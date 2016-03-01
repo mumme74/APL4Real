@@ -56,7 +56,8 @@ module.exports = function (grunt) {
                         'src/js/redigeraAnvService.js',
                         'src/js/larareTilldelaMomentController.js',
                         'src/js/larareService.js',
-                        'src/js/larareOversiktCtrl.js'
+                        'src/js/larareOversiktCtrl.js',
+                        'src/js/omdomeService.js'
                         
                         
                     ]

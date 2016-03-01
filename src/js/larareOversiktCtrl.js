@@ -1,6 +1,7 @@
-module.controller("larareOversiktCtrl", function ($scope, larareService) {
-    $scope.labels = ["bra", "sådar", "dåligt", "jag vet inte"];
-    $scope.data = [10, 50, 20, 33];
+module.controller("larareOversiktCtrl", function ($scope, larareService, omdomeService) {
+    $scope.labels = ["bra", "sådar", "dåligt"];
+    $scope.colours = ["#89ba17","#f0de00","#dc002e"];
+    $scope.data = [];
 
     var anvandare = JSON.parse(localStorage.anvandare);
     var id_token = anvandare.id_token;
@@ -8,12 +9,16 @@ module.controller("larareOversiktCtrl", function ($scope, larareService) {
         $scope.klasser = data;
     });
     $scope.getElever = function (klass_id) {
-        /*
-        larareOversiktService.getOmdome(id_token, klass_id).then(function (data) {
-            var alla = [];
-            alla.push({elev_id: -1, namn: "Alla"});
-            $scope.elever = alla.concat(data);
+        larareService.getElever(id_token, klass_id).then(function (data) {
+            $scope.elever = data;
         });
-        */
+    };
+    $scope.getOmdome = function (elev_id) {
+        omdomeService.getOmdome(id_token, elev_id).then(function (data) {
+            console.log(data);
+            $scope.data[0] = data.antal2;
+            $scope.data[1] = data.antal1;
+            $scope.data[2] = data.antal0;
+        });
     };
 });
