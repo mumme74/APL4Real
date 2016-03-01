@@ -83,6 +83,7 @@ module.controller("redigeraCtrl", function ($scope, redigeraService,
         globalService.skickaData(url, data).then(function (responses) {
             console.log(responses);
             $scope.rensa();
+            location.reload();
         });
     };
 
@@ -99,6 +100,7 @@ module.controller("redigeraCtrl", function ($scope, redigeraService,
         globalService.skickaData(url, data).then(function (responses) {
             console.log(responses);
             $scope.rensa();
+            location.reload();
         });
     };
 });
