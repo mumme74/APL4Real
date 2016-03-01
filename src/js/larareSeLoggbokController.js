@@ -12,8 +12,7 @@ module.controller("larareSeLoggCtrl", function ($scope, larareloggGetService, la
     });
 
     $scope.getElever = function (klass_id) {
-        var data = {"klass_id":klass_id};
-        var promiseElever = larareService.getElever(id_token, data);
+        var promiseElever = larareService.getElever(id_token, klass_id);
         promiseElever.then(function (data){
             $scope.elever = data;
         });

@@ -12,11 +12,12 @@ module.controller("postNarvaroCtrl", function ($scope, narvaroService) {
             "trafikljus": trafikljus,
             "datum": datum
         };
-        console.log(array);
+        
 
         var promise = narvaroService.postNarvaro(id_token, array);
         promise.then(function (response) {
             console.log(response);
+            location.reload();
         });
 
     };

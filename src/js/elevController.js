@@ -55,7 +55,15 @@ module.controller("elevCtrl", function ($scope, $window, postService, globalServ
     $scope.onImgUrl = function (responseText, statusText, xhr, $form) {
         console.log(responseText.filename);
         gbild = responseText.filename;
-        console.log(gbild);
+        $("#loggimg").attr("src", $scope.getBildUrl("\"" + gbild + "\""));
+    };
+    $scope.getBildUrl = function (bild, storlek) {
+        //tar bort citattecknen som kommer vem fan vet var ifrån
+        bild = bild.substr(1, bild.length - 2);
+        if (storlek)
+            return IMG_SERVER_URL + "?file=" + bild + "&size=" + storlek;
+        else
+            return IMG_SERVER_URL + "?file=" + bild;
     };
     window.onImgUrl = $scope.onImgUrl;
     globalService.kollaStorage().then(function (responses) {
