@@ -1,11 +1,10 @@
 <header ng-include="'templates/headers/lararehead.html'"></header>
 <div ng-controller="momentCtrler" class="container" ng-init="getKlasser()">
-    <div class="jumbotron">
+    <div class="well">
         <h1 class="text-center">Se Moment</h1>
-    </div>
-    
-    <div class="col-sm-4">
-        <div class="well">
+        <hr>
+    <div class="col-sm-3 col-sm-offset-3">
+        <div>
         <h3>Välj klass:</h3>
         <select ng-model="sokKlass" ng-change="updateraElevLista()"> 
             <option ng-repeat="klass in klasser" value="{{klass.id}}">
@@ -14,8 +13,8 @@
         </select>
         </div>
     </div>
-    <div class="col-sm-4"> 
-        <div class="well">
+    <div class="col-sm-3"> 
+        <div>
         <h3>Välj elev:</h3>
         <select ng-model="sokElev"  ng-change="updateraElevsMoment()"> 
             <option ng-repeat="elev in eleverna" value="{{elev.id}}">
@@ -24,7 +23,7 @@
         </select>
         </div>
     </div>
-        
+          
     <br><br><br>    <br><br><br>
 
     <table class='table table-bordered table-striped'>

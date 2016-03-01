@@ -1,8 +1,7 @@
 <header ng-include="'templates/headers/elevhead.html'"></header>
-    <div class="container">
-    <div class="jumbotron text-center">
-        <h1>Moment</h1>
-    </div>
+    <div class="container well">
+        <h1 class="text-center" >Moment</h1>
+        <hr>
     <table class='table table-bordered table-striped'>
         <tr>
             <th>Innehåll av momentet</th>
@@ -11,7 +10,7 @@
 
         </tr>
         <tr ng-repeat="momenten in moment">
-            <td>{{momenten.innehall}}/td>
+            <td>{{momenten.innehall}}</td>
             <td>{{getStatus(momenten.godkand)}}</td>
             <td><a ng-if="Status(momenten.godkand)" ui-sref="elev_moment"
                                           class="btn btn-success" 

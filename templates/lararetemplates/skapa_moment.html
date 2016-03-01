@@ -1,18 +1,19 @@
 <header ng-include="'templates/headers/lararehead.html'"></header>
 
-<div ng-controller="momentCtrler" class="container" ng-init="getMomentLarare()">
-    <div class="jumbotron">
+<div ng-controller="momentCtrler" class="container well" ng-init="getMomentLarare()">
+    
         <h1 class="text-center">Skapa Moment</h1>
-    </div>
+        <hr>
+    
     <div class="col-sm-6">
-        <div class="well">
+        <div>
             <h3>Innehåll:</h3>
             <textarea style="width: 100%; height: 5em;" placeholder="Fyll i elevens moment" id="momentInnehall"></textarea><br>
             <button class="btn btn-primary" ng-click="sparaMoment()">Spara</button>
         </div>
     </div>
     <div class="col-sm-6">
-        <div class="well">
+        <div>
             <h3>Alla Moment:</h3>
             <table class="table table-responsive table-striped">
                 <tr>
@@ -29,3 +30,4 @@
         </div>
     </div>
 </div>
+
