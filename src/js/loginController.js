@@ -48,7 +48,6 @@ module.controller("loginCtrl", function ($location, $window, $scope, loginServic
         });
     };
     $scope.handledareLogin = function () {
-        console.log("Daniel är bäst");
         var anvandarnamn = $scope.username;
         var losenord = $scope.password;
         loginService.logInHandledare(anvandarnamn, losenord).then(function (status) {
@@ -60,7 +59,7 @@ module.controller("loginCtrl", function ($location, $window, $scope, loginServic
                     behorighet: 2
                 };
                 localStorage.anvandare = JSON.stringify(anvandare);
-                $window.location.href = "index.html#/handledare";
+                $window.location.href = "../index.html#/handledare";
             } else if (status === 401) {
                 console.log("Fel användarnamn/lösenord.");
             } else {

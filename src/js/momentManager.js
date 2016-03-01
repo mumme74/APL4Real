@@ -5,25 +5,29 @@
  */
 
 
-module.controller("momentCtrler", function ($scope, momentService, globalService) {
+module.controller("momentCtrler", function ($scope, momentService, globalService, larareService) {
 
     var url = SERVER_URL + "moment";
     var anvandare = JSON.parse(localStorage.anvandare);
     var id_token = anvandare.id_token;
-    //Klasser
-    $scope.id_token = "";
-    var promiseKlasser = momentService.getKlasser();
-    promiseKlasser.then(function (data) {
-        $scope.klasser = data;
-        console.log(data);
-    });
 
-    var promiseMomentLärare = momentService.getMomentLärare(id_token);
-    promiseMomentLärare.then(function (data) {
-        $scope.lararMoment = data;
-        console.log("LärareSeMoment");
-        console.log(data);
-    });
+    //Hämtar alla klasser från lärarens program
+    $scope.getKlasser = function () {
+        var promiseKlasser = larareService.getKlasser(id_token);
+        promiseKlasser.then(function (data) {
+            $scope.klasser = data;
+        });
+    };
+
+    //Hämtar alla mment som läraren har skapat
+    $scope.getMomentLarare = function () {
+        var promiseMomentLärare = momentService.getMomentLärare(id_token);
+        promiseMomentLärare.then(function (data) {
+            $scope.lararMoment = data;
+            console.log("LärareSeMoment");
+            console.log(data);
+        });
+    };
 
     // hämta elever använder ng-change för att uppdatera
     $scope.updateraElevLista = function () {
@@ -51,11 +55,9 @@ module.controller("momentCtrler", function ($scope, momentService, globalService
 
     $scope.handledareSeMoment = function () {
         console.log("SeallaMoment");
-        var obj = JSON.stringify();
-        var promiseAllaMoment = momentService.handledareSeMoment(anvandare, obj);
+        var promiseAllaMoment = momentService.handledareSeMoment(anvandare.basic_auth);
         promiseAllaMoment.then(function (data) {
-            $scope.momentena = data;
-            console.log(data);
+            $scope.moments = data;
         });
     };
 
@@ -83,12 +85,12 @@ module.controller("momentCtrler", function ($scope, momentService, globalService
             document.getElementById("momentInnehall").value = "";
         }
     };
-    
-    $scope.raderaMoment = function (moment_id){
+
+    $scope.raderaMoment = function (moment_id) {
         momentService.larareRaderaMoment(id_token, moment_id).then(function (responses) {
             console.log(responses);
             location.reload();
         });
-        
+
     };
 });

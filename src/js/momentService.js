@@ -1,20 +1,5 @@
 module.service("momentService", function ($http, $q) {
 
-    //Klasser 
-    this.getKlasser = function () {
-        var deferred = $q.defer();
-        var url = SERVER_URL + "/apl/klass";
-        $http({method: "GET", url: url}).success(function (data, status) {
-            console.log(data);
-            deferred.resolve(data);
-        }).error(function (data, status) {
-            console.log("Error");
-            console.log(status);
-            deferred.reject();
-        });
-        return deferred.promise;
-    };
-
     //Elever
     this.url = SERVER_URL + "/elev";
     this.getElevFranKlass = function (id_token, klass) {
@@ -109,22 +94,17 @@ module.service("momentService", function ($http, $q) {
         return deferred.promise;
     };
 
-
-
-
-    //hämta alla moment
-    this.handledareSeMoment = function (elev_id) {
+    //hämta alla moment från handledarens elev
+    this.handledareSeMoment = function (basic_auth) {
         var deferred = $q.defer();
         var url = SERVER_URL + "/moment/handledare";
-//        var url = "http://localhost:8080/aplBackend/webresources/moment/elev";
         $.ajax({
             url: url,
             type: 'get',
             headers: {
-                "Authorization": elev_id,
+                "Authorization": basic_auth,
                 "Content-Type": "application/json"
             },
-            data: elev_id,
             success: function (data) {
                 deferred.resolve(data);
             },
@@ -136,8 +116,4 @@ module.service("momentService", function ($http, $q) {
 
         return deferred.promise;
     };
-
-
-    
-
 });
