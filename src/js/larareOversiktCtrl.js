@@ -1,8 +1,12 @@
 module.controller("larareSeNarvaroCtrl", function ($scope, larareOversiktService, larareService) {
-    $scope.years = [];
-    $scope.start = 0;
-    $scope.currentMonth = new Date().getMonth();
-    $scope.currentYear = new Date().getFullYear();
+
+
+
+
+        $scope.labels = ["bra","sådar","dåligt", "jag vet inte"];
+        $scope.data = [10,50,20,33];
+
+
 
     var anvandare = JSON.parse(localStorage.anvandare);
     var id_token = anvandare.id_token;
@@ -17,26 +21,3 @@ module.controller("larareSeNarvaroCtrl", function ($scope, larareOversiktService
         });
     };
 });
-
-var myPieChart = new Chart(ctx[0]).Pie(data,options);
-var data = [
-    {
-        value: 300,
-        color:"#F7464A",
-        highlight: "#FF5A5E",
-        label: "Red"
-    },
-    {
-        value: 50,
-        color: "#46BFBD",
-        highlight: "#5AD3D1",
-        label: "Green"
-    },
-    {
-        value: 100,
-        color: "#FDB45C",
-        highlight: "#FFC870",
-        label: "Yellow"
-    }
-];
-
