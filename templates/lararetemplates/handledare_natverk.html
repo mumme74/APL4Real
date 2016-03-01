@@ -5,23 +5,27 @@
         <h1 class="text-center">Handledare Nätverk</h1>
         <hr>
         <div><h3>Sök:</h3><input type="text" ng-model="query">
-        <br/><br/>
-        <table class="table table-striped table-responsive">
-            <tr>
-                <td>Namn</td>
-                <td>Epost</td>
-                <td>Telefonnummer</td>
-                <td>Företag</td>
-                <td>Program</td>
-            </tr>
-            <tr ng-repeat="handledaren in program|filter:query">
-                <td>{{handledaren.handledare}}</td>
-                <td>{{handledaren.email}}</td>
-                <td>{{handledaren.telefonnummer}}</td>
-                <td>{{handledaren.foretag}}</td>
-                <td>{{handledaren.namn}}</td>
-            </tr>
-        </table>
+            <br/><br/>
+            <table class="table table-striped table-responsive" id="kontakt">
+                <thead>
+                    <tr>
+                        <td>Namn</td>
+                        <td>Epost</td>
+                        <td>Telefonnummer</td>
+                        <td>Företag</td>
+                        <td>Program</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="handledaren in program|filter:query">
+                        <td data-th='Namn'>{{handledaren.handledare}}</td>
+                        <td data-th='Email'>{{handledaren.email}}</td>
+                        <td data-th='Tfnr.'>{{handledaren.telefonnummer}}</td>
+                        <td data-th='Företag'>{{handledaren.foretag}}</td>
+                        <td data-th='Program'>{{handledaren.namn}}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
