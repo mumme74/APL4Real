@@ -9,7 +9,7 @@ module.controller("handledareCtrl", function ($scope, $window, getService, globa
         var anvandare = JSON.parse(localStorage.anvandare);
         anvandare.losenord = "";
         localStorage.anvandare = JSON.stringify(anvandare);
-        $window.location.href = "#/";
+        $window.location.href = "/handledare";
     };
     
     globalService.kollaStorage().then(function (responses) {
