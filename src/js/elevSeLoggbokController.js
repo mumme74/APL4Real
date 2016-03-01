@@ -22,8 +22,8 @@ module.controller("elevSeLoggCtrl", function ($scope, getServiceLoggar) {
         //tar bort citattecknen som kommer vem fan vet var ifrån
         bild = bild.substr(1, bild.length - 2);
         if (storlek)
-            return "//10.97.72.5/fileload/?file=" + bild + "&size=" + storlek;
+            return IMG_SERVER_URL + "?file=" + bild + "&size=" + storlek;
         else
-            return "//10.97.72.5/fileload/?file=" + bild;
+            return IMG_SERVER_URL + "?file=" + bild;
     };
 });
