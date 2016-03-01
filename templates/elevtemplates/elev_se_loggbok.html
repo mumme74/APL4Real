@@ -20,7 +20,7 @@
                         Skicka kommentar
                     </button>
                     <button class="btn btn-default" ng-click="show(this)">
-                        Ladda kommentarer ({{logg.kommentarer.length}})</button>
+                        Ladda kommentarer <span class="badge">{{logg.kommentarer.length}}</span></button>
                     <br/><br/>
                     <div class="kommentarContainer" id="{{this.$id}}_kommentarer">
                         <div class='alert alert-link well ridge kommentar' ng-repeat="kommentar in logg.kommentarer">
