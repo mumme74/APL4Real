@@ -33,7 +33,7 @@ module.config(function ($urlRouterProvider, $stateProvider) {
     }).state("larare", {
         url: "/larare",
         templateUrl: "templates/larare.html",
-        controller: "larareCtrl"
+        controller: "larareOversiktCtrl"
     }).state("handledare", {
         url: "/handledare",
         templateUrl: "templates/handledare.html",
