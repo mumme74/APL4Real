@@ -1,6 +1,23 @@
 module.service("momentService", function ($http, $q) {
 
     //Elever
+    this.getKlasser = function () {
+        var url = SERVER_URL + "/apl/klass";
+        var deferred = $q.defer();
+        $.ajax({
+            url: url,
+            type: 'get',
+            success: function (data) {
+                deferred.resolve(data);
+            },
+            error: function (data)
+            {
+                deferred.resolve(data);
+            }
+        });
+        return deferred.promise;
+    };
+    //Elever
     this.url = SERVER_URL + "/elev";
     this.getElevFranKlass = function (id_token, klass) {
         var deferred = $q.defer();

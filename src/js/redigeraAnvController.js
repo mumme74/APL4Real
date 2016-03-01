@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 module.controller("redigeraCtrl", function ($scope, redigeraService, 
-                    globalService, larareService) {
+                    globalService, momentService) {
     var anvandare = JSON.parse(localStorage.anvandare);
     var id_token = anvandare.id_token;
 
@@ -37,7 +37,7 @@ module.controller("redigeraCtrl", function ($scope, redigeraService,
             $scope.EleverLista = data;
         });
         
-        var promiseKlasser = larareService.getKlasser();
+        var promiseKlasser = momentService.getKlasser();
         promiseKlasser.then(function (data) {
             $scope.klasser = data;
         });
