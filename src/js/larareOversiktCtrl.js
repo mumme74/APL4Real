@@ -1,5 +1,5 @@
 module.controller("larareOversiktCtrl", function ($scope, larareService, omdomeService) {
-    $scope.labels = ["bra", "sådar", "dåligt"];
+    $scope.labels = ["Bra", "Sådär", "Dåligt"];
     $scope.colours = ["#89ba17","#f0de00","#dc002e"];
     $scope.data = [];
 
