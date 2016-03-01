@@ -20,24 +20,21 @@ module.controller("elevCtrl", function ($scope, $window, postService, globalServ
         var innehall = $scope.text;
         var ljus = $scope.ljus;
         var bild = gbild;
-        console.log(bild);
-        if (datum && innehall && ljus >= 0 && bild)
+        if(!bild)
+            bild = null;
+        if (datum && innehall && ljus >= 0)
         {
             postService.postLogg(datum, innehall, ljus, bild)
                     .then(function (responses) {
-                        if (responses.length == 1)
-                        {
-                            status = responses[0].status;
-                            if (status == 201) {
-                                $window.location.href = "#/elev";
-                            } else if (status == 500) {
-                                alert("Ett okänt fel inträffades på servern.");
-                            } else if (status == 401) {
-                                alert("Du verkar inte vara inloggad längre. Försök logga in igen.");
-                            }
-                        } else {
-                            console.log(responses);
+                        status = responses[0].status;
+                        if (status == 201) {
+                            $window.location.href = "#/elev";
+                        } else if (status == 500) {
+                            alert("Ett okänt fel inträffades på servern.");
+                        } else if (status == 401) {
+                            alert("Du verkar inte vara inloggad längre. Försök logga in igen.");
                         }
+                        gbild = undefined;
                     });
         }
     };
