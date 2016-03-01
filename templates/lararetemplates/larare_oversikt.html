@@ -1,27 +1,28 @@
 <header ng-include="'templates/headers/lararehead.html'"></header>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/0.2.0/Chart.min.js" type="text/javascript"></script>
-</br></br>
-<div class="container" style="margin-top: 14px;">
-    <div class="well">
-        <h1 class="text-center">Översikt</h1> <hr>
-   
-<label class="text-center">Välj klass
+<div class="container">
+    <div class="col-sm-6 col-sm-offset-3">
+        <div class="well text-center">
+            <h1 class="text-center">Översikt</h1>
+            <hr>
+            <label class="text-center">Välj klass
                 <select ng-model="selected_klass"
                         ng-options="klass.id as klass.namn for klass in klasser"
                         ng-change="getElever(selected_klass)">
                 </select>
             </label>
-<label class="text-center">Välj elev:
+            <label class="text-center">Välj elev:
                 <select ng-model="selected_elev"
                         ng-init="selected_elev = -1"
                         ng-options="elev.id as elev.namn for elev in elever"
                         ng-change="getOmdome(selected_elev)">
                 </select>
             </label>
-    </div>
-</div> 
-<div id="chartContainer" class="container">
-<canvas id="countries" class="chart chart-pie" chart-data="data" chart-labels="labels" chart-colours="colours" width="100"></canvas>
+            <br/>
+            <div id="chartContainer" class="container">
+                <canvas class="chart chart-pie" chart-data="data" chart-labels="labels" chart-colours="colours"></canvas>
+            </div>
+        </div>
+    </div> 
 </div>
 
 <footer ng-include="'templates/footer.html'"></footer>
