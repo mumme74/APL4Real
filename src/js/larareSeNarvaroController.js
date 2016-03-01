@@ -15,7 +15,7 @@ module.controller("larareSeNarvaroCtrl", function ($scope, larareNarvaroGetServi
         $scope.klasser = data;
     });
     $scope.getElever = function (klass_id) {
-        var data = {klass_id:klass_id};
+        var data = {klass_id: klass_id};
         larareNarvaroGetService.getGodkandNarvaro(id_token, data).then(function (data) {
             var alla = [];
             alla.push({elev_id: -1, namn: "Alla"});
@@ -25,7 +25,7 @@ module.controller("larareSeNarvaroCtrl", function ($scope, larareNarvaroGetServi
                 $scope.years.push(i);
             $scope.years.reverse();
         });
-    }
+    };
     $scope.parseClass = function (p) {
         if (p === 0)
             return 'rod';
@@ -69,12 +69,10 @@ module.controller("larareSeNarvaroCtrl", function ($scope, larareNarvaroGetServi
                 year = sista_dag.getFullYear();
             }
         }
-        if (!(elev_id > -1) && !year)
-        {
+        if (!(elev_id > -1) && !year) {
             year = $scope.currentYear;
         }
-        if (!(elev_id > -1) && !month)
-        {
+        if (!(elev_id > -1) && !month) {
             month = $scope.currentMonth;
         }
         //skapa array med datumen i månaden
@@ -82,23 +80,20 @@ module.controller("larareSeNarvaroCtrl", function ($scope, larareNarvaroGetServi
         var stop = new Date(year, month, new Date(year, month + 1, 0).getDate());
         var date_array = getDates(start, stop);
         //Fyll på med tomma dagar så att arrayen börjar med söndag
-        while (date_array[0].getDay() !== 0)
-        {
+        while (date_array[0].getDay() !== 0) {
             var ny_dag = date_array[0];
             date_array.unshift(ny_dag);
             date_array[0] = date_array[0].removeDays(1);
         }
         //fyll på så att den slutar på lördag
-        while (date_array[date_array.length - 1].getDay() !== 0)
-        {
+        while (date_array[date_array.length - 1].getDay() !== 0) {
             var ny_dag = date_array[date_array.length - 1];
             date_array.push(ny_dag);
             date_array[date_array.length - 1] = date_array[date_array.length - 1].addDays(1);
         }
         var narvaro_array = [];
         //skapa en objektarray av datumen
-        for (var i = 0; i < date_array.length - 1; i++)
-        {
+        for (var i = 0; i < date_array.length - 1; i++) {
             var dag = date_array[i];
             narvaro_array.push({
                 datum: dag
