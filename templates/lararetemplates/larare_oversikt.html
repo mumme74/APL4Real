@@ -1,4 +1,9 @@
 <header ng-include="'templates/headers/lararehead.html'"></header>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/0.2.0/Chart.min.js" type="text/javascript"></script>
 </br></br>
 <h1>Översikt</h1>
+<div id="chartContainer" class="container">
+<canvas id="countries" class="chart chart-pie" chart-data="data" chart-labels="labels" width="100"></canvas>
+</div>
+
 <footer ng-include="'templates/footer.html'"></footer>

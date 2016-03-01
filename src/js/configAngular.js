@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-var module = angular.module("apl", ["ui.router"]);
+var module = angular.module("apl", ["ui.router","chart.js"]);
 
 module.config(function ($urlRouterProvider, $stateProvider) {
 
@@ -33,7 +33,7 @@ module.config(function ($urlRouterProvider, $stateProvider) {
     }).state("larare", {
         url: "/larare",
         templateUrl: "templates/larare.html",
-        controller: "larareCtrl"
+        controller: "larareOversiktCtrl"
     }).state("handledare", {
         url: "/handledare",
         templateUrl: "templates/handledare.html",
@@ -93,7 +93,7 @@ module.config(function ($urlRouterProvider, $stateProvider) {
     }).state("larare_oversikt", {
         url: "/larare_oversikt",
         templateUrl: "templates/lararetemplates/larare_oversikt.html",
-        controller: ""
+        controller: "larareOversiktCtrl"
     }).state("larare_narvaro", {
         url: "/larare_narvaro",
         templateUrl: "templates/lararetemplates/larare_narvaro.html",
