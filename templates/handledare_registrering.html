@@ -2,7 +2,7 @@
 <div class="container">
     <div class="col-sm-6 col-sm-offset-3">
     <div class="well text-center" ng-controller="handledareRegCtrl">
-        <h2>Registrera handledare</h2><br/>
+        <h1>Registrera handledare</h1><hr>
         <form>
             <input ng-model="name" type='text' placeholder='Namn'>
             <br/><br/>
@@ -14,7 +14,7 @@
             <br/><br/>
             <input ng-model="frtg" type='text' placeholder='Företag'>
             <br/><br/>Välj program:
-            <select ng-model="pr" class="btn btn-default">
+            <select ng-model="pr">
                <option ng-repeat="program in programs" value='{{program.id}}'>{{program.namn}}</option>
             </select>
             <br/><br/>

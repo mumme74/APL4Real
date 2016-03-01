@@ -1,24 +1,30 @@
 <header ng-include="'templates/headers/lararehead.html'"></header>
 <div ng-controller="momentCtrler" class="container" ng-init="getKlasser()">
     <div class="jumbotron">
-        <h1>Se Moment:</h1>
+        <h1 class="text-center">Se Moment</h1>
     </div>
+    
     <div class="col-sm-4">
+        <div class="well">
         <h3>Välj klass:</h3>
-        <select ng-model="sokKlass" class="btn btn-default" ng-change="updateraElevLista()"> 
+        <select ng-model="sokKlass" ng-change="updateraElevLista()"> 
             <option ng-repeat="klass in klasser" value="{{klass.id}}">
                 {{klass.namn}}
             </option> 
         </select>
+        </div>
     </div>
     <div class="col-sm-4"> 
+        <div class="well">
         <h3>Välj elev:</h3>
-        <select ng-model="sokElev" class="btn btn-default" ng-change="updateraElevsMoment()"> 
+        <select ng-model="sokElev"  ng-change="updateraElevsMoment()"> 
             <option ng-repeat="elev in eleverna" value="{{elev.id}}">
                 {{elev.namn}}
             </option> 
         </select>
+        </div>
     </div>
+        
     <br><br><br>    <br><br><br>
 
     <table class='table table-bordered table-striped'>

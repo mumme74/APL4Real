@@ -1,9 +1,12 @@
 <header ng-include="'templates/headers/lararehead.html'"></header>
 
 <div class="container" ng-init="laddaAnv()">
+    <div class="jumbotron">
+        <h1 class="text-center">Redigera Användare</h1>
+    </div>
     <div class="row">
         <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-
+            <div class="well">
             <label for="ddElev">Välj elev:</label>
             <br/>
             <select ng-model="ddElev" ng-change="laddaElev()" id="ddElev">
@@ -32,11 +35,11 @@
             <br/><br/><br/>
             <button class="btn btn-default" ng-click="sparaElev()">Spara</button>
             <button class="btn btn-default" ng-click="rensa()">Avbryt</button>
-
+           </div>
         </div>
 
         <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-
+            <div class="well">
             <label for="ddHL">Välj handledare:</label>
             <br/>
             <select ng-model="ddHandledare" ng-change="laddaHL()" id="ddHL">
@@ -64,6 +67,7 @@
 
             <button class="btn btn-default" ng-click="sparaHL()">Spara</button>
             <button class="btn btn-default" ng-click="rensa()">Avbryt</button>
+            </div>
         </div>
     </div>
 </div>

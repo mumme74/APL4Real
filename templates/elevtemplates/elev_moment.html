@@ -1,21 +1,21 @@
 <header ng-include="'templates/headers/elevhead.html'"></header>
     <div class="container">
-    <div class="jumbotron">
-        <h1>Moment:</h1>
+    <div class="jumbotron text-center">
+        <h1>Moment</h1>
     </div>
     <table class='table table-bordered table-striped'>
         <tr>
-            <th><div class="col-lg-7 ">Innehåll av momentet</div></th>
-            <th><div class="col-lg-3 ">Avklarad</div></th>
-            <th><div class="col-lg-2 ">Skicka in som godkänd</div></th>
+            <th>Innehåll av momentet</th>
+            <th>Avklarad</th>
+            <th>>Skicka in som godkänd</th>
 
         </tr>
         <tr ng-repeat="momenten in moment">
-            <td><div class="col-lg-7 ">{{momenten.innehall}}</div></td>
-            <td><div class="col-lg-3 ">{{getStatus(momenten.godkand)}}</div></td>
-            <td><div class="col-lg-2 "><a ng-if="Status(momenten.godkand)" ui-sref="elev_moment"
+            <td>{{momenten.innehall}}/td>
+            <td>{{getStatus(momenten.godkand)}}</td>
+            <td><a ng-if="Status(momenten.godkand)" ui-sref="elev_moment"
                                           class="btn btn-success" 
-                                          ng-click="setStatus(momenten.moment_id)">Skicka</a></div></td>
+                                          ng-click="setStatus(momenten.moment_id)">Skicka</a></td>
         </tr>
     </table>
 </div>
