@@ -91,6 +91,11 @@ module.controller("momentCtrler", function ($scope, momentService, globalService
             console.log(responses);
             location.reload();
         });
-
+    };
+    $scope.raderaMomentElev = function (moment_id) {
+        momentService.elevRaderaMoment(id_token, moment_id).then(function (responses) {
+            console.log(responses);
+            location.reload();
+        });
     };
 });

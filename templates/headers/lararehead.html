@@ -12,8 +12,16 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li ui-sref-active="active"><a ui-sref="larare_oversikt">Översikt</a></li>
-                <li ui-sref-active="active"><a ui-sref="larare_narvaro">Närvaro</a></li>
-                <li ui-sref-active="active"><a ui-sref="larare_se_loggbok">Loggböcker</a></li>
+                <li ui-sref-active="active" class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        Elev <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li ui-sref-active="active"><a ui-sref="larare_narvaro">Närvaro</a></li>
+                        <li ui-sref-active="active"><a ui-sref="larare_se_loggbok">Loggböcker</a></li>
+                    </ul>
+
+                </li>
                 <li ui-sref-active="active" class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         Moment <span class="caret"></span></a>
@@ -30,9 +38,10 @@
                     <ul class="dropdown-menu">
                         <li ui-sref-active="active"><a ui-sref="handledarenatverk">Handledarnätverk</a></li>
                         <li ui-sref-active="active"><a ui-sref="handledarreg">Registrera ny handledare</a></li>
+                        <li ui-sref-active="active"><a ui-sref="elev_handledare">Koppla handledare med elever</a></li>
                     </ul>
                 </li>
-                <li ui-sref-active="active"><a ui-sref="redigera_anv">Redigera användare</a></li>
+                <li ui-sref-active="active"><a ui-sref="redigera_anv">Redigera</a></li>
                 <li ui-sref-active="active"><a ui-sref="larare_kontakt">Kontakt</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
