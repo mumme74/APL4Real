@@ -26,15 +26,18 @@ module.controller("larareSeNarvaroCtrl", function ($scope, larareNarvaroGetServi
             $scope.years.reverse();
         });
     };
-    $scope.parseClass = function (p) {
-        if (p === 0)
+    $scope.parseClass = function (ljus, godkant) {
+        if (godkant === 0)
+            return 'gra';
+        if (ljus === 0)
             return 'rod';
-        else if (p === 1)
+        else if (ljus === 1)
             return 'gul';
-        else if (p === 2)
+        else if (ljus === 2)
             return 'gron';
         else
             return 'vit';
+
     };
     $scope.todayClass = function (datum) {
         if (datum.getFullYear() === new Date().getFullYear()
@@ -54,6 +57,15 @@ module.controller("larareSeNarvaroCtrl", function ($scope, larareNarvaroGetServi
         if (index !== -1)
         {
             return elev.narvaro[index].trafikljus;
+        } else {
+            return -1;
+        }
+    };
+    $scope.getGodkant = function (elev, datum) {
+        var index = arrayObjectIndexOf(elev.narvaro, datum.getTime() / 1000, "datum");
+        if (index !== -1)
+        {
+            return elev.narvaro[index].godkant;
         } else {
             return -1;
         }

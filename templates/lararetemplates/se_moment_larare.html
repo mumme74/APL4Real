@@ -3,37 +3,44 @@
     <div class="well">
         <h1 class="text-center">Se Moment</h1>
         <hr>
-    <div class="col-sm-3 col-sm-offset-3">
-        <div>
-        <h3>Välj klass:</h3>
-        <select ng-model="sokKlass" ng-change="updateraElevLista()"> 
-            <option ng-repeat="klass in klasser" value="{{klass.id}}">
-                {{klass.namn}}
-            </option> 
-        </select>
+        <div class="col-sm-3 col-sm-offset-3">
+            <div>
+                <h3>Välj klass:</h3>
+                <select ng-model="sokKlass" ng-change="updateraElevLista()"> 
+                    <option ng-repeat="klass in klasser" value="{{klass.id}}">
+                        {{klass.namn}}
+                    </option> 
+                </select>
+            </div>
         </div>
-    </div>
-    <div class="col-sm-3"> 
-        <div>
-        <h3>Välj elev:</h3>
-        <select ng-model="sokElev"  ng-change="updateraElevsMoment()"> 
-            <option ng-repeat="elev in eleverna" value="{{elev.id}}">
-                {{elev.namn}}
-            </option> 
-        </select>
+        <div class="col-sm-3"> 
+            <div>
+                <h3>Välj elev:</h3>
+                <select ng-model="sokElev"  ng-change="updateraElevsMoment()"> 
+                    <option ng-repeat="elev in eleverna" value="{{elev.id}}">
+                        {{elev.namn}}
+                    </option> 
+                </select>
+            </div>
         </div>
-    </div>
-          
-    <br><br><br>    <br><br><br>
 
-    <table class='table table-bordered table-striped'>
-        <tr>
-            <th>Innehåll</th>
-            <th>Avklarat</th>
-        </tr>
-        <tr ng-repeat="momenten in moment" value="{{moment.id}}" >
-            <td>{{momenten.innehall}}</td>
-            <td>{{parseMoment(momenten.godkand)}}</td>
-        </tr>
-    </table>
-  </div>
+        <br><br><br>    <br><br><br>
+
+        <table class='table table-bordered table-striped'>
+            <tr>
+                <th>Innehåll</th>
+                <th>Status</th>
+                <th>Radera</th>
+            </tr>
+            <tr ng-repeat="momenten in moment" value="{{moment.id}}" >
+                <td>{{momenten.innehall}}</td>
+                <td>{{parseMoment(momenten.godkand)}}</td>
+                <td>
+                    <a class="btn btn-default" ng-click="raderaMomentElev(momenten.moment)">
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

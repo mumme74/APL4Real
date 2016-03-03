@@ -110,6 +110,29 @@ module.service("momentService", function ($http, $q) {
         });
         return deferred.promise;
     };
+    //Radera Moment
+    this.elevRaderaMoment = function (id_token, moment_id) {
+        var deferred = $q.defer();
+        var url = SERVER_URL + "/moment/"+moment_id+"/elev";
+        console.log(url);
+        $.ajax({
+            url: url,
+            type:'DELETE',
+            headers: {
+            "Authorization": id_token,
+            "Content-Type": "application/json"
+            },
+            success: function (data) {
+                deferred.resolve(data);
+            },
+            error: function (data)
+            {
+                deferred.resolve(data);
+            }
+            
+        });
+        return deferred.promise;
+    };
 
     //hämta alla moment från handledarens elev
     this.handledareSeMoment = function (basic_auth) {
