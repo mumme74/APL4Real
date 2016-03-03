@@ -238,16 +238,20 @@ td {
 .btn-success{
     background-color: #89BA17;
 }
+html, body, body > div{
+    height: 100%;
+}
 .mrwhite{
     color: white;
     background-image: url("../BilderAPL/sky-08.jpg");
+    background-attachment: fixed;
      -webkit-background-size: cover;
      -moz-background-size: cover;
      -o-background-size: cover;
      background-size: cover;
-     width: 100%;
-     height: auto;
-     position: fixed;
+     height: 100%;
+/*     position: fixed;*/
+     
 /*     height: 740px;*/
 }
 .mrwhite input{
@@ -270,6 +274,7 @@ input {
 }
 img.resize{
     max-width: 50%;
+    margin-bottom: 1em;
 /*    height: 50px;
     width: 100px;*/
 }
