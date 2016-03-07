@@ -18,15 +18,16 @@ module.controller("handledareRegCtrl", function ($scope, registrationService, gl
         var tfnr = $scope.phone;
         var namn = $scope.name;
         var foretag = $scope.frtg;
-        var program = $scope.pg;
+        var program = parseInt($scope.pr);
+        var url = "/apl/handledare";
         var data = {
-            användarnamn: användarnamn,
-            lösenord: lösenord,
+            anvandarnamn: användarnamn,
+            losenord: lösenord,
             email: email,
             tfnr: tfnr,
             namn: namn,
             foretag: foretag,
-            program: program
+            program_id: program
         };
         globalService.skickaData(url, data).then(function (responses) {
             if (responses[0].status < 200 || responses[0].status > 299)
