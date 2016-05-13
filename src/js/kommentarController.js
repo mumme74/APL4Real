@@ -6,18 +6,23 @@
 module.controller("kommentarCtrl", function ($scope, globalService, kommentarService) {
     var url = "/logg";
     $scope.postKommentar = function (logg_id) {
-        var datumObj = new Date();
-        var datum = datumObj.getFullYear() + "-"
-                + (datumObj.getMonth() + 1) + "-"
-                + datumObj.getDate() + " "
-                + datumObj.getHours() + ":"
-                + ('0' + datumObj.getMinutes()).slice(-2);
-        var kommentar = document.getElementById(logg_id).value;
-        var data = {"loggbok_id": logg_id, "innehall": kommentar, "datum": datum};
-        globalService.skickaData(url + "/kommentar", data).then(function (responses) {
-            console.log(responses);
-        });
-        document.getElementById(logg_id).value = "";
+        var kommentar = document.getElementById(logg_id).value.trim();
+        if (kommentar !== "")
+        {
+            var datumObj = new Date();
+            var datum = datumObj.getFullYear() + "-"
+                    + (datumObj.getMonth() + 1) + "-"
+                    + datumObj.getDate() + " "
+                    + datumObj.getHours() + ":"
+                    + ('0' + datumObj.getMinutes()).slice(-2);
+            var data = {"loggbok_id": logg_id, "innehall": kommentar, "datum": datum};
+            globalService.skickaData(url + "/kommentar", data).then(function (responses) {
+                console.log(responses);
+            });
+            document.getElementById(logg_id).value = "";
+            location.reload();
+        }
+        
     };
     $scope.laddaKommentar = function (logg_id) {
         var anvandare = JSON.parse(localStorage.anvandare);
