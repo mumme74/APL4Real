@@ -2,6 +2,9 @@
     "elements": {},
     "attributes": {
         "ui-view": {},
+        "chart-data": {
+            "context": "canvas"
+        },
         "ui-sref": {},
         "ui-sref-active": {}
     }

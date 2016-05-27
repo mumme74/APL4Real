@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-var module = angular.module("apl", ["ui.router","chart.js"]);
+var module = angular.module("apl", ["ui.router"]);
 
 module.config(function ($urlRouterProvider, $stateProvider) {
 

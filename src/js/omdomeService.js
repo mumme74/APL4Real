@@ -6,15 +6,15 @@
 
 module.service("omdomeService", function ($q) {
     this.url = SERVER_URL + "/omdome";
-    this.getOmdome = function (id_token, elev_id) {
+    this.getOmdome = function (id_token, klass_id) {
         var deferred = $q.defer();
         var data = {
-            id:elev_id
+            id: klass_id
         };
         $.ajax({
             url: this.url,
             type: 'post',
-            data:JSON.stringify(data),
+            data: JSON.stringify(data),
             headers: {
                 "Authorization": id_token,
                 "Content-Type": 'application/json'
@@ -29,6 +29,6 @@ module.service("omdomeService", function ($q) {
         });
         return deferred.promise;
     };
-    
-    
-    });
+
+
+});

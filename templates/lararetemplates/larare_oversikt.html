@@ -1,26 +1,17 @@
 <header ng-include="'templates/headers/lararehead.html'"></header>
 <div class="container">
-    <div class="col-sm-6 col-sm-offset-3">
+    <div class="col-sm-10 col-sm-offset-1">
         <div class="well text-center">
             <h1 class="text-center">Översikt</h1>
             <hr>
             <label class="text-center">Välj klass
                 <select ng-model="selected_klass"
                         ng-options="klass.id as klass.namn for klass in klasser"
-                        ng-change="getElever(selected_klass)">
-                </select>
-            </label>
-            <label class="text-center">Välj elev:
-                <select ng-model="selected_elev"
-                        ng-init="selected_elev = -1"
-                        ng-options="elev.id as elev.namn for elev in elever"
-                        ng-change="getOmdome(selected_elev)">
+                        ng-change="getOmdome(selected_klass)">
                 </select>
             </label>
             <br/>
-            <div id="chartContainer" class="container">
-                <canvas class="chart chart-pie" chart-data="data" chart-labels="labels" chart-colours="colours"></canvas>
-            </div>
+            <div id="chartContainer" class="container"></div>
         </div>
     </div> 
 </div>
