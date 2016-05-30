@@ -7,18 +7,27 @@ and open the template in the editor.
     Created on : 2016-jan-11, 11:29:43
     Author     : maikwagner
 */
-table {
-  border: 1;
+#chartContainer {
+  width: 100%;
+}
+#chartContainer>div {
+    float:left;
+    width: 33%;
+}
+#chartContainer>div * {
+    width: 100%
+}
+.badge {
+  font-size: 1em;
 }
 div.seLoggbok {
   padding-left: 1%;
   padding-right: 1%;
-  width: 90%;
-  margin-left: 5%;
   margin-bottom: 1em;
-  background-color: #bce8f1;
-  border-style: ridge;
-  border-radius: 5px;
+  background-color: white;
+  border: solid #000000;
+  border-radius: 15px;
+  border-width: .8px;
 }
 .ridge {
   border-style: ridge;
@@ -48,11 +57,44 @@ textarea.loggbok {
 .ljus.vald {
   opacity: 1;
 }
+.narvaro_dag {
+  height: 10%;
+  width: 14.2%;
+  float: left;
+  text-align: center;
+}
+.narvaro_dag.gron {
+  background-color: #64ff64;
+}
+.narvaro_dag.gul {
+  background-color: #ffff64;
+}
+.narvaro_dag.rod {
+  background-color: #ff6464;
+}
+.narvaro_dag.vit {
+  background-color: #c8c8c8;
+}
+.narvaro_dag.gra {
+  background-color: #969696;
+}
+.narvaro_dag.idag {
+  box-shadow: 0 0 5px #0000FF inset;
+}
+#wrapper > div {
+  overflow: auto;
+}
 header + div {
   margin-top: 60px;
 }
 .aktivitet {
   display: none;
+}
+.kommentarContainer {
+  display: none;
+}
+footer * {
+  visibility: hidden;
 }
 .fright {
   float: right;
@@ -66,6 +108,15 @@ header + div {
 .tcenter {
   text-align: center;
 }
+.tcenter a {
+  color: white;
+}
+.tcenter a:hover {
+  color: #b3b3b3;
+}
+.clear {
+  clear: both;
+}
 .bright {
   border-left: #333 thin solid;
 }
@@ -74,5 +125,184 @@ header + div {
 }
 .center-img {
   margin: 0 auto;
+}
+table#kontakt {
+  margin: 0 auto;
+  border-collapse: collapse;
+  font-family: Agenda-Light, sans-serif;
+  font-weight: 100;
+  background: #333;
+  color: #fff;
+  text-rendering: optimizeLegibility;
+  border-radius: 5px;
+}
+table#kontakt caption {
+  font-size: 2rem;
+  color: #444;
+  margin: 1rem;
+  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/miyazaki.png), url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/miyazaki2.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center left, center right;
+}
+table#kontakt thead th {
+  font-weight: 600;
+}
+table#kontakt thead th,
+table#kontakt tbody td {
+  padding: .8rem;
+  font-size: 1.4rem;
+}
+table#kontakt tbody td {
+  padding: .8rem;
+  font-size: 1.4rem;
+  color: #444;
+  background: #eee;
+}
+table#kontakt tbody tr:not(:last-child) {
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+@media screen and (max-width: 750px) {
+  table#kontakt caption {
+    background-image: none;
+  }
+  table#kontakt thead {
+    display: none;
+  }
+  table#kontakt tbody td {
+    display: block;
+    padding: .6rem;
+  }
+  table#kontakt tbody tr td:first-child {
+    background: #666;
+    color: #fff;
+  }
+  table#kontakt tbody td:before {
+    content: attr(data-th);
+    font-weight: bold;
+    display: inline-block;
+    width: 6rem;
+  }
+}
+body {
+  /*background-image: url("../BilderAPL/sky-08.jpg");*/
+  background-color: #0060A9;
+}
+h1 {
+  font-weight: 500;
+}
+h2 {
+  font-weight: 500;
+}
+h3 {
+  font-weight: 500;
+}
+.navbar {
+  background-color: #a4b8db;
+}
+ul {
+  background-color: #a4b8db;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+li a:hover:not(.active) {
+  background-color: #111;
+}
+#active {
+  background-color: #white;
+}
+nav li.active a,
+nav li.active a:hover,
+nav li.active a:active {
+  background: #323637;
+}
+.jumbotron {
+  background-color: #a4b8db;
+  border: solid #000000;
+  border-radius: 20px;
+  border-width: .8px;
+}
+.well {
+  background-color: #a4b8db;
+  border: solid #000000;
+  border-radius: 20px;
+  border-width: .8px;
+}
+#loggWrapper {
+  padding: 0 0 0 0;
+  width: 98%;
+  margin-left: 1%;
+}
+.seLoggbok1 {
+  padding-left: 1%;
+  padding-right: 1%;
+  width: 98%;
+  margin-left: 1%;
+  margin-bottom: 1em;
+  background-color: white;
+  border: solid #000000;
+  border-radius: 15px;
+  border-width: .8px;
+}
+.loggWell {
+  padding: 0 0 0 0;
+  background-color: #a4b8db;
+  border: solid #000000;
+  border-radius: 20px;
+  border-width: .8px;
+}
+th {
+  background-color: white;
+  color: black;
+}
+td {
+  background-color: #a4b8db;
+  border-bottom-color: black;
+}
+.btn-success {
+  background-color: #89BA17;
+}
+html,
+body,
+body > div {
+  height: 100%;
+}
+.mrwhite {
+  color: white;
+  background-image: url("../BilderAPL/sky-08.jpg");
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+  /*     position: fixed;*/
+  /*     height: 740px;*/
+}
+.mrwhite input {
+  color: black;
+}
+input {
+  border: solid #000000;
+  border-radius: 2px;
+  border-width: .4px;
+}
+#tableMomentInnehall {
+  width: 100%;
+}
+#tableMomentRadera {
+  width: 50%;
+}
+.third {
+  width: 33%;
+  float: left;
+}
+img.resize {
+  max-width: 50%;
+  margin-bottom: 1em;
+  /*    height: 50px;
+    width: 100px;*/
 }
 /*# sourceMappingURL=style.css.map */

@@ -91,14 +91,14 @@ module.controller("larareSeNarvaroCtrl", function ($scope, larareNarvaroGetServi
         var start = new Date(year, month, 1);
         var stop = new Date(year, month, new Date(year, month + 1, 0).getDate());
         var date_array = getDates(start, stop);
-        //Fyll på med tomma dagar så att arrayen börjar med söndag
-        while (date_array[0].getDay() !== 0) {
+        //Fyll på med tomma dagar så att arrayen börjar med måndag
+        while (date_array[0].getDay() !== 1) {
             var ny_dag = date_array[0];
             date_array.unshift(ny_dag);
             date_array[0] = date_array[0].removeDays(1);
         }
-        //fyll på så att den slutar på lördag
-        while (date_array[date_array.length - 1].getDay() !== 0) {
+        //fyll på så att den slutar på söndag
+        while (date_array[date_array.length - 1].getDay() !== 1) {
             var ny_dag = date_array[date_array.length - 1];
             date_array.push(ny_dag);
             date_array[date_array.length - 1] = date_array[date_array.length - 1].addDays(1);
