@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-module.controller("redigeraCtrl", function ($scope, redigeraService, 
-                    globalService, momentService) {
+module.controller("redigeraCtrl", function ($scope, redigeraService,
+        globalService, momentService) {
     var anvandare = JSON.parse(localStorage.anvandare);
     var id_token = anvandare.id_token;
 
-    $scope.rensa = function (){
+    $scope.rensa = function () {
         $scope.ddHandledare = -1;
         document.getElementById("HLnamn").value = "";
         document.getElementById("HLtfnr").value = "";
@@ -17,7 +17,7 @@ module.controller("redigeraCtrl", function ($scope, redigeraService,
         document.getElementById("HLanvnamn").value = "";
         document.getElementById("HLlosen").value = "";
         $scope.HLp_id = -1;
-        
+
         $scope.ddElev = -1;
         document.getElementById("elevnamn").value = "";
         document.getElementById("elevtfnr").value = "";
@@ -31,12 +31,12 @@ module.controller("redigeraCtrl", function ($scope, redigeraService,
         promiseHL.then(function (data) {
             $scope.HLLista = data;
         });
-        
+
         var promiseElever = redigeraService.getElever(id_token);
         promiseElever.then(function (data) {
             $scope.EleverLista = data;
         });
-        
+
         var promiseKlasser = momentService.getKlasser();
         promiseKlasser.then(function (data) {
             $scope.klasser = data;
@@ -52,7 +52,7 @@ module.controller("redigeraCtrl", function ($scope, redigeraService,
             $scope.elevklass = data.klass;
             console.log(data.hl_id);
             $scope.elevHL_id = data.hl_id;
-            
+
         });
     };
 
@@ -76,14 +76,21 @@ module.controller("redigeraCtrl", function ($scope, redigeraService,
         var användarnamn = document.getElementById("HLanvnamn").value;
         var lösenord = document.getElementById("HLlosen").value;
 
-        var data = {ID: ID, "namn": namn, "tfnr": tfnr, "email": email,
-            "foretag": företag, "anvnamn": användarnamn,
-            "losenord": lösenord};
+        var data = {
+            ID: ID,
+            namn: namn,
+            tfnr: tfnr,
+            email: email,
+            foretag: företag,
+            anvnamn: användarnamn,
+            losenord: lösenord
+        };
 
         globalService.skickaData(url, data).then(function (responses) {
-            console.log(responses);
+            if (responses[0].status < 200 || responses[0].status > 299) {
+                globalService.notify("Ett fel inträffade, datan kommer skickas automatiskt.", "info");
+            }
             $scope.rensa();
-            location.reload();
         });
     };
 
@@ -95,12 +102,19 @@ module.controller("redigeraCtrl", function ($scope, redigeraService,
         var email = document.getElementById("elevemail").value;
         var klass = parseInt($scope.elevklass);
         var handledar_id = parseInt($scope.elevHL_id);
-        var data = {ID: ID, "namn": namn, "tfnr": tfnr, "email": email,
-            klass: klass, hl_id: handledar_id};
+        var data = {
+            ID: ID,
+            namn: namn,
+            tfnr: tfnr,
+            email: email,
+            klass: klass,
+            hl_id: handledar_id
+        };
         globalService.skickaData(url, data).then(function (responses) {
-            console.log(responses);
+            if (responses[0].status < 200 || responses[0].status > 299) {
+                globalService.notify("Ett fel inträffade, datan kommer skickas automatiskt.", "info");
+            }
             $scope.rensa();
-            location.reload();
         });
     };
 });

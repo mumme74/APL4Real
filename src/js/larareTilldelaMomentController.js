@@ -50,11 +50,9 @@ module.controller("larareTilldelaMomentCtrl", function ($scope, larareService, m
             var url = "/moment/tilldela";
 
             globalService.skickaData(url, data).then(function (responses) {
-                if (responses[0].status < 200 || responses[0].status > 299)
-                {
-                    alert("Ett fel inträffade, datan kommer skickas automatiskt.");
+                if (responses[0].status < 200 || responses[0].status > 299) {
+                    globalService.notify("Ett fel inträffade, datan kommer skickas automatiskt.", "info");
                 }
-                location.reload();
             });
         }
     };

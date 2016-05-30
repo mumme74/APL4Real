@@ -68,7 +68,9 @@ module.controller("aktivitetCtrl", function ($scope, $window, getService, global
         };
 
         globalService.skickaData(url, data).then(function (responses) {
-            console.log(responses);
+            if (responses[0].status < 200 || responses[0].status > 299) {
+                globalService.notify("Ett fel inträffade, datan kommer skickas automatiskt.", "info");
+            }
         });
     };
     $scope.skickaMoment = function (index) {
@@ -100,7 +102,9 @@ module.controller("aktivitetCtrl", function ($scope, $window, getService, global
     $scope.skickaElev = function (data) {
         var url = "/elev/aktivitet";
         globalService.skickaData(url, data).then(function (responses) {
-            console.log(responses);
+            if (responses[0].status < 200 || responses[0].status > 299) {
+                globalService.notify("Ett fel inträffade, datan kommer skickas automatiskt.", "info");
+            }
         });
     };
 });

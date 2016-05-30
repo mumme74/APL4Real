@@ -8,10 +8,8 @@ module.controller("handledareRegCtrl", function ($scope, registrationService, gl
     var promiseProgram = registrationService.getProgram();
     promiseProgram.then(function (data) {
         $scope.programs = data;
-        console.log(data);
     });
     $scope.registreraHandledare = function () {
-        console.log("handreg");
         var användarnamn = $scope.username;
         var lösenord = $scope.password;
         var email = $scope.email;
@@ -30,11 +28,9 @@ module.controller("handledareRegCtrl", function ($scope, registrationService, gl
             program_id: program
         };
         globalService.skickaData(url, data).then(function (responses) {
-            if (responses[0].status < 200 || responses[0].status > 299)
-            {
-                alert("Ett fel inträffade, datan kommer skickas automatiskt.");
+            if (responses[0].status < 200 || responses[0].status > 299) {
+                globalService.notify("Ett fel inträffade, datan kommer skickas automatiskt.", "info");
             }
-            location.reload();
         });
     };
 });

@@ -14,28 +14,32 @@ module.controller("elevCtrl", function ($scope, $window, postService, globalServ
     };
     $scope.postLogg = function () {
         //Tidszon fix
+        if (!$scope.datum) {
+            return globalService.notify("Du måste fylla i datum.", "danger");
+        }
         $scope.datum.setHours(12);
         //Göra om till databasens Date
         var datum = $scope.datum.toISOString().substring(0, 10);
         var innehall = $scope.text;
         var ljus = $scope.ljus;
         var bild = gbild;
-        if(!bild)
+        if (!bild)
             bild = null;
-        if (datum && innehall && ljus >= 0)
-        {
+        if (datum && innehall && ljus >= 0) {
             postService.postLogg(datum, innehall, ljus, bild)
                     .then(function (responses) {
                         status = responses[0].status;
                         if (status == 201) {
                             $window.location.href = "#/elev";
                         } else if (status == 500) {
-                            alert("Ett okänt fel inträffades på servern.");
+                            globalService.notify("Ett okänt fel inträffades på servern", "danger");
                         } else if (status == 401) {
-                            alert("Du verkar inte vara inloggad längre. Försök logga in igen.");
+                            globalService.notify("Du verkar inte vara inloggad längre. Försök logga in igen", "danger");
                         }
                         gbild = undefined;
                     });
+        } else {
+            globalService.notify("Du måste fylla i datum, innehåll och upplevelse av dagen.", "danger");
         }
     };
     $scope.valj = function (ljus) {
@@ -47,7 +51,6 @@ module.controller("elevCtrl", function ($scope, $window, postService, globalServ
             $scope.ljus = 2;
         $(".vald").removeClass("vald");
         $("." + ljus).addClass("vald");
-
     };
     $scope.onImgUrl = function (responseText, statusText, xhr, $form) {
         console.log(responseText.filename);
@@ -64,7 +67,7 @@ module.controller("elevCtrl", function ($scope, $window, postService, globalServ
     };
     window.onImgUrl = $scope.onImgUrl;
     globalService.kollaStorage().then(function (responses) {
-        console.log(responses);
+        //console.log(responses);
     });
 });
 

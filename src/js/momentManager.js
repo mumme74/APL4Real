@@ -78,9 +78,10 @@ module.controller("momentCtrler", function ($scope, momentService, globalService
         var innehall = document.getElementById("momentInnehall").value;
         if (innehall.toString().trim() !== "") {
             var data = {"beskrivning": innehall};
-            globalService.skickaData("/moment", data).then(function (responses) {
-                console.log(responses);
-                location.reload();
+            globalService.skickaData(url, data).then(function (responses) {
+                if (responses[0].status < 200 || responses[0].status > 299) {
+                    globalService.notify("Ett fel inträffade, datan kommer skickas automatiskt.", "info");
+                }
             });
             document.getElementById("momentInnehall").value = "";
         }

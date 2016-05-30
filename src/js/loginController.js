@@ -3,16 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-module.controller("loginCtrl", function ($location, $window, $scope, loginService) {
+module.controller("loginCtrl", function ($location, $window, $scope, loginService, globalService) {
     $scope.googleLogin = function (googleAnvandare) {
 
         var id_token = googleAnvandare.getAuthResponse().id_token;
         var expires_at = googleAnvandare.getAuthResponse().expires_at;
-        console.log(expires_at);
+        setTimeout(function () {
+            $location.reload();
+        }, expires_at - Date.now());
         var google_id = googleAnvandare.getBasicProfile().getId();
         loginService.logInGoogle(id_token).then(function (data) {
             if (data.behorighet === 0) {
-                console.log("Inloggad som elev.");
+                globalService.notify("Inloggad som elev", "info");
                 var anvandare = {
                     id_token: id_token,
                     google_id: google_id,
@@ -25,7 +27,7 @@ module.controller("loginCtrl", function ($location, $window, $scope, loginServic
                 else
                     $window.location.reload();
             } else if (data.behorighet === 1) {
-                console.log("Inloggad som lärare.");
+                globalService.notify("Inloggad som lärare", "info");
                 var anvandare = {
                     id_token: id_token,
                     google_id: google_id,
@@ -42,7 +44,8 @@ module.controller("loginCtrl", function ($location, $window, $scope, loginServic
                 if ($window.location.href === "#/")
                     $window.location.href = "#/registration";
             } else {
-                console.log("error");
+                globalService.notify("Ett okänt fel inträffade vid inloggningen, \n\
+försök igen senare eller kontakta administratören.", "danger");
                 console.log(data);
             }
         });
@@ -52,7 +55,7 @@ module.controller("loginCtrl", function ($location, $window, $scope, loginServic
         var losenord = $scope.password;
         loginService.logInHandledare(anvandarnamn, losenord).then(function (status) {
             if (status === 200) {
-                console.log("Inloggad som handledare.");
+                globalService.notify("Inloggad som handledare", "info");
                 var anvandare = {
                     anvandarnamn: anvandarnamn,
                     basic_auth: "Basic " + btoa(anvandarnamn + ":" + losenord),
@@ -61,10 +64,10 @@ module.controller("loginCtrl", function ($location, $window, $scope, loginServic
                 localStorage.anvandare = JSON.stringify(anvandare);
                 $window.location.href = "../index.html#/handledare";
             } else if (status === 401) {
-                console.log("Fel användarnamn/lösenord.");
+                globalService.notify("Fel användarnamn eller lösenord.", "danger");
             } else {
-                console.log("Okänt fel");
-
+                globalService.notify("Ett okänt fel inträffade vid inloggningen, \n\
+försök igen senare eller kontakta administratören. (" + status + ")", "danger");
                 console.log(status);
             }
         });
@@ -80,12 +83,10 @@ module.controller("loginCtrl", function ($location, $window, $scope, loginServic
                         else if (behorighet === 1)
                             $window.location.href = "#/larare";
                     }
-                    console.log("id_token not expired yet.");
                     return;
                 }
             }
         }
-        console.log("id_token expired. Getting a new one.");
         $scope.googleLogin(googleAnvandare);
     };
     window.onSignIn = $scope.checkLogin;

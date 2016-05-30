@@ -22,10 +22,10 @@ module.controller("elevSeMomentCtrl", function ($scope, getMoment, globalService
         var data = {
             "id": id
         };
-        globalService.skickaData("/moment/tillHandledare", data).then(function (responses) {
-            console.log(responses);
-            location.reload();
-
+        globalService.skickaData(url, data).then(function (responses) {
+            if (responses[0].status < 200 || responses[0].status > 299) {
+                globalService.notify("Ett fel inträffade, datan kommer skickas automatiskt.", "info");
+            }
         });
     };
 

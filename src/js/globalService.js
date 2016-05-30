@@ -7,6 +7,14 @@
 /* global SERVER_URL */
 
 module.service("globalService", function ($q, $http) {
+    this.notify = function (message, type) {
+        var element = '<div class="alert alert-' + type + '">';
+        element += '<a class="close" data-dismiss="alert" aria-label="close">&times;</a>';
+        element += message + '</div>';
+        $(element).hide().appendTo("#alerts").slideDown("fast").delay(5000).slideUp('slow', function () {
+            $(this).remove();
+        });
+    };
     this.skickaData = function (url, data) {
         var google_id = JSON.parse(localStorage.anvandare).google_id;
         var anvandarnamn = JSON.parse(localStorage.anvandare).anvandarnamn;
