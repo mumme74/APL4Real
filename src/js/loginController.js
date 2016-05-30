@@ -5,7 +5,6 @@
  */
 module.controller("loginCtrl", function ($location, $window, $scope, loginService, globalService) {
     $scope.googleLogin = function (googleAnvandare) {
-
         var id_token = googleAnvandare.getAuthResponse().id_token;
         var expires_at = googleAnvandare.getAuthResponse().expires_at;
         setTimeout(function () {
@@ -49,6 +48,12 @@ försök igen senare eller kontakta administratören.", "danger");
                 console.log(data);
             }
         });
+    };
+    $scope.handledareInit = function () {
+        $scope.username = JSON.parse(localStorage.anvandare).anvandarnamn;
+        var anvandare = JSON.parse(localStorage.anvandare);
+        anvandare.basic_auth = "";
+        localStorage.anvandare = JSON.stringify(anvandare);
     };
     $scope.handledareLogin = function () {
         var anvandarnamn = $scope.username;

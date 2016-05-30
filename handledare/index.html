@@ -17,7 +17,7 @@ and open the template in the editor.
         <h1 class="tcenter">Logga in</h1>
         <hr>
         <form>
-            <div ng-controller="loginCtrl" class="container text-center">
+            <div ng-controller="loginCtrl" ng-init="handledareInit()" class="container text-center">
                 <h2>Handledare</h2>
                 <input ng-model="username" type='text' placeholder='Användarnamn'>
                 <br/><br/>
