@@ -40,12 +40,17 @@ textarea.loggbok {
 }
 .ljus.gron {
   background-color: green;
+  border-radius: 20px;
+  margin-right: .055cm;
 }
 .ljus.gul {
   background-color: yellow;
+  border-radius: 20px;
+  margin-right: .055cm;
 }
 .ljus.rod {
   background-color: red;
+  border-radius: 20px;
 }
 .ljus.vald {
   opacity: 1;
@@ -180,6 +185,7 @@ table#kontakt tbody tr:not(:last-child) {
 }
 body {
   background-image: url("../BilderAPL/sky-08.jpg");
+  background-repeat: no-repeat;
 }
 h1 {
   font-weight: 500;
@@ -258,7 +264,7 @@ td {
 }
 html,
 body,
-body > div {
+body > div:first-of-typ {
   height: 100%;
 }
 .mrwhite {
