@@ -9,7 +9,21 @@ and open the template in the editor.
 */
 #chartContainer{
     width: 100%;
-};
+}
+#chartContainer > div{
+    width:33%;
+    float:left;
+}
+#chartContainer > div * {
+    width: 100%;
+}
+#alerts {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    height: auto;
+    width: auto;
+}
 .badge {
     font-size: 1em;
 }
@@ -178,17 +192,17 @@ table#kontakt tbody tr:not(:last-child) {
 
 //test design/Headers
 body{
-background-image: url("../BilderAPL/sky-08.jpg");
-background-repeat: no-repeat;
+    background-image: url("../BilderAPL/sky-08.jpg");
+    background-repeat: no-repeat;
 }
 h1{
     font-weight: 500;
 }
 h2{
-   font-weight: 500; 
+    font-weight: 500; 
 }
 h3{
-  font-weight: 500;  
+    font-weight: 500;  
 }
 .navbar{
     background-color: #a4b8db;
@@ -202,7 +216,7 @@ ul{
 .btn
 {
     border-radius: 10px;
-    
+
 }
 
 
@@ -215,7 +229,7 @@ li a:hover:not(.active) {
 nav li.active a, 
 nav li.active a:hover, 
 nav li.active a:active {
-  background: #323637;
+    background: #323637;
 }
 
 .jumbotron{
@@ -231,7 +245,7 @@ nav li.active a:active {
     border: solid #000000;
     border-radius: 20px;
     border-width: .8px;
-    
+
 }
 
 #loggWrapper{
@@ -258,15 +272,15 @@ nav li.active a:active {
     border: solid #000000;
     border-radius: 20px;
     border-width: .8px;
-    
+
 }
 
 //table
 th {
     background-color: white;
     color: black;
-    
-    
+
+
 }
 td {
     background-color: #a4b8db;
@@ -282,14 +296,14 @@ html, body, body > div:first-of-typ{
     color: white;
     //background-image: url("../BilderAPL/sky-08.jpg");
     background-attachment: fixed;
-     -webkit-background-size: cover;
-     -moz-background-size: cover;
-     -o-background-size: cover;
-     background-size: cover;
-     height: 100%;
-/*     position: fixed;*/
-     
-/*     height: 740px;*/
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    /*     position: fixed;*/
+
+    /*     height: 740px;*/
 }
 .mrwhite input{
     color: black;
@@ -312,6 +326,6 @@ input {
 img.resize{
     max-width: 50%;
     margin-bottom: 1em;
-/*    height: 50px;
-    width: 100px;*/
+    /*    height: 50px;
+        width: 100px;*/
 }
