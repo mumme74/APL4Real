@@ -50,7 +50,7 @@ module.controller("elevCtrl", function ($scope, $window, postService, globalServ
     $scope.onImgUrl = function (responseText, statusText, xhr, $form) {
         console.log(responseText.filename);
         gbild = responseText.filename;
-        $("#loggimg").attr("src", $scope.getBildUrl("\"" + gbild + "\""));
+        $("#loggimg").attr("src", $scope.getBildUrl("\"" + gbild + "\"", 900));
     };
     $scope.getBildUrl = function (bild, storlek) {
         //tar bort citattecknen som kommer vem fan vet var ifrån
