@@ -3,7 +3,7 @@
 module.service("natverkService", function ($http,$q){
     this.getNatverk = function (){
         var deferred = $q.defer();
-        var url = SERVER_URL + "/handledare/program";
+        var url = SERVER_URL + "/handledare/natverk";
         $http({method:"GET",url:url}).success(function (data){
             console.log(data);
             deferred.resolve(data);

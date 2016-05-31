@@ -15,8 +15,7 @@ module.controller("larareSeNarvaroCtrl", function ($scope, larareNarvaroGetServi
         $scope.klasser = data;
     });
     $scope.getElever = function (klass_id) {
-        var data = {klass_id: klass_id};
-        larareNarvaroGetService.getGodkandNarvaro(id_token, data).then(function (data) {
+        larareNarvaroGetService.getGodkandNarvaro(id_token, klass_id).then(function (data) {
             var alla = [];
             alla.push({elev_id: -1, namn: "Alla"});
             $scope.elever = alla.concat(data);

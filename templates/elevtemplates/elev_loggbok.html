@@ -3,12 +3,12 @@
     <div class="well text-center col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
         <h1>Skriv om vad du gjort idag:</h1>
         <label>Datum:</label>
-        <input ng-model="datum" type="date"/>
+        <input ng-model="datum" id="dateInput" type="text"/>
         <br/>
         <textarea class="loggbok" ng-model="text" placeholder="Skriv din loggbok här"></textarea>
         <div ng-include="'templates/sendfile.html'"></div>
         <img id="loggimg" src="" />
-        <h2>Hur kände du om dagen? <small>(Din handledare ser ej detta)</small></h2>
+        <h2>Hur kände du om dagen? <br/><small>(Din handledare ser ej detta)</small></h2>
         <div class="ljus gron" ng-click="valj('gron')"></div>
         <div class="ljus gul" ng-click="valj('gul')"></div>
         <div class="ljus rod" ng-click="valj('rod')"></div>

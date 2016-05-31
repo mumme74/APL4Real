@@ -86,50 +86,45 @@ module.service("momentService", function ($http, $q) {
 
         return deferred.promise;
     };
-        
+
     //Radera Moment
     this.larareRaderaMoment = function (id_token, moment_id) {
         var deferred = $q.defer();
-        var url = SERVER_URL + "/moment/"+moment_id;
-        console.log(url);
+        var url = SERVER_URL + "/moment/" + moment_id;
         $.ajax({
             url: url,
-            type:'DELETE',
+            type: 'DELETE',
             headers: {
-            "Authorization": id_token,
-            "Content-Type": "application/json"
+                "Authorization": id_token,
+                "Content-Type": "application/json"
             },
             success: function (data) {
                 deferred.resolve(data);
             },
-            error: function (data)
-            {
-                deferred.resolve(data);
+            error: function (data, status, headers, config) {
+                deferred.reject(status);
             }
-            
+
         });
         return deferred.promise;
     };
     //Radera Moment
-    this.elevRaderaMoment = function (id_token, moment_id) {
+    this.elevRaderaMoment = function (id_token, moment_id, elev_id) {
         var deferred = $q.defer();
-        var url = SERVER_URL + "/moment/"+moment_id+"/elev";
-        console.log(url);
+        var url = SERVER_URL + "/moment/" + moment_id + "/elev/" + elev_id;
         $.ajax({
             url: url,
-            type:'DELETE',
+            type: 'DELETE',
             headers: {
-            "Authorization": id_token,
-            "Content-Type": "application/json"
+                "Authorization": id_token,
+                "Content-Type": "application/json"
             },
             success: function (data) {
                 deferred.resolve(data);
             },
-            error: function (data)
-            {
-                deferred.resolve(data);
+            error: function (data, status, headers, config) {
+                deferred.reject(status);
             }
-            
         });
         return deferred.promise;
     };

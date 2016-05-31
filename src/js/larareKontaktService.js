@@ -4,13 +4,12 @@
  * and open the template in the editor.
  */
 module.service("getLarareKontaktService", function ($q){
-    var url = SERVER_URL + "/larare/kontakt";
-    //var url = "localhost:8080/aplBackend/webresources/larare/kontakt";
+    this.url = SERVER_URL + "/info/larare/kontakt";
     
     this.getKontakt = function (id_token) {
         var deferred = $q.defer();
         $.ajax({
-            url: url,
+            url: this.url,
             type: 'GET',
             headers: {
                 "Authorization": id_token,

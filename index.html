@@ -12,21 +12,24 @@ and open the template in the editor.
         <meta name="google-signin-scope" content="profile email">
         <meta name="google-signin-client_id" content="550162747744-m4r2h8egnvqicsbhoefdlo54lk8q399n.apps.googleusercontent.com">
         <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
         <link href="css/style.css" rel="stylesheet"/>
         <link rel='shortcut icon' type='image/x-icon' href='icon.ico' />
     </head>
     <body>
         <div ui-view></div>
         <div id="alerts"></div>
-        
-        <!-- jquery, angular, angular-ui och bootstrap -->
+
         <script src="bower_components/jquery/dist/jquery.min.js"></script>
         <script src="bower_components/angular/angular.min.js"></script>
         <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
         <script src="bower_components/Chart.js/Chart.min.js"></script>
         <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="http://malsup.github.com/jquery.form.js"></script> 
-        <!-- min konfigurationsfil -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        <script src="js/datepicker-sv.js"></script>
+        <script>$.datepicker.setDefaults($.datepicker.regional[ "sv" ]);</script>
+
         <script src="js/aplapp.min.js"></script>
     </body>
 </html>

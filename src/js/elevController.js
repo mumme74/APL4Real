@@ -13,13 +13,8 @@ module.controller("elevCtrl", function ($scope, $window, postService, globalServ
         $window.location.href = "#/logout";
     };
     $scope.postLogg = function () {
-        //Tidszon fix
-        if (!$scope.datum) {
-            return globalService.notify("Du måste fylla i datum.", "danger");
-        }
-        $scope.datum.setHours(12);
         //Göra om till databasens Date
-        var datum = $scope.datum.toISOString().substring(0, 10);
+        var datum = $scope.datum;
         var innehall = $scope.text;
         var ljus = $scope.ljus;
         var bild = gbild;
@@ -28,9 +23,9 @@ module.controller("elevCtrl", function ($scope, $window, postService, globalServ
         if (datum && innehall && ljus >= 0) {
             postService.postLogg(datum, innehall, ljus, bild)
                     .then(function (responses) {
-                        status = responses[0].status;
+                        var status = responses[0].status;
                         if (status == 201) {
-                            $window.location.href = "#/elev";
+                            globalService.notify("Loggboken har skickats.", "info");
                         } else if (status == 500) {
                             globalService.notify("Ett okänt fel inträffades på servern", "danger");
                         } else if (status == 401) {
@@ -68,6 +63,9 @@ module.controller("elevCtrl", function ($scope, $window, postService, globalServ
     window.onImgUrl = $scope.onImgUrl;
     globalService.kollaStorage().then(function (responses) {
         //console.log(responses);
+    });
+    $(function () {
+        $("#dateInput").datepicker({dateFormat: 'yy-mm-dd'});
     });
 });
 

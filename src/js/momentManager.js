@@ -7,7 +7,6 @@
 
 module.controller("momentCtrler", function ($scope, momentService, globalService, larareService) {
 
-    var url = SERVER_URL + "moment";
     var anvandare = JSON.parse(localStorage.anvandare);
     var id_token = anvandare.id_token;
 
@@ -78,6 +77,7 @@ module.controller("momentCtrler", function ($scope, momentService, globalService
         var innehall = document.getElementById("momentInnehall").value;
         if (innehall.toString().trim() !== "") {
             var data = {"beskrivning": innehall};
+            var url = "/moment";
             globalService.skickaData(url, data).then(function (responses) {
                 if (responses[0].status < 200 || responses[0].status > 299) {
                     globalService.notify("Ett fel inträffade, datan kommer skickas automatiskt.", "info");
@@ -89,14 +89,17 @@ module.controller("momentCtrler", function ($scope, momentService, globalService
 
     $scope.raderaMoment = function (moment_id) {
         momentService.larareRaderaMoment(id_token, moment_id).then(function (responses) {
-            console.log(responses);
-            location.reload();
+            globalService.notify("Momentet har tagits bort från eleven.", "success");
+        }, function onFailure(status) {
+            globalService.notify("Lyckades inte ta bort momentet. (" + status + ")", "danger");
         });
     };
-    $scope.raderaMomentElev = function (moment_id) {
-        momentService.elevRaderaMoment(id_token, moment_id).then(function (responses) {
-            console.log(responses);
-            location.reload();
+    $scope.raderaMomentElev = function (moment_id, elev_id) {
+        momentService.elevRaderaMoment(id_token, moment_id, elev_id).then(function onSuccess(data) {
+            console.log(data);
+            globalService.notify("Momentet har tagits bort från eleven.", "success");
+        }, function onFailure(status) {
+            globalService.notify("Lyckades inte ta bort momentet. (" + status + ")", "danger");
         });
     };
 });

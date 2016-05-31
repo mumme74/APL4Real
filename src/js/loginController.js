@@ -21,10 +21,8 @@ module.controller("loginCtrl", function ($location, $window, $scope, loginServic
                     expires_at: expires_at
                 };
                 localStorage.anvandare = JSON.stringify(anvandare);
-                if ($location.path() === "/")
-                    $window.location.href = "#/elev";
-                else
-                    $window.location.reload();
+                if (location.hash.length < 3)
+                    location.hash = "#/elev";
             } else if (data.behorighet === 1) {
                 globalService.notify("Inloggad som lärare", "info");
                 var anvandare = {
@@ -34,17 +32,12 @@ module.controller("loginCtrl", function ($location, $window, $scope, loginServic
                     expires_at: expires_at
                 };
                 localStorage.anvandare = JSON.stringify(anvandare);
-                if ($location.path() === "/")
-                    $window.location.href = "#/larare";
-                else
-                    $window.location.reload();
+                if (location.hash.length < 3)
+                    location.hash = "#/larare";
             } else if (data.behorighet === -1) {
-                console.log("register");
-                if ($window.location.href === "#/")
-                    $window.location.href = "#/registration";
+                location.hash = "#/registration";
             } else {
-                globalService.notify("Ett okänt fel inträffade vid inloggningen, \n\
-försök igen senare eller kontakta administratören.", "danger");
+                globalService.notify("Ett okänt fel inträffade vid inloggningen, försök igen senare eller kontakta administratören.", "danger");
                 console.log(data);
             }
         });

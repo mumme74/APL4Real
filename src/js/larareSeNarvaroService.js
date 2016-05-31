@@ -10,12 +10,11 @@ module.service("larareNarvaroGetService", function ($q, $http) {
 
     this.url = SERVER_URL;
 
-    this.getGodkandNarvaro = function (id_token, data) {
+    this.getGodkandNarvaro = function (id_token, klass_id) {
         var deferred = $q.defer();
         $http({
-            method: "POST",
-            url: this.url + "/narvaro/godkand",
-            data: JSON.stringify(data),
+            method: "GET",
+            url: this.url + "/narvaro/godkand/"+klass_id,
             headers: {'Authorization': id_token}
         }).success(function (rdata, status, headers, config) {
             deferred.resolve(rdata);

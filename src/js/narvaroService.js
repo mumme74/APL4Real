@@ -1,24 +1,32 @@
 
 
-module.controller("postNarvaroCtrl", function ($scope, narvaroService) {
+module.controller("postNarvaroCtrl", function ($scope, globalService) {
 
     $scope.skickaNarvaro = function () {
-        console.log("skicka!");
         var id_token = JSON.parse(localStorage.anvandare).id_token;
-        $scope.datum.setHours(12);
-        var datum = $scope.datum.toISOString().substring(0, 10);
+        var datum = $scope.datum;
         var trafikljus = $scope.ljus;
-        var array = {
+        var data = {
             "trafikljus": trafikljus,
             "datum": datum
         };
-        
 
-        var promise = narvaroService.postNarvaro(id_token, array);
-        promise.then(function (response) {
-            console.log(response);
-            location.reload();
-        });
+        if (datum && trafikljus > -1) {
+            var url = "/narvaro/post";
+            globalService.skickaData(url, data)
+                    .then(function (responses) {
+                        var status = responses[0].status;
+                        if (status == 200) {
+                            globalService.notify("Närvaron har skickats.", "info");
+                        } else if (status == 500) {
+                            globalService.notify("Ett okänt fel inträffades på servern", "danger");
+                        } else if (status == 401) {
+                            globalService.notify("Du verkar inte vara inloggad längre. Försök logga in igen", "danger");
+                        }
+                    });
+        } else {
+            globalService.notify("Du måste fylla i datum och närvaro av dagen.", "danger");
+        }
 
     };
     $scope.getLjus = function (ljus) {
@@ -31,58 +39,5 @@ module.controller("postNarvaroCtrl", function ($scope, narvaroService) {
         $(".vald").removeClass("vald");
         $("." + ljus).addClass("vald");
 
-    };
-});
-
-module.service("narvaroService", function ($http, $q)
-{
-//    this.getNarvaro = function(){
-//        var deferred =$q.defer();
-//        var url= "http://10.97.72.5:8080/aplBackend/webresources/narvaro";
-//        $http({method:"GET",url:url})
-//        .success(function (data,status){
-//        console.log(data);
-//        deferred.resolve(data);
-//        }).error(function (data,status){
-//        console.log("ERROR");
-//        console.log(status);
-//        deferred.reject();
-//    });
-//    return deferred.promise;
-//    };
-//
-//    this.getElev = function(){
-//        var deferred =$q.defer();
-//        var url= "http://10.97.72.5:8080/aplBackend/webresources/elev";
-//        $http({method:"GET",url:url})
-//        .success(function (data,status){
-//        console.log(data);
-//        deferred.resolve(data);
-//        }).error(function (data,status){
-//        console.log("ERROR");
-//        console.log(status);
-//        deferred.reject();
-//    });
-//    return deferred.promise;
-//    };
-
-    this.postNarvaro = function (id_token, data) {
-
-        var deferred = $q.defer();
-        var base_url = SERVER_URL;
-        var url = base_url + "/narvaro/post";
-
-
-        $http({
-            method: "POST",
-            url: url,
-            data: JSON.stringify(data),
-            headers: {'Authorization': id_token}
-        }).success(function (response) {
-            deferred.resolve(response);
-        }).error(function (response) {
-            deferred.resolve(response);
-        });
-        return deferred.promise;
     };
 });

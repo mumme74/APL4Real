@@ -8,7 +8,7 @@
 module.service("registrationService", function ($http, $q) {
     this.postRegistration = function (google_id, namn, klass, tfnr) {
         var deferred = $q.defer();
-        var url = SERVER_URL + "/apl/user";
+        var url = SERVER_URL + "/apl/google/registrera";
         var data = {
             id: google_id,
             namn: namn,
@@ -32,7 +32,7 @@ module.service("registrationService", function ($http, $q) {
 
     this.getKlasser = function () {
         var deferred = $q.defer();
-        var url = SERVER_URL + "/apl/klass"; //<----?
+        var url = SERVER_URL + "/apl/klass";
         $http({method: "GET", url: url}).success(function (data, status) {
             console.log(data);
             deferred.resolve(data);
@@ -43,9 +43,9 @@ module.service("registrationService", function ($http, $q) {
         });
         return deferred.promise;
     };
-        this.getProgram = function () {
+    this.getProgram = function () {
         var deferred = $q.defer();
-        var url = SERVER_URL + "/program"; //<----?
+        var url = SERVER_URL + "/apl/program";
         $http({method: "GET", url: url}).success(function (data, status) {
             console.log(data);
             deferred.resolve(data);

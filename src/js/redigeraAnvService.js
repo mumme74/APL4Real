@@ -5,16 +5,15 @@
  */
 module.service("redigeraService", function ($q){    
     this.getHL = function (id_token){
-        var url = SERVER_URL + "/info";
+        var url = SERVER_URL + "/info/handledare/lista";
         var deferred = $q.defer();
         $.ajax({
-            url: url + "/getHL",
+            url: url,
             type: 'GET',
             headers: {
                 "Authorization": id_token,
                 "Content-Type": 'application/json'
             },
-            dataType: 'json',
             success: function (data) {
                 deferred.resolve(data);
             },
@@ -47,16 +46,14 @@ module.service("redigeraService", function ($q){
     
     this.getElevInfo = function (id_token, elev_id){
         var deferred = $q.defer();
-        var url = SERVER_URL + "/info";
+        var url = SERVER_URL + "/info/elev/" + elev_id;
         $.ajax({
-            url: url + "/elev",
-            type: 'POST',
+            url: url,
+            type: 'GET',
             headers: {
                 "Authorization": id_token,
                 "Content-Type": 'application/json'
             },
-            data: elev_id,
-            dataType: 'json',
             success: function (data) {
                 deferred.resolve(data);
             },
@@ -69,16 +66,14 @@ module.service("redigeraService", function ($q){
     
     this.getHLInfo = function (id_token, HL_id){
         var deferred = $q.defer();
-        var url = SERVER_URL + "/info";
+        var url = SERVER_URL + "/info/handledare/"+HL_id;
         $.ajax({
-            url: url + "/handledare",
+            url: url,
             type: 'POST',
             headers: {
                 "Authorization": id_token,
                 "Content-Type": 'application/json'
             },
-            data: HL_id,
-            dataType: 'json',
             success: function (data) {
                 deferred.resolve(data);
             },

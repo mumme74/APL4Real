@@ -52,6 +52,8 @@ module.controller("larareTilldelaMomentCtrl", function ($scope, larareService, m
             globalService.skickaData(url, data).then(function (responses) {
                 if (responses[0].status < 200 || responses[0].status > 299) {
                     globalService.notify("Ett fel inträffade, datan kommer skickas automatiskt.", "info");
+                } else {
+                    globalService.notify("Tilldelningen lyckades.", "success");
                 }
             });
         }

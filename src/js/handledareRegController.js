@@ -17,7 +17,7 @@ module.controller("handledareRegCtrl", function ($scope, registrationService, gl
         var namn = $scope.name;
         var foretag = $scope.frtg;
         var program = parseInt($scope.pr);
-        var url = "/apl/handledare";
+        var url = "/apl/handledare/registrera";
         var data = {
             anvandarnamn: användarnamn,
             losenord: lösenord,

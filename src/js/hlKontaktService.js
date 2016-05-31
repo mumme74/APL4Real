@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 module.service("hlKontaktService", function ($q){
-    this.url = SERVER_URL + "/handledare";
+    this.url = SERVER_URL + "/info/handledare/kontakt";
     
     this.getKontakt = function (basic_auth) {
         var deferred = $q.defer();
         $.ajax({
-            url: this.url + "/kontakt",
+            url: this.url,
             type: 'GET',
             headers: {
                 "Authorization": basic_auth,
