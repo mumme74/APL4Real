@@ -205,11 +205,20 @@ h3{
     font-weight: 500;  
 }
 .navbar{
-    background-color: #a4b8db;
+    background-color: whitesmoke;
 }
+.navbar-default .navbar-nav>li>a 
+{
+    color: black 
+}
+a.navbar-brand
+{
+    color: black!important;
+}
+
 ul{
-    background-color: #a4b8db;
-    color: white;
+    background-color: whitesmoke;
+    color: black;
     margin: 0;
     padding: 0;    
 }
@@ -241,7 +250,7 @@ nav li.active a:active {
 
 
 .well {
-    background-color: #white;
+    background-color: whitesmoke;
     border: solid #000000;
     border-radius: 20px;
     border-width: .8px;
@@ -268,7 +277,7 @@ nav li.active a:active {
 
 .loggWell {
     padding: 0 0 0 0;
-    background-color: white;
+    background-color: whitesmoke;
     border: solid #000000;
     border-radius: 20px;
     border-width: .8px;
@@ -279,7 +288,8 @@ nav li.active a:active {
 th {
     background-color: white;
     color: black;
-
+    font-size: 1.6rem;
+    background: linear-gradient(#fff, #ededed);
 
 }
 td {
@@ -328,4 +338,10 @@ img.resize{
     margin-bottom: 1em;
     /*    height: 50px;
         width: 100px;*/
+}
+
+#loggimg
+{
+    width: 100%;
+    max-height: 300px;
 }
