@@ -7,22 +7,8 @@ and open the template in the editor.
     Created on : 2016-jan-11, 11:29:43
     Author     : maikwagner
 */
-#alerts {
-    position: absolute;
-    left: 0;
-    top: 50px; /*navbar height*/
-    min-width: 0;
-    height: auto;
-}
 #chartContainer {
   width: 100%;
-}
-#chartContainer>div {
-    float:left;
-    width: 33%;
-}
-#chartContainer>div * {
-    width: 100%
 }
 .badge {
   font-size: 1em;
@@ -193,8 +179,7 @@ table#kontakt tbody tr:not(:last-child) {
   }
 }
 body {
-  /*background-image: url("../BilderAPL/sky-08.jpg");*/
-  background-color: #0060A9;
+  background-image: url("../BilderAPL/sky-08.jpg");
 }
 h1 {
   font-weight: 500;
@@ -278,7 +263,6 @@ body > div {
 }
 .mrwhite {
   color: white;
-  background-image: url("../BilderAPL/sky-08.jpg");
   background-attachment: fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
