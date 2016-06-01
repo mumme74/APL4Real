@@ -12,7 +12,10 @@ module.exports = function (grunt) {
         pkg: grunt.file.readJSON('package.json'),
         uglify: {
             options: {
-                mangle: false //behåll variabelnamn
+                mangle: false, //behåll variabelnamn
+                compress: {
+                    drop_console: true //ta bort console.log
+                }
             },
             aplapp: {
                 files: {
