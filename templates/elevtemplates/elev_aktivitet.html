@@ -24,6 +24,9 @@
                         </div>
                         <br/>
                         <a class="btn btn-primary" ng-click="skickaNarvaro(aktiviteter.indexOf(aktivitet),this.trafikljus)">Skicka igen</a>
+                        <a class="btn btn-default pull-right" ng-click="raderaNarvaro(aktiviteter.indexOf(aktivitet))">
+                            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                        </a>
                     </div>
                     <!-- Loggbok -->
                     <div ng-if="aktivitet.typ === 1">
@@ -31,6 +34,9 @@
                         <textarea class="loggbok" ng-model="this.innehall" ng-init="this.innehall = aktivitet.innehall" placeholder="Skriv din loggbok här"></textarea>
                         <img ng-if='aktivitet.bild !== null' ng-src="{{getBildUrl(aktivitet.bild)}}" alt="Uppladdad bild" />
                         <a class="btn btn-primary btn-lg" ng-click="skickaLogg(aktiviteter.indexOf(aktivitet),this.innehall)">Skicka igen</a>
+                        <a class="btn btn-default pull-right" ng-click="raderaLogg(aktiviteter.indexOf(aktivitet))">
+                            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                        </a>
                     </div>
                     <!-- Moment -->
                     <div ng-if="aktivitet.typ === 2">

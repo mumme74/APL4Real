@@ -18,13 +18,15 @@ module.controller("elevSeMomentCtrl", function ($scope, getMoment, globalService
 
 
     $scope.setStatus = function (id) {
-        console.log(id);
         var data = {
             "id": id
         };
+        var url = "/moment/tillHandledare";
         globalService.skickaData(url, data).then(function (responses) {
             if (responses[0].status < 200 || responses[0].status > 299) {
                 globalService.notify("Ett fel inträffade, datan kommer skickas automatiskt.", "info");
+            } else{
+                globalService.notify("Momentet har skickats.", "success");
             }
         });
     };
@@ -32,7 +34,7 @@ module.controller("elevSeMomentCtrl", function ($scope, getMoment, globalService
     $scope.Status = function (id) {
         if (id === 0) {
             return true;
-        } else{
+        } else {
             return false;
         }
     };

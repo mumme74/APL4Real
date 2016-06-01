@@ -99,11 +99,37 @@ module.controller("aktivitetCtrl", function ($scope, $window, getService, global
         };
         $scope.skickaElev(data);
     };
+    $scope.raderaLogg = function (index) {
+        var id_token = JSON.parse(localStorage.anvandare).id_token;
+        var item = $scope.aktiviteter.splice(index, 1)[0];
+        var id = item.id;
+        getService.raderaLogg(id_token, id).then(function(status){
+            if (status === "error") {
+                globalService.notify("Kunde inte radera loggboken, försök igen senare.", "danger");
+            } else {
+                globalService.notify("Loggboken har blivit raderad.", "success"); 
+            }
+        });
+    };
+    $scope.raderaNarvaro = function (index) {
+        var id_token = JSON.parse(localStorage.anvandare).id_token;
+        var item = $scope.aktiviteter.splice(index, 1)[0];
+        var id = item.id;
+        getService.raderaNarvaro(id_token, id).then(function(status){
+            if (status === "error") {
+                globalService.notify("Kunde inte radera närvaron, försök igen senare.", "danger");
+            } else {
+                globalService.notify("Närvaron har blivit raderad.", "success");
+            }
+        });
+    };
     $scope.skickaElev = function (data) {
         var url = "/elev/aktivitet";
         globalService.skickaData(url, data).then(function (responses) {
             if (responses[0].status < 200 || responses[0].status > 299) {
-                globalService.notify("Ett fel inträffade, datan kommer skickas automatiskt.", "info");
+                globalService.notify("Ett fel inträffade, aktiviteten kommer skickas automatiskt.", "info");
+            } else {
+                globalService.notify("Aktiviteten har skickats till handledaren.", "success");
             }
         });
     };

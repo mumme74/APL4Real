@@ -17,7 +17,7 @@ module.service("postService", function ($q, globalService) {
     };
 
     this.postLogg = function (datum, innehall, ljus, imgUrl) {
-        var targetUrl = this.url + "/logg";
+        var targetUrl = "/elev/logg";
         var data = {
             "datum": datum,
             "innehall": innehall,

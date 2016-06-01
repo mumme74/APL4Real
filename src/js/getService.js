@@ -13,7 +13,7 @@ module.service("getService", function ($q) {
     this.getElever = function (id_token) {
         var deferred = $q.defer();
         $.ajax({
-            url: this.url + "/elever",
+            url: this.url + "/apl/",
             type: 'get',
             headers: {
                 "Authorization": id_token
@@ -28,26 +28,7 @@ module.service("getService", function ($q) {
         });
         return deferred.promise;
     };
-    
-    this.getHandledare = function (id_token) {
-        var deferred = $q.defer();
-        $.ajax({
-            url: this.url + "/handledare",
-            type: 'get',
-            headers: {
-                "Authorization": id_token
-            },
-            success: function (data) {
-                deferred.resolve(data);
-            },
-            error: function (data)
-            {
-                deferred.resolve(data);
-            }
-        });
-        return deferred.promise;
-    };
-    
+
     this.getHandledareAktiviteter = function (basic_auth) {
         var deferred = $q.defer();
         $.ajax({
@@ -66,7 +47,7 @@ module.service("getService", function ($q) {
         });
         return deferred.promise;
     };
-    
+
     this.getNekadeAktiviteter = function (id_token) {
         var deferred = $q.defer();
         $.ajax({
@@ -81,6 +62,42 @@ module.service("getService", function ($q) {
             error: function (data)
             {
                 deferred.resolve(data);
+            }
+        });
+        return deferred.promise;
+    };
+
+    this.raderaLogg = function (id_token, id) {
+        var deferred = $q.defer();
+        $.ajax({
+            url: SERVER_URL + "/elev/logg/radera/" + id,
+            type: 'DELETE',
+            headers: {
+                "Authorization": id_token
+            },
+            success: function (data, status) {
+                deferred.resolve(status);
+            },
+            error: function (data, status, jqXHR) {
+                deferred.resolve(data);
+            }
+        });
+        return deferred.promise;
+    };
+
+    this.raderaNarvaro = function (id_token, id) {
+        var deferred = $q.defer();
+        $.ajax({
+            url: SERVER_URL + "/narvaro/radera/" + id,
+            type: 'DELETE',
+            headers: {
+                "Authorization": id_token
+            },
+            success: function (data, status) {
+                deferred.resolve(status);
+            },
+            error: function (data, status, jqXHR) {
+                deferred.resolve(status);
             }
         });
         return deferred.promise;

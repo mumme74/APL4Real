@@ -102,7 +102,7 @@ module.service("momentService", function ($http, $q) {
                 deferred.resolve(data);
             },
             error: function (data, status, headers, config) {
-                deferred.reject(status);
+                deferred.resolve(status);
             }
 
         });
@@ -123,7 +123,7 @@ module.service("momentService", function ($http, $q) {
                 deferred.resolve(data);
             },
             error: function (data, status, headers, config) {
-                deferred.reject(status);
+                deferred.resolve(status);
             }
         });
         return deferred.promise;

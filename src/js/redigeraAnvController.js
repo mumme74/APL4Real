@@ -27,9 +27,9 @@ module.controller("redigeraCtrl", function ($scope, redigeraService,
     };
 
     $scope.laddaAnv = function () {
-        var promiseHL = redigeraService.getHL(id_token);
-        promiseHL.then(function (data) {
+        redigeraService.getHL(id_token).then(function (data) {
             $scope.HLLista = data;
+            console.log(data);
         });
 
         var promiseElever = redigeraService.getElever(id_token);
@@ -45,9 +45,7 @@ module.controller("redigeraCtrl", function ($scope, redigeraService,
 
     $scope.laddaElev = function () {
         var elev_id = parseInt($scope.ddElev);
-        var obj = JSON.stringify({'elev_id': elev_id});
-        var promiseElev = redigeraService.getElevInfo(id_token, obj);
-        promiseElev.then(function (data) {
+        redigeraService.getElevInfo(id_token, elev_id).then(function (data) {
             $scope.elevObj = data;
             $scope.elevklass = data.klass;
             console.log(data.hl_id);
@@ -58,8 +56,7 @@ module.controller("redigeraCtrl", function ($scope, redigeraService,
 
     $scope.laddaHL = function () {
         var hl_id = parseInt($scope.ddHandledare);
-        var obj = JSON.stringify({"hl_id": hl_id});
-        var promiseElev = redigeraService.getHLInfo(id_token, obj);
+        var promiseElev = redigeraService.getHLInfo(id_token, hl_id);
         promiseElev.then(function (data) {
             $scope.HLObj = data;
             console.log(data);

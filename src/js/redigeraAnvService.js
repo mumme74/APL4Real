@@ -5,7 +5,7 @@
  */
 module.service("redigeraService", function ($q){    
     this.getHL = function (id_token){
-        var url = SERVER_URL + "/info/handledare/lista";
+        var url = SERVER_URL + "/info/handledare/lista/alla";
         var deferred = $q.defer();
         $.ajax({
             url: url,
@@ -64,12 +64,12 @@ module.service("redigeraService", function ($q){
         return deferred.promise;
     };
     
-    this.getHLInfo = function (id_token, HL_id){
+    this.getHLInfo = function (id_token, hl_id){
         var deferred = $q.defer();
-        var url = SERVER_URL + "/info/handledare/"+HL_id;
+        var url = SERVER_URL + "/info/handledare/"+hl_id;
         $.ajax({
             url: url,
-            type: 'POST',
+            type: 'GET',
             headers: {
                 "Authorization": id_token,
                 "Content-Type": 'application/json'

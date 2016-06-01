@@ -20,18 +20,23 @@ module.controller("elevCtrl", function ($scope, $window, postService, globalServ
         var bild = gbild;
         if (!bild)
             bild = null;
+        console.log(bild);
         if (datum && innehall && ljus >= 0) {
             postService.postLogg(datum, innehall, ljus, bild)
                     .then(function (responses) {
                         var status = responses[0].status;
                         if (status == 201) {
-                            globalService.notify("Loggboken har skickats.", "info");
-                        } else if (status == 500) {
-                            globalService.notify("Ett okänt fel inträffades på servern", "danger");
+                            globalService.notify("Loggboken har skickats.", "success");
                         } else if (status == 401) {
                             globalService.notify("Du verkar inte vara inloggad längre. Försök logga in igen", "danger");
+                        } else {
+                            globalService.notify("Loggboken kommer skickas automatiskt.", "info");
                         }
                         gbild = undefined;
+                        $("#loggimg").attr("src", "");
+                        $scope.datum = "";
+                        $scope.text = "";
+                        $scope.ljus = "";
                     });
         } else {
             globalService.notify("Du måste fylla i datum, innehåll och upplevelse av dagen.", "danger");

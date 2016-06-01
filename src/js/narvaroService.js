@@ -17,11 +17,11 @@ module.controller("postNarvaroCtrl", function ($scope, globalService) {
                     .then(function (responses) {
                         var status = responses[0].status;
                         if (status == 200) {
-                            globalService.notify("Närvaron har skickats.", "info");
-                        } else if (status == 500) {
-                            globalService.notify("Ett okänt fel inträffades på servern", "danger");
+                            globalService.notify("Närvaron har skickats.", "success");
                         } else if (status == 401) {
                             globalService.notify("Du verkar inte vara inloggad längre. Försök logga in igen", "danger");
+                        } else {
+                            globalService.notify("Närvaron kommer skickas automatiskt.", "info");
                         }
                     });
         } else {

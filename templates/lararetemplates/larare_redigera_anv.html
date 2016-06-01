@@ -30,7 +30,7 @@
             <label for="HLinput">Handledare</label>
             <br/>
             <select ng-model="elevHL_id" id="HLinput" 
-                    ng-options="HL.ID as HL.email for HL in HLLista">
+                    ng-options="HL.ID as HL.namn_foretag for HL in HLLista">
             </select>
             <br/><br/><br/>
             <button class="btn btn-success" ng-click="sparaElev()">Spara</button>
@@ -44,7 +44,7 @@
             <br/>
             <select ng-model="ddHandledare" ng-change="laddaHL()" id="ddHL">
                 <option ng-repeat="HL in HLLista" value="{{HL.ID}}">
-                    {{HL.email}}
+                    {{HL.namn_foretag}}
                 </option>
             </select>
             
