@@ -193,10 +193,10 @@ table#kontakt tbody tr:not(:last-child) {
 //test design/Headers
 body{
     //background-image: url("../BilderAPL/himmel.png");
-        background: url("../BilderAPL/himmel.png") no-repeat center center fixed;
-        margin: 0;
-        padding: 0;
-        background-size: cover;
+    background: url("../BilderAPL/himmel.png") no-repeat center center fixed;
+    margin: 0;
+    padding: 0;
+    background-size: cover;
     //background-repeat: no-repeat;
 }
 h1{
@@ -215,10 +215,10 @@ h3{
 .navbar-default .navbar-nav>li>a 
 {
     color: black;
-    padding: 20px;
+    padding: 20px 10px;
 }
 .navbar-toggle:active{
-    
+
 }
 .mobilicon
 {
@@ -246,7 +246,7 @@ ul{
 li
 {
     font-weight: 800;
-    
+
 }
 .logut
 {
@@ -285,6 +285,7 @@ nav li.active a:active {
     padding: 0 0 0 0;
     width: 98%;
     margin-left: 1%;
+    border: none;
 }
 
 .seLoggbok1{
@@ -371,5 +372,11 @@ img.resize{
 }
 .googlebla
 {
-   color: #4285F4;    
+    color: #4285F4;    
+}
+
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu>li>a {
+        color: #000;
+    }
 }

@@ -1,23 +1,25 @@
 <header ng-include="'templates/headers/elevhead.html'"></header>
-<div class="container well">
+<div>
+    <div class="well text-center col-sm-12 col-md-10 col-md-offset-1">
         <h1 class="text-center">Kontakt</h1>
         <hr>
-    <table class="table table-striped table-responsive" id='kontakt'>
-        <thead>
-            <tr>
-                <th>Namn</th>
-                <th>Mail</th>
-                <th>Telefonnummer</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="kontakt in kontakter">
-                <td data-th='Namn'>{{kontakt.namn}}</td>
-                <td data-th='Mail'>{{kontakt.mail}}</td>
-                <td data-th='Tfnr.'>{{kontakt.tfnr}}</td>
-            </tr>
-        </tbody>
-    </table>
+        <table class="table table-striped table-responsive" id='kontakt'>
+            <thead>
+                <tr>
+                    <th>Namn</th>
+                    <th>Mail</th>
+                    <th>Telefonnummer</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="kontakt in kontakter">
+                    <td data-th='Namn'>{{kontakt.namn}}</td>
+                    <td data-th='Mail'>{{kontakt.mail}}</td>
+                    <td data-th='Tfnr.'>{{kontakt.tfnr}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 <footer ng-include="'templates/footer.html'"></footer>
 

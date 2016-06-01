@@ -1,8 +1,7 @@
 <header ng-include="'templates/headers/elevhead.html'"></header>
 <div ng-init="getNekadeAktiviteter()" >
-    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 col-lg-offset-1 
-         col-md-offset-1 col-sm-offset-1 col-xs-offset-1" id="wrapper">
-        <div class="well ridge">
+    <div id="wrapper">
+        <div class="well text-center col-sm-12 col-md-10 col-md-offset-1">
             <h1 class="text-center">Aktiviteter <span class="badge">{{aktiviteter.length}}</span></h1>
             <div class="seLoggbok" ng-repeat="aktivitet in aktiviteter">
 
@@ -23,7 +22,7 @@
                             </div>
                         </div>
                         <br/>
-                        <a class="btn btn-primary" ng-click="skickaNarvaro(aktiviteter.indexOf(aktivitet),this.trafikljus)">Skicka igen</a>
+                        <a class="btn btn-primary" ng-click="skickaNarvaro(aktiviteter.indexOf(aktivitet), this.trafikljus)">Skicka igen</a>
                         <a class="btn btn-default pull-right" ng-click="raderaNarvaro(aktiviteter.indexOf(aktivitet))">
                             <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                         </a>
@@ -33,7 +32,7 @@
                         <p>Din handledare har <strong>nekat</strong> följande loggbok:</p>
                         <textarea class="loggbok" ng-model="this.innehall" ng-init="this.innehall = aktivitet.innehall" placeholder="Skriv din loggbok här"></textarea>
                         <img ng-if='aktivitet.bild !== null' ng-src="{{getBildUrl(aktivitet.bild)}}" alt="Uppladdad bild" />
-                        <a class="btn btn-primary btn-lg" ng-click="skickaLogg(aktiviteter.indexOf(aktivitet),this.innehall)">Skicka igen</a>
+                        <a class="btn btn-primary btn-lg" ng-click="skickaLogg(aktiviteter.indexOf(aktivitet), this.innehall)">Skicka igen</a>
                         <a class="btn btn-default pull-right" ng-click="raderaLogg(aktiviteter.indexOf(aktivitet))">
                             <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                         </a>

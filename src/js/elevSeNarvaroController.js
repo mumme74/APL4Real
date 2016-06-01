@@ -64,9 +64,11 @@ module.controller("elevSeNarvaroCtrl", function ($scope, elevNarvaroGetService) 
         var sista_dag = new Date(narvaro[narvaro.length - 1].datum * 1000);
         if (!month) {
             month = sista_dag.getMonth();
+            $scope.selected_month = "" + month;
         }
         if (!year) {
             year = sista_dag.getFullYear();
+            $scope.selected_year = year;
         }
         //skapa array med datumen i månaden
         var start = new Date(year, month, 1);
