@@ -1,28 +1,26 @@
 <header ng-include="'templates/headers/lararehead.html'"></header>
-<div ng-controller="larareCtrl">
-    <div ng-init="getPeople()">
-        <div class="well text-center col-sm-6 col-sm-offset-3">
-            <h1>Koppla elever till handledare:</h1>
-            <form>
-                <table class="table table-striped">
-                    <tr>
-                        <td><label>Elever</label></td>
-                        <td><label>Handledare</label></td>
-                    </tr>
-                    <tr ng-repeat="elev in elever">
-                        <td>{{elev.namn}}</td>
-                        <td>
-                            <select class="dropdown"
-                                    ng-init="elev.ny_handledare = elev.hl_id"
-                                    ng-model="elev.ny_handledare"
-                                    ng-options="item.ID as item.namn_foretag for item in handledare">
-                            </select>
-                        </td>
-                    </tr>
-                </table>
-                <a ng-click="kopplaElevHandledare()" class="btn btn-primary">Spara</a>
-            </form>
-        </div>
+<div ng-init="getPeople()">
+    <div class="well text-center col-sm-12 col-md-10 col-md-offset-1">
+        <h1>Koppla elever till handledare:</h1>
+        <form>
+            <table class="table table-striped">
+                <tr>
+                    <td><label>Elever</label></td>
+                    <td><label>Handledare</label></td>
+                </tr>
+                <tr ng-repeat="elev in elever">
+                    <td>{{elev.namn}}</td>
+                    <td>
+                        <select class="dropdown"
+                                ng-init="elev.ny_handledare = elev.hl_id"
+                                ng-model="elev.ny_handledare"
+                                ng-options="item.ID as item.namn_foretag for item in handledare">
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <a ng-click="kopplaElevHandledare()" class="btn btn-primary">Spara</a>
+        </form>
     </div>
 </div>
 <footer ng-include="'templates/footer.html'"></footer>

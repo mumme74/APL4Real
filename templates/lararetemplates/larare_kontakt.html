@@ -1,29 +1,30 @@
 <header ng-include="'templates/headers/lararehead.html'"></header>
-
-<div ng-controller="larareKontaktCtrl" class="well">
-    <h1 class="text-center">Kontakt</h1>
-    <hr>
-    <table class="table table-striped table-responsive" id='kontakt'>
-        <thead>
-            <tr>
-                <th>Elevens namn</th>
-                <th>Elevens mail</th>
-                <th>Elevens telefonnummer</th>
-                <th>Handledarens namn</th>
-                <th>Handledarens mail</th>
-                <th>Handledarens telefonnummer</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="uppgift in kontaktUppgifter">
-                <td data-th='Namn'>{{uppgift.elevanamn}}</td>
-                <td data-th='Mail'>{{uppgift.elevmail}}</td>
-                <td data-th='Tfnr.'>{{uppgift.elevnummer}}</td>
-                <td data-th='Handled.'>{{uppgift.hlnamn}}</td>
-                <td data-th='H. Mail'>{{uppgift.hlmail}}</td>
-                <td data-th='H. Tfnr.'>{{uppgift.hlnummer}}</td>
-            </tr>
-        </tbody>
-    </table>
+<div>
+    <div class="well text-center col-sm-12 col-md-10 col-md-offset-1">
+        <h1 class="text-center">Kontakt</h1>
+        <hr>
+        <table class="table table-striped table-responsive" id='kontakt'>
+            <thead>
+                <tr>
+                    <th>Elevens namn</th>
+                    <th>Elevens mail</th>
+                    <th>Elevens telefonnummer</th>
+                    <th>Handledarens namn</th>
+                    <th>Handledarens mail</th>
+                    <th>Handledarens telefonnummer</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="uppgift in kontaktUppgifter">
+                    <td data-th='Namn'>{{uppgift.elevanamn}}</td>
+                    <td data-th='Mail'>{{uppgift.elevmail}}</td>
+                    <td data-th='Tfnr.'>{{uppgift.elevnummer}}</td>
+                    <td data-th='Handled.'>{{uppgift.hlnamn}}</td>
+                    <td data-th='H. Mail'>{{uppgift.hlmail}}</td>
+                    <td data-th='H. Tfnr.'>{{uppgift.hlnummer}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 <footer ng-include="'templates/footer.html'"></footer>

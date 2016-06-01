@@ -40,8 +40,8 @@ module.config(function ($urlRouterProvider, $stateProvider) {
         controller: "aktivitetCtrl"
     }).state("handledarenatverk", {
         url: "/handledarenatverk",
-        templateUrl: "templates/lararetemplates/handledare_natverk.html"//,
-//        controller: "natverkCtrl"
+        templateUrl: "templates/lararetemplates/handledare_natverk.html",
+        controller: "natverkCtrl"
     }).state("elev_handledare", {
         url: "/elev_handledare",
         templateUrl: "templates/lararetemplates/elev_handledare.html",

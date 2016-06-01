@@ -1,57 +1,55 @@
-<body ng-app="test">
-    <header ng-include="'templates/headers/lararehead.html'"></header>
-    <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 col-lg-offset-1 
-         col-md-offset-1" id="loggWrapper">
-        <div class="loggWell ridge">
-            <h1 class="text-center">Tidsflöde för elevers loggar</h1>
-            <hr>
-            <div class="row">
-                <div class="col-lg-10 col-lg-10 col-lg-10 " >
-                    <div class="dropdown">
-                        <label class="text-center">Välj klass
-                            <select ng-model="selected_klass"
-                                    ng-options="klass.id as klass.namn for klass in klasser"
-                                    ng-change="getElever(selected_klass)">
-                            </select>
-                        </label>
-                        <label class="text-center">Välj elev:
-                            <select ng-model="selected_elev"
-                                    ng-init="selected_elev = -1"
-                                    ng-options="elev.id as elev.namn for elev in elever"
-                                    ng-change="getLogg(selected_elev)">
-                            </select>
-                        </label>
-                        <br/>
-                    </div>
+<header ng-include="'templates/headers/lararehead.html'"></header>
+<div>
+    <div class="well text-center col-sm-12 col-md-10 col-md-offset-1">
+        <h1 class="text-center">Tidsflöde för elevers loggar</h1>
+        <hr>
+        <div class="row">
+            <div class="col-lg-10 col-lg-10 col-lg-10 " >
+                <div class="dropdown">
+                    <label class="text-center">Välj klass
+                        <select ng-model="selected_klass"
+                                ng-options="klass.id as klass.namn for klass in klasser"
+                                ng-change="getElever(selected_klass)">
+                        </select>
+                    </label>
+                    <label class="text-center">Välj elev:
+                        <select ng-model="selected_elev"
+                                ng-init="selected_elev = -1"
+                                ng-options="elev.id as elev.namn for elev in elever"
+                                ng-change="getLogg(selected_elev)">
+                        </select>
+                    </label>
+                    <br/>
                 </div>
             </div>
-            <div class="seLoggbok1" ng-repeat="logg in loggar">
-                <h3>{{logg.namn}} <span class="small">{{logg.datum}}</span></h3>
-                <div id="inlägg">
-                    <p>
-                        {{logg.innehall}}
-                    </p>
-                    <p>Jag tyckte att denna dagen var {{logg.intryck}}.</p>
-                    <img class="img-responsive center-img" ng-if='logg.bild !== null' ng-src="{{getBildUrl(logg.bild)}}" alt="Uppladdad bild" />
-                </div>
-                <div id="kommentarDiv" ng-controller="kommentarCtrl">
-                    <input class="form-control" placeholder="Kommentar" id="{{logg.ID}}"/>
-                    <br/>
-                    <button class="btn btn-success" 
-                            ng-click="postKommentar(logg.ID)">
-                        Skicka kommentar
-                    </button>
-                    <button class="btn btn-default" ng-click="show(this)">
-                        Ladda kommentarer <span class="badge">{{logg.kommentarer.length}}</span></button>
-                    <br/><br/>
-                    <div class="kommentarContainer" id="{{this.$id}}_kommentarer">
-                        <div class='alert alert-link well ridge kommentar' ng-repeat="kommentar in logg.kommentarer">
-                            <h4>{{kommentar.namn}} - {{kommentar.datum}}</h4>
-                            <p>{{kommentar.innehall}}<p> 
-                        </div>
+        </div>
+        <div class="seLoggbok1" ng-repeat="logg in loggar">
+            <h3>{{logg.namn}} <span class="small">{{logg.datum}}</span></h3>
+            <div id="inlägg">
+                <p>
+                    {{logg.innehall}}
+                </p>
+                <p>Jag tyckte att denna dagen var {{logg.intryck}}.</p>
+                <img class="img-responsive center-img" ng-if='logg.bild !== null' ng-src="{{getBildUrl(logg.bild)}}" alt="Uppladdad bild" />
+            </div>
+            <div id="kommentarDiv" ng-controller="kommentarCtrl">
+                <input class="form-control" placeholder="Kommentar" id="{{logg.ID}}"/>
+                <br/>
+                <button class="btn btn-success" 
+                        ng-click="postKommentar(logg.ID)">
+                    Skicka kommentar
+                </button>
+                <button class="btn btn-default" ng-click="show(this)">
+                    Ladda kommentarer <span class="badge">{{logg.kommentarer.length}}</span></button>
+                <br/><br/>
+                <div class="kommentarContainer" id="{{this.$id}}_kommentarer">
+                    <div class='alert alert-link well ridge kommentar' ng-repeat="kommentar in logg.kommentarer">
+                        <h4>{{kommentar.namn}} - {{kommentar.datum}}</h4>
+                        <p>{{kommentar.innehall}}<p> 
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </body>
