@@ -192,8 +192,12 @@ table#kontakt tbody tr:not(:last-child) {
 
 //test design/Headers
 body{
-    background-image: url("../BilderAPL/sky-08.jpg");
-    background-repeat: no-repeat;
+    //background-image: url("../BilderAPL/himmel.png");
+        background: url("../BilderAPL/himmel.png") no-repeat center center fixed;
+        margin: 0;
+        padding: 0;
+        background-size: cover;
+    //background-repeat: no-repeat;
 }
 h1{
     font-weight: 500;
@@ -204,12 +208,33 @@ h2{
 h3{
     font-weight: 500;  
 }
+
 .navbar{
-    background-color: #a4b8db;
+    background-color: whitesmoke;
 }
+.navbar-default .navbar-nav>li>a 
+{
+    color: black;
+    padding: 20px;
+}
+.navbar-toggle:active{
+    
+}
+.mobilicon
+{
+    background-color: black;
+}
+a.navbar-brand
+{
+    color: black!important;
+    margin-top: 4px;
+    margin-right: 20px;
+    font-weight: bolder;
+}
+
 ul{
-    background-color: #a4b8db;
-    color: white;
+    background-color: whitesmoke;
+    color: black;
     margin: 0;
     padding: 0;    
 }
@@ -218,7 +243,15 @@ ul{
     border-radius: 10px;
 
 }
-
+li
+{
+    font-weight: 800;
+    
+}
+.logut
+{
+    margin-top: 0.25cm;
+}
 
 li a:hover:not(.active) {
     background-color: #111;
@@ -241,11 +274,11 @@ nav li.active a:active {
 
 
 .well {
-    background-color: #white;
+    background-color: whitesmoke;
     border: solid #000000;
     border-radius: 20px;
     border-width: .8px;
-
+    margin-top: 13px
 }
 
 #loggWrapper{
@@ -268,7 +301,7 @@ nav li.active a:active {
 
 .loggWell {
     padding: 0 0 0 0;
-    background-color: white;
+    background-color: whitesmoke;
     border: solid #000000;
     border-radius: 20px;
     border-width: .8px;
@@ -279,7 +312,8 @@ nav li.active a:active {
 th {
     background-color: white;
     color: black;
-
+    font-size: 1.6rem;
+    background: linear-gradient(#fff, #ededed);
 
 }
 td {
@@ -328,4 +362,14 @@ img.resize{
     margin-bottom: 1em;
     /*    height: 50px;
         width: 100px;*/
+}
+
+#loggimg
+{
+    width: 100%;
+    max-height: 300px;
+}
+.googlebla
+{
+   color: #4285F4;    
 }

@@ -4,21 +4,27 @@
     <div class="well text-center" ng-controller="handledareRegCtrl">
         <h1>Registrera handledare</h1><hr>
         <form>
-            <input ng-model="name" type='text' placeholder='Namn'>
+            <label>Namn:</label><br>
+            <input ng-model="name" type='text' placeholder=''>
             <br/><br/>
-            <input ng-model="username" type='text' placeholder='Användarnamn'>
+            <label>Användarnamn:</label><br>
+            <input ng-model="username" type='text' placeholder=''>
             <br/><br/>
-            <input ng-model="email" type='text' placeholder='Email'>
+            <label>Email:</label><br>
+            <input ng-model="email" type='text' placeholder=''>
             <br/><br/>
-            <input ng-model="phone" type='text' placeholder='Telefonnummer'>
+            <label>Telefon:</label><br>
+            <input ng-model="phone" type='text' placeholder=''>
             <br/><br/>
-            <input ng-model="frtg" type='text' placeholder='Företag'>
+            <label>Företag:</label><br>
+            <input ng-model="frtg" type='text' placeholder=''>
             <br/><br/>Välj program:
             <select ng-model="pr">
                <option ng-repeat="program in programs" value='{{program.id}}'>{{program.namn}}</option>
             </select>
             <br/><br/>
-            <input ng-model="password" type='password' placeholder='Lösenord'>
+            <label>Lösernord:</label><br>
+            <input ng-model="password" type='password' placeholder='********'>
             <br/>
             <br/>
             <a ng-click="registreraHandledare()" class="btn btn-primary">Skicka</a>
