@@ -14,7 +14,16 @@
             <ul class="nav navbar-nav" id="active">
             <li ui-sref-active="active"><a ui-sref='elev'>Aktiviteter</a></li>
             <li ui-sref-active="active"><a ui-sref='elev_se_loggbok'>Läs Loggbok</a></li>
-            <li ui-sref-active="active"><a ui-sref="elevnarvaro">Närvaro</a></li>
+                <li ui-sref-active="active" class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        Närvaro <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li ui-sref-active="active"><a ui-sref="elev_narvaro">Rapportera Närvaro</a></li>
+                        <li ui-sref-active="active"><a ui-sref="elev_se_narvaro">Se Närvaro</a></li>
+                    </ul>
+
+                </li>
             <li ui-sref-active="active"><a ui-sref='elev_loggbok'>Skriv loggbok</a></li>
             <li ui-sref-active="active"><a ui-sref="elev_moment">Moment</a></li>
             <li ui-sref-active="active"><a ui-sref='elev_kontakt'>Kontakt</a></li>

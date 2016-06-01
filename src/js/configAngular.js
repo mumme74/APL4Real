@@ -54,10 +54,14 @@ module.config(function ($urlRouterProvider, $stateProvider) {
         url: "/elev_se_loggbok",
         templateUrl: "templates/elevtemplates/elev_se_loggbok.html",
         controller: "elevSeLoggCtrl"
-    }).state("elevnarvaro", {
-        url: "/elevnarvaro",
+    }).state("elev_narvaro", {
+        url: "/elev_narvaro",
         templateUrl: "templates/elevtemplates/elev_narvaro.html",
         controller: "postNarvaroCtrl"
+    }).state("elev_se_narvaro", {
+        url: "/elev_se_narvaro",
+        templateUrl: "templates/elevtemplates/elev_se_narvaro.html",
+        controller: "elevSeNarvaroCtrl"
     }).state("larare_se_loggbok", {
         url: "/larare_se_loggbok",
         templateUrl: "templates/lararetemplates/larare_se_loggbok.html",
