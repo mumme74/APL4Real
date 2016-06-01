@@ -1,16 +1,18 @@
 <header ng-include="'templates/headers/handledarehead.html'"></header>
-<div class="container well" ng-init="handledareSeMoment()">
-    <h1 class="text-center">Moment</h1>
-    <hr>
-    
-    <table class='table table-bordered table-striped'>
-        <tr>
-            <th>Innehåll</th>
-            <th>Status</th>
-        </tr>
-        <tr ng-repeat="moment in moments">
-            <td>{{moment.innehall}}</td>
-            <td>{{moment.status}}</td>
-        </tr>
-    </table>
+<div ng-init="handledareSeMoment()">
+    <div class="well text-center col-sm-12 col-md-10 col-md-offset-1">
+        <h1 class="text-center">Moment</h1>
+        <hr>
+
+        <table class='table table-bordered table-striped'>
+            <tr>
+                <th>Innehåll</th>
+                <th>Status</th>
+            </tr>
+            <tr ng-repeat="moment in moments">
+                <td>{{moment.innehall}}</td>
+                <td>{{moment.status}}</td>
+            </tr>
+        </table>
+    </div>
 </div>
