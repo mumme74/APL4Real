@@ -23,7 +23,6 @@ module.controller("kommentarCtrl", function ($scope, globalService) {
                 }
             });
             document.getElementById(logg_id).value = "";
-            location.reload();
         }
     };
 });
