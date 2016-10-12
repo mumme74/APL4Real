@@ -1,33 +1,35 @@
-        <div class="container">
-            <div class="col-sm-6 col-sm-offset-3"> 
-                <div class="well"> 
-                    <h1>Registrera Elev:</h1><br/><br/>
-                    <h4>Logga in med din skolmail:</h4>
-                <div class="well">
-                    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-                 </div>
-                    <h4>Ange namn & telefonnummer:</h4>
-                <div class="well">
-                    <form>
-                        <input type="text" ng-model="nmn" placeholder="Namn Efternamn">
-                        <br/>
-                        <br/>
-                        <input type="text" ng-model="tfl" placeholder="Telefonnummer">
-                    </form>
-                </div>
-                    <h4>Lägg till din klass:</h4>
-                <div class="well">
-                    <select ng-model="kl">
-                        <option ng-repeat="klass in klasser" value='{{klass.id}}'>{{klass.namn}}</option>
-                    </select> 
-                </div>
-                    <button class="btn btn-primary alert" style="margin-left: 420px; margin-top: -8px" 
-                            ng-click="postRegistration()" onclick="">Fortsätt</button>
-                </div>
+<div class="container">
+    <div class="col-sm-6 col-sm-offset-3"> 
+        <div class="well"> 
+            <h1>Registrera Elev:</h1><br/><br/>
+            <h4>Logga in med din skolmail:</h4>
+            <div class="well">
+                <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+            </div>
+            <h4>Ange namn & telefonnummer:</h4>
+            <div class="well">
+                <form>
+                    <input type="text" ng-model="nmn" placeholder="Namn Efternamn">
+                    <br/>
+                    <br/>
+                    <input type="text" ng-model="tfl" placeholder="Telefonnummer">
+                </form>
+            </div>
+            <h4>Lägg till din klass:</h4>
+            <div class="well">
+                <select ng-model="kl">
+                    <option ng-repeat="klass in klasser" value='{{klass.id}}'>{{klass.namn}}</option>
+                </select> 
+            </div>
+            <div class="text-center">
+            <button class="btn btn-primary alert" 
+                    ng-click="postRegistration()" onclick="">Fortsätt</button>
             </div>
         </div>
+    </div>
+</div>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <script src="https://apis.google.com/js/platform.js" async defer></script>
-        <script src="../src/js/registrationController.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script src="../src/js/registrationController.js"></script>
         

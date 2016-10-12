@@ -79,6 +79,7 @@
                 <div ng-repeat="narvaro in vecka" class="ng-class: parseClass(getLjus(getElev(selected_elev), narvaro.datum),getGodkant(getElev(selected_elev), narvaro.datum)) + ' ' + todayClass(narvaro.datum); narvaro_dag">{{narvaro.datum.getDate()}}</div>
             </div>
         </div>
+        <div class="clear"></div>
     </div>
 </div>
 <footer ng-include="'templates/footer.html'"></footer>
