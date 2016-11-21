@@ -3,14 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-module.controller("larareSeLoggCtrl", function ($scope, larareloggGetService, larareEleverService, larareService) {
-    var anvandare = JSON.parse(localStorage.anvandare);
-    var id_token = anvandare.id_token;
+module.controller("larareSeLoggCtrl", function ($scope, larareloggGetService, larareEleverService, larareService, globalService) {
+    var id_token;
+    if (globalService.isLoggedIn()) {
+        var anvandare = JSON.parse(localStorage.anvandare);
+        id_token = anvandare.id_token;
 
-    larareService.getKlasser(id_token).then(function (data) {
-        $scope.klasser = data;
-    });
-
+        larareService.getKlasser(id_token).then(function (data) {
+            $scope.klasser = data;
+        });
+    }
     $scope.getElever = function (klass_id) {
         var promiseElever = larareService.getElever(id_token, klass_id);
         promiseElever.then(function (data){

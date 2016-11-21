@@ -121,7 +121,7 @@ module.config(function ($urlRouterProvider, $stateProvider) {
     }).state("skapa_moment",{
         url:"/skapa_moment",
         templateUrl:"templates/lararetemplates/skapa_moment.html",
-        controller:""
+        controller:"momentCtrler"
     }).state("tilldela_moment",{
         url:"/tilldela_moment",
         templateUrl:"templates/lararetemplates/tilldela_moment.html",

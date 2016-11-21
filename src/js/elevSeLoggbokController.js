@@ -4,15 +4,16 @@
  * and open the template in the editor.
  */
 
-module.controller("elevSeLoggCtrl", function ($scope, getServiceLoggar) {
-    console.log("hello?");
-    var anvandare = JSON.parse(localStorage.anvandare);
-    var id_token = anvandare.id_token;
-    var promiseLoggar = getServiceLoggar.getLoggar(id_token);
-    promiseLoggar.then(function (data) {
-        console.log(data);
-        $scope.loggar = data;
-    });
+module.controller("elevSeLoggCtrl", function ($scope, getServiceLoggar, globalService) {
+    if (globalService.isLoggedIn()) {
+        var anvandare = JSON.parse(localStorage.anvandare);
+        var id_token = anvandare.id_token;
+        var promiseLoggar = getServiceLoggar.getLoggar(id_token);
+        promiseLoggar.then(function (data) {
+            console.log(data);
+            $scope.loggar = data;
+        });
+    }
     $scope.show = function (e) {
         console.log("#" + e.$id + "_kommentarer");
         $(".kommentarContainer").not("#" + e.$id + "_kommentarer").slideUp();

@@ -6,11 +6,17 @@
 //global för att ändringar i $scope aldrig stannade kvar
 var gbild;
 module.controller("elevCtrl", function ($scope, $window, postService, globalService) {
+    if (window.location.hash.includes("elev_loggbok"))
+        globalService.isLoggedIn();
     $scope.logout = function () {
-        var anvandare = JSON.parse(localStorage.anvandare);
-        anvandare.id_token = "";
-        localStorage.anvandare = JSON.stringify(anvandare);
-        $window.location.href = "#/logout";
+        if (!localStorage.anvandare)
+            $window.location.href = "#";
+        else {
+            var anvandare = JSON.parse(localStorage.anvandare);
+            anvandare.id_token = "";
+            localStorage.anvandare = JSON.stringify(anvandare);
+            $window.location.href = "#/logout";
+        }
     };
     $scope.postLogg = function () {
         //Göra om till databasens Date

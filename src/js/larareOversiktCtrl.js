@@ -1,15 +1,17 @@
-module.controller("larareOversiktCtrl", function ($scope, larareService, omdomeService) {
+module.controller("larareOversiktCtrl", function ($scope, larareService, omdomeService, globalService) {
     $scope.labels = ["Bra", "Sådär", "Dåligt"];
     $scope.colours = ["#89ba17", "#f0de00", "#dc002e"];
     $scope.charts = [];
     $scope.chart_data = [];
+    var id_token;
+    if (globalService.isLoggedIn()) {
+        var anvandare = JSON.parse(localStorage.anvandare);
+        id_token = anvandare.id_token;
 
-    var anvandare = JSON.parse(localStorage.anvandare);
-    var id_token = anvandare.id_token;
-
-    larareService.getKlasser(id_token).then(function (data) {
-        $scope.klasser = data;
-    });
+        larareService.getKlasser(id_token).then(function (data) {
+            $scope.klasser = data;
+        });
+    }
     $scope.displayCharts = function () {
         $.each($scope.chart_data, function (index, value) {
             var ctx = $('#' + value.id).get(0).getContext("2d");

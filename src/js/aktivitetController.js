@@ -31,18 +31,22 @@ module.controller("aktivitetCtrl", function ($scope, $window, getService, global
             return IMG_SERVER_URL + "?file=" + bild;
     };
     $scope.getHandledareAktiviteter = function () {
-        var basic_auth = JSON.parse(localStorage.anvandare).basic_auth;
-        getService.getHandledareAktiviteter(basic_auth).then(function (data) {
-            $scope.aktiviteter = data;
-            console.log(data);
-        });
+        if (globalService.isLoggedIn()) {
+            var basic_auth = JSON.parse(localStorage.anvandare).basic_auth;
+            getService.getHandledareAktiviteter(basic_auth).then(function (data) {
+                $scope.aktiviteter = data;
+                console.log(data);
+            });
+        }
     };
     $scope.getNekadeAktiviteter = function () {
-        var id_token = JSON.parse(localStorage.anvandare).id_token;
-        getService.getNekadeAktiviteter(id_token).then(function (data) {
-            $scope.aktiviteter = data;
-            console.log(data);
-        });
+        if (globalService.isLoggedIn()) {
+            var id_token = JSON.parse(localStorage.anvandare).id_token;
+            getService.getNekadeAktiviteter(id_token).then(function (data) {
+                $scope.aktiviteter = data;
+                console.log(data);
+            });
+        }
     };
     $scope.show = function (e) {
         $(".aktivitet").not("#" + e.$id).slideUp();
@@ -103,11 +107,11 @@ module.controller("aktivitetCtrl", function ($scope, $window, getService, global
         var id_token = JSON.parse(localStorage.anvandare).id_token;
         var item = $scope.aktiviteter.splice(index, 1)[0];
         var id = item.id;
-        getService.raderaLogg(id_token, id).then(function(status){
+        getService.raderaLogg(id_token, id).then(function (status) {
             if (status === "error") {
                 globalService.notify("Kunde inte radera loggboken, försök igen senare.", "danger");
             } else {
-                globalService.notify("Loggboken har blivit raderad.", "success"); 
+                globalService.notify("Loggboken har blivit raderad.", "success");
             }
         });
     };
@@ -115,7 +119,7 @@ module.controller("aktivitetCtrl", function ($scope, $window, getService, global
         var id_token = JSON.parse(localStorage.anvandare).id_token;
         var item = $scope.aktiviteter.splice(index, 1)[0];
         var id = item.id;
-        getService.raderaNarvaro(id_token, id).then(function(status){
+        getService.raderaNarvaro(id_token, id).then(function (status) {
             if (status === "error") {
                 globalService.notify("Kunde inte radera närvaron, försök igen senare.", "danger");
             } else {

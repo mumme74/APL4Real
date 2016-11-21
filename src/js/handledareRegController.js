@@ -5,6 +5,7 @@
  */
 
 module.controller("handledareRegCtrl", function ($scope, registrationService, globalService) {
+    globalService.isLoggedIn();
     var promiseProgram = registrationService.getProgram();
     promiseProgram.then(function (data) {
         $scope.programs = data;

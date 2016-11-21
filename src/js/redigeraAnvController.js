@@ -5,8 +5,11 @@
  */
 module.controller("redigeraCtrl", function ($scope, redigeraService,
         globalService, momentService) {
-    var anvandare = JSON.parse(localStorage.anvandare);
-    var id_token = anvandare.id_token;
+    var id_token;
+    if (globalService.isLoggedIn()) {
+        var anvandare = JSON.parse(localStorage.anvandare);
+        var id_token = anvandare.id_token;
+    }
 
     $scope.rensa = function () {
         $scope.ddHandledare = -1;

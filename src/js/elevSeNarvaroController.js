@@ -3,21 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-module.controller("elevSeNarvaroCtrl", function ($scope, elevNarvaroGetService) {
+module.controller("elevSeNarvaroCtrl", function ($scope, elevNarvaroGetService, globalService) {
     $scope.years = [];
     $scope.start = 0;
     $scope.currentMonth = new Date().getMonth();
     $scope.currentYear = new Date().getFullYear();
-
-    var anvandare = JSON.parse(localStorage.anvandare);
-    var id_token = anvandare.id_token;
-    elevNarvaroGetService.getNarvaro(id_token).then(function (data) {
-        $scope.elev_narvaro = data;
-        $scope.getVeckor();
-        for (var i = $scope.currentYear - 10; i <= $scope.currentYear; i++)
-            $scope.years.push(i);
-        $scope.years.reverse();
-    });
+    if (globalService.isLoggedIn()) {
+        var anvandare = JSON.parse(localStorage.anvandare);
+        var id_token = anvandare.id_token;
+        elevNarvaroGetService.getNarvaro(id_token).then(function (data) {
+            $scope.elev_narvaro = data;
+            $scope.getVeckor();
+            for (var i = $scope.currentYear - 10; i <= $scope.currentYear; i++)
+                $scope.years.push(i);
+            $scope.years.reverse();
+        });
+    }
     $scope.parseClass = function (ljus, godkant) {
         if (godkant === 0)
             return 'gra';

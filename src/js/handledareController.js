@@ -6,12 +6,16 @@
 
 module.controller("handledareCtrl", function ($scope, $window, getService, globalService) {
     $scope.logout = function () {
-        var anvandare = JSON.parse(localStorage.anvandare);
-        anvandare.losenord = "";
-        localStorage.anvandare = JSON.stringify(anvandare);
-        $window.location.href = "/handledare";
+        if (!localStorage.anvandare)
+            $window.location.href = "/handledare";
+        else {
+            var anvandare = JSON.parse(localStorage.anvandare);
+            anvandare.basic_auth = "";
+            localStorage.anvandare = JSON.stringify(anvandare);
+            $window.location.href = "/handledare";
+        }
     };
-    
+
     globalService.kollaStorage().then(function (responses) {
         console.log(responses);
     });

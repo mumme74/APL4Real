@@ -63,8 +63,6 @@ module.exports = function (grunt) {
                         'src/js/larareService.js',
                         'src/js/larareOversiktCtrl.js',
                         'src/js/omdomeService.js'
-                        
-                        
                     ]
                 }
             }
@@ -102,8 +100,6 @@ module.exports = function (grunt) {
     //ftp task
      grunt.loadNpmTasks('grunt-ftp-deploy');
     
-
-
     // Default task(s).
     grunt.registerTask('build', ['uglify']);
     //Send to server

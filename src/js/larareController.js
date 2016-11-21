@@ -5,20 +5,26 @@
  */
 module.controller("larareCtrl", function ($scope, $window, redigeraService, postService, globalService) {
     $scope.logout = function () {
-        var anvandare = JSON.parse(localStorage.anvandare);
-        anvandare.id_token = "";
-        localStorage.anvandare = JSON.stringify(anvandare);
-        $window.location.href = "#/logout";
+        if (!localStorage.anvandare)
+            $window.location.href = "#";
+        else {
+            var anvandare = JSON.parse(localStorage.anvandare);
+            anvandare.id_token = "";
+            localStorage.anvandare = JSON.stringify(anvandare);
+            $window.location.href = "#/logout";
+        }
     };
     $scope.getPeople = function () {
-        var id_token = JSON.parse(localStorage.anvandare).id_token;
-        redigeraService.getElever(id_token).then(function (data) {
-            $scope.elever = data;
-        });
-        redigeraService.getHL(id_token).then(function (data) {
-            console.log(data);
-            $scope.handledare = data;
-        });
+        if (globalService.isLoggedIn()) {
+            var id_token = JSON.parse(localStorage.anvandare).id_token;
+            redigeraService.getElever(id_token).then(function (data) {
+                $scope.elever = data;
+            });
+            redigeraService.getHL(id_token).then(function (data) {
+                console.log(data);
+                $scope.handledare = data;
+            });
+        }
     };
     $scope.kopplaElevHandledare = function () {
         var id_token = JSON.parse(localStorage.anvandare).id_token;

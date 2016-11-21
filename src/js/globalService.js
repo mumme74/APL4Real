@@ -15,23 +15,36 @@ module.service("globalService", function ($q, $http) {
             $(this).remove();
         });
     };
+    this.isLoggedIn = function () {
+        if (localStorage.anvandare) {
+            var anvandare = JSON.parse(localStorage.anvandare);
+            if ((anvandare.behorighet < 2 && anvandare.id_token) ||
+                    (anvandare.behorighet == 2 && anvandare.basic_auth)) {
+                return true;
+            }
+        }
+        this.notify("Du verkar inte vara inloggad längre, logga ut och in igen.", "danger");
+        return false;
+    }
     this.skickaData = function (url, data) {
-        var google_id = JSON.parse(localStorage.anvandare).google_id;
-        var anvandarnamn = JSON.parse(localStorage.anvandare).anvandarnamn;
-        var objekt = {
-            url: url,
-            google_id: google_id,
-            anvandarnamn: anvandarnamn,
-            data: data
-        };
+        if (this.isLoggedIn()) {
+            var google_id = JSON.parse(localStorage.anvandare).google_id;
+            var anvandarnamn = JSON.parse(localStorage.anvandare).anvandarnamn;
+            var objekt = {
+                url: url,
+                google_id: google_id,
+                anvandarnamn: anvandarnamn,
+                data: data
+            };
 
-        var array = [];
-        if (!localStorage.oskickat)
-            localStorage.oskickat = JSON.stringify([]);
-        array = JSON.parse(localStorage.oskickat);
-        array.push(objekt);
-        localStorage.oskickat = JSON.stringify(array);
-        return this.kollaStorage();
+            var array = [];
+            if (!localStorage.oskickat)
+                localStorage.oskickat = JSON.stringify([]);
+            array = JSON.parse(localStorage.oskickat);
+            array.push(objekt);
+            localStorage.oskickat = JSON.stringify(array);
+            return this.kollaStorage();
+        }
     };
     this.kollaStorage = function () {
         var deferred = $q.defer();

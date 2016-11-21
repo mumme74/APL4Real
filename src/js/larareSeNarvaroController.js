@@ -3,17 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-module.controller("larareSeNarvaroCtrl", function ($scope, larareNarvaroGetService, larareService) {
+module.controller("larareSeNarvaroCtrl", function ($scope, larareNarvaroGetService, larareService, globalService) {
     $scope.years = [];
     $scope.start = 0;
     $scope.currentMonth = new Date().getMonth();
     $scope.currentYear = new Date().getFullYear();
-
-    var anvandare = JSON.parse(localStorage.anvandare);
-    var id_token = anvandare.id_token;
-    larareService.getKlasser(id_token).then(function (data) {
-        $scope.klasser = data;
-    });
+    if (globalService.isLoggedIn()) {
+        var anvandare = JSON.parse(localStorage.anvandare);
+        var id_token = anvandare.id_token;
+        larareService.getKlasser(id_token).then(function (data) {
+            $scope.klasser = data;
+        });
+    }
     $scope.getElever = function (klass_id) {
         larareNarvaroGetService.getGodkandNarvaro(id_token, klass_id).then(function (data) {
             var alla = [];

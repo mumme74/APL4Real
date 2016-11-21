@@ -1,9 +1,8 @@
 
 
 module.controller("postNarvaroCtrl", function ($scope, globalService) {
-
+    globalService.isLoggedIn();
     $scope.skickaNarvaro = function () {
-        var id_token = JSON.parse(localStorage.anvandare).id_token;
         var datum = $scope.datum;
         var trafikljus = $scope.ljus;
         var data = {

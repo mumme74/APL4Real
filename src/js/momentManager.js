@@ -6,10 +6,11 @@
 
 
 module.controller("momentCtrler", function ($scope, momentService, globalService, larareService) {
-
-    var anvandare = JSON.parse(localStorage.anvandare);
-    var id_token = anvandare.id_token;
-
+    var id_token;
+    if (globalService.isLoggedIn()) {
+        var anvandare = JSON.parse(localStorage.anvandare);
+        id_token = anvandare.id_token;
+    }
     //Hämtar alla klasser från lärarens program
     $scope.getKlasser = function () {
         var promiseKlasser = larareService.getKlasser(id_token);

@@ -1,11 +1,12 @@
 module.controller("elevSeMomentCtrl", function ($scope, getMoment, globalService) {
-    var anvandare = JSON.parse(localStorage.anvandare);
-    var id_token = anvandare.id_token;
-    var promiseMoment = getMoment.getMoment(id_token);
-    promiseMoment.then(function (data) {
-        $scope.moment = data;
-    });
-
+    if (globalService.isLoggedIn()) {
+        var anvandare = JSON.parse(localStorage.anvandare);
+        var id_token = anvandare.id_token;
+        var promiseMoment = getMoment.getMoment(id_token);
+        promiseMoment.then(function (data) {
+            $scope.moment = data;
+        });
+    }
     $scope.getStatus = function (status) {
         if (status === 0)
             return "Icke avklarad";
@@ -25,7 +26,7 @@ module.controller("elevSeMomentCtrl", function ($scope, getMoment, globalService
         globalService.skickaData(url, data).then(function (responses) {
             if (responses[0].status < 200 || responses[0].status > 299) {
                 globalService.notify("Ett fel inträffade, datan kommer skickas automatiskt.", "info");
-            } else{
+            } else {
                 globalService.notify("Momentet har skickats.", "success");
             }
         });

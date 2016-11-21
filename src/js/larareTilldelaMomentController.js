@@ -5,11 +5,14 @@
  */
 
 module.controller("larareTilldelaMomentCtrl", function ($scope, larareService, momentService, globalService) {
-    var anvandare = JSON.parse(localStorage.anvandare);
-    var id_token = anvandare.id_token;
-    larareService.getKlasser(id_token).then(function (data) {
-        $scope.klasser = data;
-    });
+    var id_token;
+    if (globalService.isLoggedIn()) {
+        var anvandare = JSON.parse(localStorage.anvandare);
+        id_token = anvandare.id_token;
+        larareService.getKlasser(id_token).then(function (data) {
+            $scope.klasser = data;
+        });
+    }
     $scope.getElever = function (klass_id) {
         larareService.getElever(id_token, klass_id).then(function (data) {
             $scope.elever = data;
