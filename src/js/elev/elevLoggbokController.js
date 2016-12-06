@@ -59,9 +59,9 @@ module.controller("elevLoggbokCtrl", function ($scope, $window, elevLoggbokServi
         $("." + ljus).addClass("vald");
     };
     $scope.onImgUrl = function (responseText, statusText, xhr, $form) {
-        console.log(responseText.filename);
-        gbild = responseText.filename;
-        $("#loggimg").attr("src", $scope.getBildUrl("\"" + gbild + "\"", 900));
+        response = JSON.parse(responseText);
+        gbild = response.filename;
+        $("#loggimg").attr("src", $scope.getBildUrl("\"" + gbild + "\"", 600));
     };
     $scope.getBildUrl = function (bild, storlek) {
         //tar bort citattecknen som kommer vem fan vet var ifrån
