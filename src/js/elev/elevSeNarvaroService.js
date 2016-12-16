@@ -14,7 +14,7 @@ module.service("elevNarvaroGetService", function ($q, $http) {
         var deferred = $q.defer();
         $http({
             method: "GET",
-            url: this.url + "/narvaro/godkand/elev",
+            url: this.url + "/elev/narvaro",
             headers: {'Authorization': id_token}
         }).success(function (rdata, status, headers, config) {
             deferred.resolve(rdata);

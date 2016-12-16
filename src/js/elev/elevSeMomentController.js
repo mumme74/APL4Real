@@ -22,7 +22,7 @@ module.controller("elevSeMomentCtrl", function ($scope, getMoment, globalService
         var data = {
             "id": id
         };
-        var url = "/moment/tillHandledare";
+        var url = "/elev/moment/avklara";
         globalService.skickaData(url, data).then(function (responses) {
             if (responses[0].status < 200 || responses[0].status > 299) {
                 globalService.notify("Ett fel inträffade, datan kommer skickas automatiskt.", "info");

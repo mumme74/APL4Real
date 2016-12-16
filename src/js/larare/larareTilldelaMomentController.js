@@ -50,7 +50,7 @@ module.controller("larareTilldelaMomentCtrl", function ($scope, larareService, l
                 moment: momenten,
                 elever: elever
             };
-            var url = "/moment/tilldela";
+            var url = "/larare/moment/tilldela";
 
             globalService.skickaData(url, data).then(function (responses) {
                 if (responses[0].status < 200 || responses[0].status > 299) {

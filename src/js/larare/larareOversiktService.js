@@ -5,16 +5,12 @@
  */
 
 module.service("larareOversiktService", function ($q) {
-    this.url = SERVER_URL + "/omdome";
     this.getOmdome = function (id_token, klass_id) {
         var deferred = $q.defer();
-        var data = {
-            id: klass_id
-        };
+        var url = SERVER_URL + "/larare/klass/" + klass_id + "/omdome";
         $.ajax({
-            url: this.url,
-            type: 'post',
-            data: JSON.stringify(data),
+            url: url,
+            type: 'GET',
             headers: {
                 "Authorization": id_token,
                 "Content-Type": 'application/json'

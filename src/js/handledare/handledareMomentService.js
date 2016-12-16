@@ -2,10 +2,10 @@ module.service("handledareMomentService", function ($http, $q) {
     //hämta alla moment från handledarens elev
     this.handledareSeMoment = function (basic_auth) {
         var deferred = $q.defer();
-        var url = SERVER_URL + "/moment/handledare";
+        var url = SERVER_URL + "/handledare/moment";
         $.ajax({
             url: url,
-            type: 'get',
+            type: 'GET',
             headers: {
                 "Authorization": basic_auth,
                 "Content-Type": "application/json"

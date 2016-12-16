@@ -11,7 +11,7 @@ module.controller("elevNarvaroCtrl", function ($scope, globalService) {
         };
 
         if (datum && trafikljus > -1) {
-            var url = "/narvaro/post";
+            var url = "/elev/narvaro";
             globalService.skickaData(url, data)
                     .then(function (responses) {
                         var status = responses[0].status;

@@ -1,6 +1,6 @@
 module.service("getMoment", function ($http, $q) {
 
-    this.url = SERVER_URL + "/moment";
+    this.url = SERVER_URL + "/elev/moment";
     
     this.getMoment = function (id_token) {
         var deferred = $q.defer();

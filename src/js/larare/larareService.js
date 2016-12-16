@@ -7,7 +7,7 @@
 /* global SERVER_URL */
 
 module.service("larareService", function ($q) {
-    this.url = SERVER_URL + "/get/larare";
+    this.url = SERVER_URL + "/larare";
     this.getKlasser = function (id_token) {
         var deferred = $q.defer();
         $.ajax({
@@ -44,7 +44,7 @@ module.service("larareService", function ($q) {
         return deferred.promise;
     };
 
-    this.getAnvandarensElever = function (id_token){
+    this.getAnvandarensElever = function (id_token) {
         var deferred = $q.defer();
         $.ajax({
             url: SERVER_URL + "/larare/elever",
@@ -63,20 +63,16 @@ module.service("larareService", function ($q) {
         });
         return deferred.promise;
     };
-    
+
     this.getElever = function (id_token, klass_id) {
         var deferred = $q.defer();
-        var data = {
-            klass_id: klass_id
-        };
         $.ajax({
-            url: this.url + "/elever",
-            type: 'POST',
+            url: this.url + "/klass/" + klass_id,
+            type: 'GET',
             headers: {
                 "Authorization": id_token,
                 "Content-Type": 'application/json'
             },
-            data: JSON.stringify(data),
             success: function (data) {
                 deferred.resolve(data);
             },
@@ -88,7 +84,7 @@ module.service("larareService", function ($q) {
         return deferred.promise;
     };
 
-    this.getHL = function (id_token){
+    this.getHL = function (id_token) {
         var url = SERVER_URL + "/info/handledare/lista/alla";
         var deferred = $q.defer();
         $.ajax({

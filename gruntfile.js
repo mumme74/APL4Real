@@ -29,8 +29,7 @@ module.exports = function (grunt) {
                         'src/js/global/loginController.js',
                         'src/js/global/logoutController.js',
                         'src/js/global/registrationController.js',
-                        /* MISC */
-                        'src/js/kommentarController.js',
+                        'src/js/global/kommentarController.js',
                         /* LÄRARE */
                         'src/js/larare/larareKontaktService.js',
                         'src/js/larare/larareMomentService.js',

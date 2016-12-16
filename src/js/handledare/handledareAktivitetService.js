@@ -9,7 +9,7 @@
 /* global SERVER_URL */
 
 module.service("handledareAktivitetService", function ($q) {
-    this.url = SERVER_URL + "/get";
+    this.url = SERVER_URL + "/handledare";
     this.getHandledareAktiviteter = function (basic_auth) {
         var deferred = $q.defer();
         $.ajax({

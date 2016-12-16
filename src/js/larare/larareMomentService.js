@@ -1,39 +1,15 @@
 module.service("larareMomentService", function ($http, $q) {
-    //Elever
-    this.url = SERVER_URL + "/elev";
-    this.getElevFranKlass = function (id_token, klass) {
-        var deferred = $q.defer();
-        $.ajax({
-            url: this.url + "/klass/" + klass,
-            type: 'get',
-            headers: {
-                "Authorization": id_token,
-                "Content-Type": "application/json"
-            },
-            success: function (data) {
-                deferred.resolve(data);
-            },
-            error: function (data)
-            {
-                deferred.resolve(data);
-            }
-        });
-        return deferred.promise;
-    };
-
     //hämta moment
     this.getMoment = function (id_token, elev_id) {
         var deferred = $q.defer();
-        var url = SERVER_URL + "/moment/elev";
-//        var url = "http://localhost:8080/aplBackend/webresources/moment/elev";
+        var url = SERVER_URL + "/larare/elev/" + elev_id + "/moment";
         $.ajax({
             url: url,
-            type: 'post',
+            type: 'GET',
             headers: {
                 "Authorization": id_token,
                 "Content-Type": "application/json"
             },
-            data: elev_id,
             success: function (data) {
                 deferred.resolve(data);
             },
@@ -49,7 +25,7 @@ module.service("larareMomentService", function ($http, $q) {
     //hämta moment
     this.getMomentLärare = function (id_token) {
         var deferred = $q.defer();
-        var url = SERVER_URL + "/moment/larare";
+        var url = SERVER_URL + "/larare/moment";
         $.ajax({
             url: url,
             type: 'GET',
@@ -72,7 +48,7 @@ module.service("larareMomentService", function ($http, $q) {
     //Radera Moment
     this.larareRaderaMoment = function (id_token, moment_id) {
         var deferred = $q.defer();
-        var url = SERVER_URL + "/moment/" + moment_id;
+        var url = SERVER_URL + "/larare/moment/" + moment_id;
         $.ajax({
             url: url,
             type: 'DELETE',
@@ -93,7 +69,7 @@ module.service("larareMomentService", function ($http, $q) {
     //Radera Moment
     this.elevRaderaMoment = function (id_token, moment_id, elev_id) {
         var deferred = $q.defer();
-        var url = SERVER_URL + "/moment/" + moment_id + "/elev/" + elev_id;
+        var url = SERVER_URL + "/larare/elev/" + elev_id + "/moment/" + moment_id;
         $.ajax({
             url: url,
             type: 'DELETE',

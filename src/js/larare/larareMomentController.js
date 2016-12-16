@@ -29,7 +29,7 @@ module.controller("larareMomentCtrl", function ($scope, larareMomentService, glo
 
     // hämta elever använder ng-change för att uppdatera
     $scope.updateraElevLista = function () {
-        larareMomentService.getElevFranKlass(id_token, $scope.sokKlass).then(function (data) {
+        larareService.getElever(id_token, $scope.sokKlass).then(function (data) {
             $scope.eleverna = data;
             console.log(data);
         });
@@ -37,10 +37,8 @@ module.controller("larareMomentCtrl", function ($scope, larareMomentService, glo
 
     //hämta moment använder ng-change för att uppdatera
     $scope.updateraElevsMoment = function () {
-        var elev_id_input = parseInt($scope.sokElev);
-        var elev_id = {"elev_id": elev_id_input};
-        var obj = JSON.stringify(elev_id);
-        larareMomentService.getMoment(id_token, obj).then(function (data) {
+        var elev_id = parseInt($scope.sokElev);
+        larareMomentService.getMoment(id_token, elev_id).then(function (data) {
             $scope.moment = data;
             console.log(data);
         });
@@ -63,7 +61,7 @@ module.controller("larareMomentCtrl", function ($scope, larareMomentService, glo
         var innehall = document.getElementById("momentInnehall").value;
         if (innehall.toString().trim() !== "") {
             var data = {"beskrivning": innehall};
-            var url = "/moment";
+            var url = "/larare/moment";
             globalService.skickaData(url, data).then(function (responses) {
                 if (responses[0].status < 200 || responses[0].status > 299) {
                     globalService.notify("Ett fel inträffade, datan kommer skickas automatiskt.", "info");

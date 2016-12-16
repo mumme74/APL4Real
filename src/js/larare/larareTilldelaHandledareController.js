@@ -30,7 +30,7 @@ module.controller("larareTilldelaHandledareCtrl", function ($scope, $window, lar
             }
         }
         if (array.length > 0) {
-            var targetUrl = "/post/elevhandledare";
+            var targetUrl = "/larare/koppla";
             globalService.skickaData(targetUrl, array).then(function (responses) {
                 if (responses[0].status < 200 || responses[0].status > 299) {
                     globalService.notify("Ett fel inträffade, datan kommer skickas automatiskt.", "info");

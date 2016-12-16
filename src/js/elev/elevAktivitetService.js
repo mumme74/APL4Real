@@ -9,11 +9,11 @@
 /* global SERVER_URL */
 
 module.service("elevAktivitetService", function ($q) {
-    this.url = SERVER_URL + "/get";
+    this.url = SERVER_URL + "/elev";
     this.getNekadeAktiviteter = function (id_token) {
         var deferred = $q.defer();
         $.ajax({
-            url: this.url + "/nekade_aktiviteter",
+            url: this.url + "/aktiviteter",
             type: 'get',
             headers: {
                 "Authorization": id_token
@@ -32,7 +32,7 @@ module.service("elevAktivitetService", function ($q) {
     this.raderaLogg = function (id_token, id) {
         var deferred = $q.defer();
         $.ajax({
-            url: SERVER_URL + "/elev/logg/radera/" + id,
+            url: this.url + "/logg/" + id + "/radera/",
             type: 'DELETE',
             headers: {
                 "Authorization": id_token
@@ -50,7 +50,7 @@ module.service("elevAktivitetService", function ($q) {
     this.raderaNarvaro = function (id_token, id) {
         var deferred = $q.defer();
         $.ajax({
-            url: SERVER_URL + "/narvaro/radera/" + id,
+            url: this.url + "/narvaro/" + id + "/radera",
             type: 'DELETE',
             headers: {
                 "Authorization": id_token
