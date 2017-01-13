@@ -12,9 +12,9 @@
                     <img class="img-responsive center-img" ng-if='logg.bild !== null' ng-src="{{getBildUrl(logg.bild)}}" alt="Uppladdad bild" />
                 </div>
                 <div id="kommentarDiv" ng-controller="kommentarCtrl">
-                    <input class="form-control" placeholder="Kommentar" id="{{logg.ID}}"/>
+                    <input class="form-control" placeholder="Kommentar" id="{{logg.id}}"/>
                     <button class="btn btn-success" 
-                            ng-click="postKommentar(logg.ID)">
+                            ng-click="postKommentar(logg.id)">
                         Skicka kommentar
                     </button>
                     <button class="btn btn-default" ng-click="show(this)">

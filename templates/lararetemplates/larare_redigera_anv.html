@@ -10,7 +10,7 @@
                     <label for="ddElev">Välj elev:</label>
                     <br/>
                     <select ng-model="ddElev" ng-change="laddaElev()" id="ddElev">
-                        <option ng-repeat="elev in EleverLista" value="{{elev.ID}}">
+                        <option ng-repeat="elev in EleverLista" value="{{elev.id}}">
                             {{elev.namn}}
                         </option>
                     </select>
@@ -33,7 +33,7 @@
                     <label for="HLinput">Handledare</label>
                     <br/>
                     <select ng-model="elevHL_id" id="HLinput" 
-                            ng-options="HL.ID as HL.namn_foretag for HL in HLLista">
+                            ng-options="HL.id as HL.namn_foretag for HL in HLLista">
                     </select>
                     <br/><br/><br/>
                     <button class="btn btn-primary" ng-click="sparaElev()">Spara</button>
@@ -46,7 +46,7 @@
                     <label for="ddHL">Välj handledare:</label>
                     <br/>
                     <select ng-model="ddHandledare" ng-change="laddaHL()" id="ddHL">
-                        <option ng-repeat="HL in HLLista" value="{{HL.ID}}">
+                        <option ng-repeat="HL in HLLista" value="{{HL.id}}">
                             {{HL.namn_foretag}}
                         </option>
                     </select>

@@ -24,7 +24,7 @@ module.controller("larareTilldelaHandledareCtrl", function ($scope, $window, lar
             if (elever[i].ny_handledare !== elever[i].hl_id)
             {
                 array.push({
-                    "elev_id": elever[i].ID,
+                    "elev_id": elever[i].id,
                     "handledare_id": elever[i].ny_handledare
                 });
             }

@@ -64,7 +64,7 @@ module.controller("larareRedigeraAnvCtrl", function ($scope, larareRedigeraAnvSe
 
     $scope.sparaHL = function () {
         var url = "/larare/handledare/redigera";
-        var ID = parseInt($scope.ddHandledare);
+        var id = parseInt($scope.ddHandledare);
         var namn = document.getElementById("HLnamn").value;
         var tfnr = document.getElementById("HLtfnr").value;
         var email = document.getElementById("HLemail").value;
@@ -73,7 +73,7 @@ module.controller("larareRedigeraAnvCtrl", function ($scope, larareRedigeraAnvSe
         var lösenord = document.getElementById("HLlosen").value;
 
         var data = {
-            ID: ID,
+            id: id,
             namn: namn,
             tfnr: tfnr,
             email: email,
@@ -92,14 +92,14 @@ module.controller("larareRedigeraAnvCtrl", function ($scope, larareRedigeraAnvSe
 
     $scope.sparaElev = function () {
         var url = "/larare/elev/redigera";
-        var ID = parseInt($scope.ddElev);
+        var id = parseInt($scope.ddElev);
         var namn = document.getElementById("elevnamn").value;
         var tfnr = document.getElementById("elevtfnr").value;
         var email = document.getElementById("elevemail").value;
         var klass = parseInt($scope.elevklass);
         var handledar_id = parseInt($scope.elevHL_id);
         var data = {
-            ID: ID,
+            id: id,
             namn: namn,
             tfnr: tfnr,
             email: email,
