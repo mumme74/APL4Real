@@ -24,7 +24,6 @@ module.exports = function (grunt) {
                 files: {
                     'js/aplapp.min.js': [
                         'src/js/global/globalVars.js',
-                        'src/js/global/configAngular.js',
                         'src/js/**/*.js'
                     ]
                 }
@@ -73,7 +72,8 @@ module.exports = function (grunt) {
                       "templates/**",
                       "bower_components/**",
                       "src/**",
-                      "BilderAPL/**"
+                      "BilderAPL/**",
+                      "handledare/**"
                      ], 
                      dest: 'build/'
                     }
