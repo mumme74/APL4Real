@@ -69,6 +69,7 @@ module.exports = function (grunt) {
                       "*.ico",
                       "css/**/*.css",
                       "js/**/*.js",
+                      "js/**/*.map",
                       "templates/**",
                       "bower_components/**",
                       "src/**",
