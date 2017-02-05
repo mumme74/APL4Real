@@ -82,19 +82,19 @@ module.exports = function (grunt) {
             options: { livereload: true },
             js: {
                 files: ["src/js/**/*.js"],
-                tasks: ["uglify", "copy:jsFiles"]
+                tasks: ["uglify", "sync"]
             },
             css: {
                 files: ["css/**/*.css"],
-                tasks: ["copy:cssFiles"]
+                tasks: ["sync"]
             },
             templates: {
                 files: ["templates/**"],
-                tasks: ["copy:templates"]
+                tasks: ["sync"]
             },
             htmFiles: {
                 files: ["*.htm", "*.html"],
-                tasks: ["copy:htmFiles"]
+                tasks: ["sync"]
             }
         },
         express: {
@@ -103,32 +103,31 @@ module.exports = function (grunt) {
               options:{
                   livereload:true,
                   port: 9000,
-                  bases: './',
+                  bases: 'build/',
                   hostname: '*' // allow 127.0.0.1:9000
               }
           }  
         },
-        copy: {
-            cssFiles: { files: [{src: 'css/**', dest: 'build/'}] },
-            htmFiles: { files: [{src: 'index.html', dest: 'build/index.html'}]},
-            iconFile: { files: [{src: 'icon.ico', dest: 'build/icon.ico'}]},
-            templates:{ files: [{src: 'templates/**', dest: 'build/'}]},
-            jsFiles:  { files: [{src: 'js/**', dest: 'build/'}]},
-            bower:    { files: [{src: 'bower_components/**', dest: 'build/'}]}
-            
-//            all: {
-//                files: [
-//                    {src: 'index.html', dest: 'build/index.html'},
-//                    {src: 'icon.ico', dest: 'build/icon.ico'},
-//                    {src: 'templates/**', dest: 'build/'},
-//                    {src: 'css/**', dest: 'build/'},
-//                    {src: 'js/**', dest: 'build/'},
-//                    {src: 'bower_components/**', dest: 'build/'}
-//
-//                ]
-//            }
-        }, //end copy
-        
+        sync: {
+           main: {
+               files: [
+                   { src: [
+                      "*.html", 
+                      "*.htm",
+                      "*.ico",
+                      "css/**/*.css",
+                      "js/**/*.js",
+                      "templates/**",
+                      "bower_components/**",
+                      "src/**",
+                      "BilderAPL/**"
+                     ], 
+                     dest: 'build/'
+                    }
+               ],
+               verbose:true
+           }
+        },
         "ftp-deploy": {
             build: {
                 auth: {
@@ -144,8 +143,8 @@ module.exports = function (grunt) {
 
     // Load the plugin that provides the "uglify" task.
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    //copy tasks
-    grunt.loadNpmTasks('grunt-contrib-copy');
+    //sync tasks
+    grunt.loadNpmTasks('grunt-sync');
     //ftp task
     grunt.loadNpmTasks('grunt-ftp-deploy');
     // watch for changes in filesystem
@@ -156,9 +155,9 @@ module.exports = function (grunt) {
     // Default task(s).
     grunt.registerTask('build', ['uglify']);
     //Send to server
-    grunt.registerTask('deploy', ['copy','ftp-deploy']);
+    grunt.registerTask('deploy', ['sync','ftp-deploy']);
     
     // run as a dev server (autoreloads when files are saved)
-    grunt.registerTask('server', ['express', 'watch']);
+    grunt.registerTask('server', ['sync','express', 'watch']);
 
 };
