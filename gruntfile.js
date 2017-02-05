@@ -15,66 +15,18 @@ module.exports = function (grunt) {
                 mangle: false, //behåll variabelnamn
                 banner: "/* Built: <%= grunt.template.today() %> */",
                 sourceMap: true, // makes dev tool find unmangled sources
+                beautify: false,
                 compress: {
                     drop_console: false//true, //ta bort console.log
                 }
             },
             aplapp: {
                 files: {
-                  //  'js/aplapp.min.js': ["src/js/**/*.js"]
-                                            /* GLOBAL */
-                    'js/aplapp.min.js'    :['src/js/global/globalVars.js',
+                    'js/aplapp.min.js': [
+                        'src/js/global/globalVars.js',
                         'src/js/global/configAngular.js',
-                        'src/js/global/globalService.js',
-                        'src/js/global/loginService.js',
-                        'src/js/global/registrationService.js',
-                        'src/js/global/loginController.js',
-                        'src/js/global/logoutController.js',
-                        'src/js/global/registrationController.js',
-                        'src/js/global/kommentarController.js',
-                        /* LÄRARE */
-                        'src/js/larare/larareKontaktService.js',
-                        'src/js/larare/larareMomentService.js',
-                        'src/js/larare/larareNatverkService.js',
-                        'src/js/larare/larareOversiktService.js',
-                        'src/js/larare/larareRedigeraAnvService.js',
-                        'src/js/larare/larareSeLoggbokService.js',
-                        'src/js/larare/larareSeNarvaroService.js',
-                        'src/js/larare/larareService.js',
-                        'src/js/larare/larareController.js',
-                        'src/js/larare/larareKontaktController.js',
-                        'src/js/larare/larareMomentController.js',
-                        'src/js/larare/larareNatverkController.js',
-                        'src/js/larare/larareOversiktController.js',
-                        'src/js/larare/larareRedigeraAnvController.js',
-                        'src/js/larare/larareRegHandledareController.js',
-                        'src/js/larare/larareSeLoggbokController.js',
-                        'src/js/larare/larareSeNarvaroController.js',
-                        'src/js/larare/larareTilldelaHandledareController.js',
-                        'src/js/larare/larareTilldelaMomentController.js',
-                        /* ELEV */
-                        'src/js/elev/elevAktivitetService.js',
-                        'src/js/elev/elevKontaktService.js',
-                        'src/js/elev/elevLoggbokService.js',
-                        'src/js/elev/elevSeLoggbokService.js',
-                        'src/js/elev/elevSeMomentService.js',
-                        'src/js/elev/elevSeNarvaroService.js',
-                        'src/js/elev/elevController.js',
-                        'src/js/elev/elevAktivitetController.js',
-                        'src/js/elev/elevKontaktController.js',
-                        'src/js/elev/elevLoggbokController.js',
-                        'src/js/elev/elevNarvaroController.js',
-                        'src/js/elev/elevSeLoggbokController.js',
-                        'src/js/elev/elevSeMomentController.js',
-                        'src/js/elev/elevSeNarvaroController.js',
-                        /* HANDLEDARE */
-                        'src/js/handledare/handledareAktivitetService.js',
-                        'src/js/handledare/handledareKontaktService.js',
-                        'src/js/handledare/handledareMomentService.js',
-                        'src/js/handledare/handledareController.js',
-                        'src/js/handledare/handledareAktivitetController.js',
-                        'src/js/handledare/handledareKontaktController.js',
-                        'src/js/handledare/handledareMomentController.js']
+                        'src/js/**/*.js'
+                    ]
                 }
             }
         }, //end uglify
@@ -158,6 +110,6 @@ module.exports = function (grunt) {
     grunt.registerTask('deploy', ['sync','ftp-deploy']);
     
     // run as a dev server (autoreloads when files are saved)
-    grunt.registerTask('server', ['sync','express', 'watch']);
+    grunt.registerTask('server', ['uglify', 'sync','express', 'watch']);
 
 };
